@@ -1,0 +1,17 @@
+{
+  "dirName": "domain-shared",
+  "packageName": "@tx/domain-shared",
+  "packageType": "domain",
+  "relativeDir": "domain-shared",
+  "targetName": "shared",
+  "kind": "package",
+  "schemaVersion": 1,
+  "expansions": {
+    "domainEntities": [
+      {
+        "fileName": "example-entity",
+        "name": "ExampleEntity"
+      }
+    ]
+  }
+}

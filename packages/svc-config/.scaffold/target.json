@@ -1,0 +1,9 @@
+{
+  "dirName": "svc-config",
+  "packageName": "@tx/svc-config",
+  "packageType": "svc-config",
+  "relativeDir": "svc-config",
+  "targetName": "svc-config",
+  "kind": "package",
+  "schemaVersion": 1
+}

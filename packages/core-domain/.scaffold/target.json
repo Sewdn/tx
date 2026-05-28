@@ -1,0 +1,9 @@
+{
+  "dirName": "core-domain",
+  "packageName": "@tx/core-domain",
+  "packageType": "core-domain",
+  "relativeDir": "core-domain",
+  "targetName": "core-domain",
+  "kind": "package",
+  "schemaVersion": 1
+}

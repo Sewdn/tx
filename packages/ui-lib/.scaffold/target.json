@@ -1,0 +1,9 @@
+{
+  "dirName": "ui-lib",
+  "packageName": "@tx/ui-lib",
+  "packageType": "ui-lib",
+  "relativeDir": "ui-lib",
+  "targetName": "ui-lib",
+  "kind": "package",
+  "schemaVersion": 1
+}

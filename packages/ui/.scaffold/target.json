@@ -1,0 +1,9 @@
+{
+  "dirName": "ui",
+  "packageName": "@tx/ui",
+  "packageType": "ui",
+  "relativeDir": "ui",
+  "targetName": "ui",
+  "kind": "package",
+  "schemaVersion": 1
+}
