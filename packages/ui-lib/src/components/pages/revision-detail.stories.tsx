@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import {
   chapter3DiffLines,
@@ -7,28 +7,33 @@ import {
   mobyDickCover,
   mobyDickSidebarFooter,
   revisionComments,
-} from "@/fixtures/gittenberg"
-import { useSidebarNav } from "@/hooks/use-sidebar-nav"
-import { useTypographyController } from "@/hooks/use-typography-controller"
-import { DiffViewer } from "@/components/organisms/diff-viewer"
-import { DiscussionPanel } from "@/components/organisms/discussion-panel"
-import { GittenbergFooter } from "@/components/organisms/gittenberg-footer"
-import { GittenbergTopAppBar } from "@/components/organisms/gittenberg-top-app-bar"
-import { RepositorySidebar } from "@/components/organisms/repository-sidebar"
-import { RevisionPageHeader } from "@/components/organisms/revision-page-header"
-import { TypographyController } from "@/components/organisms/typography-controller"
+} from "@/fixtures/gittenberg";
+import { useSidebarNav } from "@/hooks/use-sidebar-nav";
+import { useTypographyController } from "@/hooks/use-typography-controller";
+import { DiffViewer } from "@/components/organisms/diff-viewer";
+import { DiscussionPanel } from "@/components/organisms/discussion-panel";
+import { GittenbergFooter } from "@/components/organisms/gittenberg-footer";
+import { GittenbergTopAppBar } from "@/components/organisms/gittenberg-top-app-bar";
+import { RepositorySidebar } from "@/components/organisms/repository-sidebar";
+import { RevisionPageHeader } from "@/components/organisms/revision-page-header";
+import { TypographyController } from "@/components/organisms/typography-controller";
 
 const revisionNav = [
   { id: "manuscript", label: "Manuscript", icon: "menu_book", href: "/" },
   { id: "discussion", label: "Discussion", icon: "forum", href: "#" },
-  { id: "revisions", label: "Revisions", icon: "difference", href: "/revision" },
+  {
+    id: "revisions",
+    label: "Revisions",
+    icon: "difference",
+    href: "/revision",
+  },
   { id: "insights", label: "Insights", icon: "analytics", href: "#" },
   { id: "reader", label: "Reader", icon: "auto_stories", href: "#" },
-]
+];
 
 function RevisionDetailPage() {
-  const { navItems } = useSidebarNav(revisionNav, "revisions")
-  const { activeFamily } = useTypographyController("serif")
+  const { navItems } = useSidebarNav(revisionNav, "revisions");
+  const { activeFamily } = useTypographyController("serif");
 
   return (
     <div className="min-h-screen canvas-bg">
@@ -83,17 +88,17 @@ function RevisionDetailPage() {
         activeFamily={activeFamily}
       />
     </div>
-  )
+  );
 }
 
 const meta: Meta = {
   title: "Gittenberg/Pages/Revision Detail",
   parameters: { layout: "fullscreen" },
-}
+};
 
-export default meta
-type Story = StoryObj
+export default meta;
+type Story = StoryObj;
 
 export const Default: Story = {
   render: () => <RevisionDetailPage />,
-}
+};
