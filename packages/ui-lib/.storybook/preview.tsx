@@ -9,8 +9,8 @@ const THEME_TOOLBAR_ICONS = ["circle", "component"] as const;
 
 const preview: Preview = {
   initialGlobals: {
-    theme: "default",
-    mode: "dark",
+    theme: "gittenberg",
+    mode: "light",
   },
   globalTypes: {
     theme: {
@@ -56,6 +56,64 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          "Gittenberg",
+          [
+            "Pages",
+            [
+              "Repository Home",
+              "Revision Detail",
+              "Reader Preview",
+              "Build & Export",
+              "Edition History",
+              "International Builds",
+              "Library of Builds",
+              "Agent Dashboard",
+              "Manuscript Editor",
+            ],
+          ],
+          [
+            "Shell",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Repository",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Revision",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Reader",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Build & Export",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Edition History",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Library",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Agents",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+          [
+            "Lexicon Editor",
+            ["Organisms", "Molecules", "Atoms"],
+          ],
+        ],
+        method: "alphabetical",
+      },
+    },
     /**
      * Storybook’s built-in backgrounds tool applies `!important` colors to `.sb-show-main`, which
      * fights `body` / `bg-background` from UI globals. Disable it so the **Mode** toolbar is the
