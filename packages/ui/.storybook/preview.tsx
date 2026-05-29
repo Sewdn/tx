@@ -9,8 +9,8 @@ const THEME_TOOLBAR_ICONS = ["circle", "component"] as const;
 
 const preview: Preview = {
   initialGlobals: {
-    theme: "default",
-    mode: "dark",
+    theme: "gittenberg",
+    mode: "light",
   },
   globalTypes: {
     theme: {

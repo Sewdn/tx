@@ -19,7 +19,7 @@ Workspace package for **Shadcn UI primitives** only.
 
 ## Themes and modes
 
-- **Theme** — Brand palette (`default`, `ocean`, …). Registry: `src/lib/themes.ts` (`THEMES`, `ThemeId`, `DEFAULT_THEME_ID`, `isThemeId()`). Styles: one file per id under `src/styles/themes/<id>.css`, imported from `globals.css`. `ThemeProvider` sets `document.documentElement.dataset.theme` (e.g. `html[data-theme="ocean"]` in CSS).
+- **Theme** — Brand palette (`gittenberg`, `default`, `ocean`, …). Registry: `src/lib/themes.ts` (`THEMES`, `ThemeId`, `DEFAULT_THEME_ID`, `isThemeId()`). Styles: one file per id under `src/styles/themes/<id>.css`, imported from `globals.css`. **Gittenberg** maps the archival design system from `mocks/DESIGN.md` (MD3 colors, Literata/Inter/JetBrains Mono, spacing, tonal surfaces). `ThemeProvider` sets `document.documentElement.dataset.theme` (e.g. `html[data-theme="gittenberg"]` in CSS).
 - **Mode** — Color appearance for the **current** theme: **light**, **dark**, or **system** (follow OS). `ModeProvider` toggles the `light` / `dark` classes on `<html>` (same as Shadcn).
 - **Apps** — Wrap with both: `<ThemeProvider><ModeProvider>…</ModeProvider></ThemeProvider>`. Storybook uses toolbar **Theme** (palette) + **Mode** (light/dark/system).
 

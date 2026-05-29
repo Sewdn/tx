@@ -1,0 +1,150 @@
+/**
+ * Gittenberg — archival literary design system (DESIGN.md + mock HTML).
+ * Applied when ThemeProvider sets `data-theme="gittenberg"`.
+ */
+html[data-theme="gittenberg"]:not(.dark),
+html[data-theme="gittenberg"].light {
+  /* Shadcn semantic bridge */
+  --radius: 0.25rem;
+  --background: #fbf9f4;
+  --foreground: #1b1c19;
+  --card: #f9f7f2;
+  --card-foreground: #1b1c19;
+  --popover: #f9f7f2;
+  --popover-foreground: #1b1c19;
+  --primary: #282623;
+  --primary-foreground: #ffffff;
+  --secondary: #51634f;
+  --secondary-foreground: #ffffff;
+  --muted: #f0eee9;
+  --muted-foreground: #49473f;
+  --accent: #f0eee9;
+  --accent-foreground: #282623;
+  --destructive: #ba1a1a;
+  --destructive-foreground: #ffffff;
+  --border: #ded9cf;
+  --input: #cbc6bd;
+  --ring: #282623;
+
+  /* Material / Gittenberg palette */
+  --surface: #fbf9f4;
+  --surface-dim: #dbdad5;
+  --surface-bright: #fbf9f4;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f5f3ee;
+  --surface-container: #f0eee9;
+  --surface-container-high: #eae8e3;
+  --surface-container-highest: #e4e2dd;
+  --on-surface: #1b1c19;
+  --on-surface-variant: #49473f;
+  --inverse-surface: #30312e;
+  --inverse-on-surface: #f2f1ec;
+  --outline: #7a776f;
+  --outline-variant: #cbc6bd;
+  --surface-tint: #615e59;
+  --tertiary: #3a1f20;
+  --on-primary: #ffffff;
+  --primary-container: #3e3c38;
+  --on-primary-container: #aaa6a1;
+  --inverse-primary: #cac6c0;
+  --on-secondary: #ffffff;
+  --secondary-container: #cee3c9;
+  --on-secondary-container: #536651;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #533435;
+  --on-tertiary-container: #c79d9d;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --primary-fixed: #e7e2dc;
+  --primary-fixed-dim: #cac6c0;
+  --on-primary-fixed: #1d1b18;
+  --on-primary-fixed-variant: #494642;
+  --secondary-fixed: #d3e8cf;
+  --secondary-fixed-dim: #b8ccb4;
+  --on-secondary-fixed: #0f1f10;
+  --on-secondary-fixed-variant: #394b39;
+  --tertiary-fixed: #ffdad9;
+  --tertiary-fixed-dim: #e8bcbc;
+  --on-tertiary-fixed: #2d1415;
+  --on-tertiary-fixed-variant: #5e3e3f;
+  --on-background: #1b1c19;
+  --surface-variant: #e4e2dd;
+  --canvas: #f4f1ea;
+  --tonal-surface: #f9f7f2;
+  --tonal-border: #ded9cf;
+  --shadow-elevated: 0 4px 12px rgba(62, 60, 56, 0.05);
+}
+
+html[data-theme="gittenberg"].dark {
+  --radius: 0.25rem;
+  --background: #1b1c19;
+  --foreground: #f2f1ec;
+  --card: #30312e;
+  --card-foreground: #f2f1ec;
+  --popover: #30312e;
+  --popover-foreground: #f2f1ec;
+  --primary: #cac6c0;
+  --primary-foreground: #1d1b18;
+  --secondary: #b8ccb4;
+  --secondary-foreground: #0f1f10;
+  --muted: #3e3c38;
+  --muted-foreground: #cbc6bd;
+  --accent: #3e3c38;
+  --accent-foreground: #f2f1ec;
+  --destructive: #ffdad6;
+  --destructive-foreground: #93000a;
+  --border: #494642;
+  --input: #494642;
+  --ring: #cac6c0;
+
+  --surface: #1b1c19;
+  --surface-dim: #30312e;
+  --surface-bright: #494642;
+  --surface-container-lowest: #0f100e;
+  --surface-container-low: #1b1c19;
+  --surface-container: #30312e;
+  --surface-container-high: #3e3c38;
+  --surface-container-highest: #494642;
+  --on-surface: #f2f1ec;
+  --on-surface-variant: #cbc6bd;
+  --inverse-surface: #f2f1ec;
+  --inverse-on-surface: #30312e;
+  --outline: #7a776f;
+  --outline-variant: #494642;
+  --surface-tint: #cac6c0;
+  --tertiary: #e8bcbc;
+  --on-primary: #1d1b18;
+  --primary-container: #3e3c38;
+  --on-primary-container: #aaa6a1;
+  --inverse-primary: #282623;
+  --on-secondary: #0f1f10;
+  --secondary-container: #394b39;
+  --on-secondary-container: #d3e8cf;
+  --on-tertiary: #2d1415;
+  --tertiary-container: #5e3e3f;
+  --on-tertiary-container: #ffdad9;
+  --error: #ffdad6;
+  --on-error: #93000a;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+  --primary-fixed: #e7e2dc;
+  --primary-fixed-dim: #cac6c0;
+  --on-primary-fixed: #1d1b18;
+  --on-primary-fixed-variant: #494642;
+  --secondary-fixed: #d3e8cf;
+  --secondary-fixed-dim: #b8ccb4;
+  --on-secondary-fixed: #0f1f10;
+  --on-secondary-fixed-variant: #394b39;
+  --tertiary-fixed: #ffdad9;
+  --tertiary-fixed-dim: #e8bcbc;
+  --on-tertiary-fixed: #2d1415;
+  --on-tertiary-fixed-variant: #5e3e3f;
+  --on-background: #f2f1ec;
+  --surface-variant: #3e3c38;
+  --canvas: #1b1c19;
+  --tonal-surface: #30312e;
+  --tonal-border: #494642;
+  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.25);
+}

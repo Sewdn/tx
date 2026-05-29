@@ -3,13 +3,14 @@
  * `src/styles/themes/<id>.css` — see README.
  */
 export const THEMES = [
-  { id: "default", label: "Default" },
+  { id: "gittenberg", label: "Gittenberg" },
+  { id: "default", label: "Default (Shadcn)" },
   { id: "ocean", label: "Ocean" },
 ] as const
 
 export type ThemeId = (typeof THEMES)[number]["id"]
 
-export const DEFAULT_THEME_ID: ThemeId = "default"
+export const DEFAULT_THEME_ID: ThemeId = "gittenberg"
 
 export function isThemeId(value: unknown): value is ThemeId {
   return typeof value === "string" && THEMES.some((t) => t.id === value)
