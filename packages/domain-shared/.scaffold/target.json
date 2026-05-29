@@ -9,8 +9,40 @@
   "expansions": {
     "domainEntities": [
       {
-        "fileName": "example-entity",
-        "name": "ExampleEntity"
+        "fileName": "repository",
+        "name": "Repository"
+      },
+      {
+        "fileName": "manuscript-file",
+        "name": "ManuscriptFile"
+      },
+      {
+        "fileName": "revision",
+        "name": "Revision"
+      },
+      {
+        "fileName": "agent",
+        "name": "Agent"
+      },
+      {
+        "fileName": "literary-build",
+        "name": "LiteraryBuild"
+      },
+      {
+        "fileName": "library-edition",
+        "name": "LibraryEdition"
+      },
+      {
+        "fileName": "activity-event",
+        "name": "ActivityEvent"
+      },
+      {
+        "fileName": "reader-chapter",
+        "name": "ReaderChapter"
+      },
+      {
+        "fileName": "metric-snapshot",
+        "name": "MetricSnapshot"
       }
     ]
   }
