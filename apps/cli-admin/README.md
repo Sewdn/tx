@@ -1,13 +1,15 @@
 # CLI — cli-admin
 
-Command-line application built with **Effect 4** (`effect/unstable/cli`) and **`@effect/platform-bun`**.
+Command-line application built with **Effect 4** (`effect/unstable/cli`) on **Bun**.
+
+Uses a **subset** of `@effect/platform-bun` (stdio, terminal, filesystem, path) — not `BunRuntime.runMain` or full `BunServices` (those pull `platform-node-shared` socket code). The monorepo pins `@effect/platform-node-shared@4.0.0-beta.40` in root `package.json` `overrides` so it stays aligned with `effect@4.0.0-beta.40`.
 
 ## Source structure
 
 ```
 src/
-├── index.ts              # Command.run(rootCommand) + BunRuntime.runMain
-├── layers.ts             # CliAdminLive (BunServices + app ServiceMap layers)
+├── index.ts              # Command.run(rootCommand) + Effect.runPromiseExit
+├── layers.ts             # CliAdminLive (ServiceMap layers)
 ├── commands/
 │   ├── subcommands.ts    # rootCommand + Command.withSubcommands([...])
 │   └── <name>.ts         # One Command.make export per subcommand
