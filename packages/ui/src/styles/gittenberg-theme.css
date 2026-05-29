@@ -3,11 +3,7 @@
  * Loaded from globals.css for all themes; color values resolve via CSS vars in gittenberg.css.
  */
 @theme inline {
-  /* Layout spacing (DESIGN.md) */
-  --spacing-unit: 8px;
-  --spacing-gutter: 24px;
-  --spacing-margin-mobile: 16px;
-  --spacing-margin-desktop: 40px;
+  /* Layout (semantic spacing lives in spacing.css) */
   --spacing-reading-width: 720px;
   --spacing-container-max: 1280px;
 
@@ -107,9 +103,4 @@
   --color-tonal-surface: var(--tonal-surface);
   --color-tonal-border: var(--tonal-border);
 
-  /* Legacy mock class aliases */
-  --spacing-reading-width: var(--spacing-reading-width);
-  --spacing-margin-desktop: var(--spacing-margin-desktop);
-  --spacing-margin-mobile: var(--spacing-margin-mobile);
-  --spacing-container-max: var(--spacing-container-max);
 }

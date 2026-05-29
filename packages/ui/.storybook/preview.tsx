@@ -56,6 +56,18 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          "design tokens",
+          ["Spacing"],
+          "Applied guidelines",
+          ["Spacing"],
+          "design",
+          "showcase",
+        ],
+      },
+    },
     /**
      * Storybook’s built-in backgrounds tool applies `!important` colors to `.sb-show-main`, which
      * fights `body` / `bg-background` from this package’s globals. Disable it so the **Mode** toolbar

@@ -1,0 +1,83 @@
+/**
+ * Semantic spacing (4px base unit). Mirrors PROCERTUS density-aware tokens.
+ *
+ * Roles: micro → component → section → region → boundary
+ * Density: operational (tools) | spacious (reader / library) via data-density
+ */
+
+/* ─── Operational: mobile (touch-friendly) ───────────────────────────────── */
+:root {
+  --spacing-micro: 0.25rem; /* 4px */
+  --spacing-component: 0.75rem; /* 12px */
+  --spacing-section: 1rem; /* 16px */
+  --spacing-region: 1.5rem; /* 24px */
+  --spacing-boundary: 1rem; /* 16px — page margin */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-micro: 0.25rem; /* 4px */
+    --spacing-component: 0.5rem; /* 8px */
+    --spacing-section: 1rem; /* 16px */
+    --spacing-region: 1.5rem; /* 24px — grid gutter */
+    --spacing-boundary: 2.5rem; /* 40px — page margin */
+  }
+}
+
+/* ─── Spacious: mobile ───────────────────────────────────────────────────── */
+[data-density="spacious"] {
+  --spacing-micro: 0.5rem; /* 8px */
+  --spacing-component: 1rem; /* 16px */
+  --spacing-section: 1.25rem; /* 20px */
+  --spacing-region: 2rem; /* 32px */
+  --spacing-boundary: 1.25rem; /* 20px */
+}
+
+@media (min-width: 768px) {
+  [data-density="spacious"] {
+    --spacing-micro: 0.5rem; /* 8px */
+    --spacing-component: 0.75rem; /* 12px */
+    --spacing-section: 1.5rem; /* 24px */
+    --spacing-region: 2.5rem; /* 40px */
+    --spacing-boundary: 3rem; /* 48px */
+  }
+}
+
+/* ─── Layout aliases (DESIGN.md legacy names) ───────────────────────────── */
+:root,
+[data-density="spacious"] {
+  --spacing-gutter: var(--spacing-region);
+  --spacing-margin-mobile: var(--spacing-boundary);
+  --spacing-margin-desktop: var(--spacing-boundary);
+  --spacing-unit: var(--spacing-component);
+}
+
+/* ─── Tailwind: register semantic spacing utilities ─────────────────────── */
+@theme {
+  --spacing-micro: 0.25rem;
+  --spacing-component: 0.75rem;
+  --spacing-section: 1rem;
+  --spacing-region: 1.5rem;
+  --spacing-boundary: 1rem;
+
+  --spacing-ds-0: 0;
+  --spacing-ds-px: 1px;
+  --spacing-ds-1: 0.25rem;
+  --spacing-ds-2: 0.5rem;
+  --spacing-ds-3: 0.75rem;
+  --spacing-ds-4: 1rem;
+  --spacing-ds-5: 1.25rem;
+  --spacing-ds-6: 1.5rem;
+  --spacing-ds-7: 1.75rem;
+  --spacing-ds-8: 2rem;
+  --spacing-ds-9: 2.25rem;
+  --spacing-ds-10: 2.5rem;
+  --spacing-ds-12: 3rem;
+  --spacing-ds-16: 4rem;
+  --spacing-ds-20: 5rem;
+  --spacing-ds-24: 6rem;
+
+  --spacing-shell-offset-top: 6rem;
+  --spacing-reader-offset-top: 8rem;
+  --spacing-page-bottom: var(--spacing-region);
+}

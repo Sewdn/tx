@@ -1,5 +1,17 @@
 export { cn } from "./lib/utils";
 export {
+  DensityProvider,
+  GridProvider,
+  SpacingBox,
+  SpacingGroup,
+  TokenTag,
+  useSpacingDensity,
+  useSpacingGrid,
+  useTokenValue,
+  type Density,
+  type SpacingToken,
+} from "./lib/spacing-primitives";
+export {
   THEMES,
   DEFAULT_THEME_ID,
   isThemeId,

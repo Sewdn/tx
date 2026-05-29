@@ -1,0 +1,183 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+
+<Meta title="design tokens/Spacing/Guidelines" />
+
+<div className="mb-region">
+  <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-primary m-0 mb-micro">
+    Gittenberg design guidelines
+  </p>
+  <h1 className="font-sans font-bold text-foreground m-0 mb-component text-heading-xl">
+    Spacing
+  </h1>
+  <p className="text-lg text-muted-foreground leading-[1.6] m-0 max-w-[680px]">
+    Space is the invisible structure that tells a reader what belongs together and what stands apart.
+    In Gittenberg, every gap, margin, and breath of air is deliberate: it encodes hierarchy so the
+    literary workspace can communicate without relying on lines, borders, or decoration.
+  </p>
+</div>
+
+<hr />
+
+## The architectural beat
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-section mt-section">
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">The industry standard</span>
+    <span className="uppercase block mb-component text-xs font-semibold tracking-widest text-muted-foreground">
+      4px base unit
+    </span>
+    <p className="text-sm text-muted-foreground m-0 leading-relaxed">
+      Every spacing value is a multiple of **4 pixels**. Layouts feel stable and intentional, the
+      same way a consistent grid anchors a printed page.
+    </p>
+  </div>
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Why it works</span>
+    <span className="uppercase block mb-component text-xs font-semibold tracking-widest text-muted-foreground">
+      Precision and clarity
+    </span>
+    <p className="text-sm text-muted-foreground m-0 leading-relaxed">
+      Fine-grained control in dense manuscript tables, with visible distinctions at every step. No
+      magic numbers — the constraint is the feature.
+    </p>
+  </div>
+</div>
+
+<Button variant="link" className="p-0 h-auto text-base font-semibold mt-component" asChild>
+  <a href="?path=/story/design-tokens-spacing--scale-foundations">View the scale foundations</a>
+</Button>
+
+<hr />
+
+## The token system
+
+<p className="text-lg text-muted-foreground leading-[1.6] m-0 max-w-[680px]">
+  Five named tokens control every gap. Each names the containing scope: from a single phrase out to
+  the page frame. Tune once in CSS; every product surface updates together.
+</p>
+
+<div className="rounded-xl border-2 border-primary/20 bg-muted/40 p-section mt-section">
+  <h4 className="text-base font-bold text-foreground m-0 mb-component">Why tokens, not pixels</h4>
+  <p className="text-base text-muted-foreground leading-[1.6] m-0">
+    A token like <strong>section</strong> resolves to different pixel values by density and
+    breakpoint. Change it once and every card, form, and layout updates — no component edits.
+  </p>
+</div>
+
+<p className="text-base text-muted-foreground leading-[1.6] m-0 max-w-[680px] mt-section">
+  Ask <em>where does this spacing live?</em> Icon beside a label → <strong>micro</strong>. Button
+  padding → <strong>component</strong>. Card interior → <strong>section</strong>. Between page
+  blocks → <strong>region</strong>. Page shell margins → <strong>boundary</strong>.
+</p>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-section mt-section">
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Micro</span>
+    <p className="text-sm text-muted-foreground m-0 mb-component flex-1 leading-relaxed">
+      Atomic glue: icon to label, title to subtitle, status dot to text.
+    </p>
+    <div className="p-component rounded-lg bg-muted/50 border border-border mt-auto">
+      <div className="flex items-center gap-micro">
+        <div className="size-2 rounded-full bg-secondary" />
+        <span className="text-sm text-foreground">Active</span>
+      </div>
+    </div>
+  </div>
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Component</span>
+    <p className="text-sm text-muted-foreground m-0 mb-component flex-1 leading-relaxed">
+      Inside a primitive: button padding, input inset, icon gaps.
+    </p>
+    <div className="p-component rounded-lg bg-muted/50 border border-border mt-auto">
+      <div className="inline-flex items-center gap-micro rounded-md border border-border bg-background px-component py-component">
+        <div className="size-3 rounded bg-primary" />
+        <Skeleton className="h-3 w-16" />
+      </div>
+    </div>
+  </div>
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Section</span>
+    <p className="text-sm text-muted-foreground m-0 mb-component flex-1 leading-relaxed">
+      Inside a card: padding and gaps between sibling rows.
+    </p>
+    <div className="p-component rounded-lg bg-muted/50 border border-border mt-auto">
+      <div className="flex flex-col gap-section rounded-md border border-border bg-background p-section">
+        <Skeleton className="h-3 w-3/4 rounded" />
+        <Skeleton className="h-3 w-1/2 rounded" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-section mt-section">
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Region</span>
+    <p className="text-sm text-muted-foreground m-0 mb-component flex-1 leading-relaxed">
+      Between top-level blocks: header to grid, column gutters, hero to content.
+    </p>
+    <div className="p-component rounded-lg bg-muted/50 border border-border mt-auto">
+      <div className="flex flex-col gap-region">
+        <Skeleton className="h-4 w-full rounded" />
+        <Skeleton className="h-12 w-full rounded-lg" />
+      </div>
+    </div>
+  </div>
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Boundary</span>
+    <p className="text-sm text-muted-foreground m-0 mb-component flex-1 leading-relaxed">
+      The page frame. Applied by the shell — pages should not re-apply it.
+    </p>
+    <div className="p-component rounded-lg bg-muted/50 border border-border mt-auto">
+      <div className="border border-border/50 rounded-lg p-boundary">
+        <Skeleton className="h-8 w-full rounded" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+## The density-aware system
+
+Gittenberg is **multi-density**. The same library serves manuscript tools and public literary surfaces.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-section mt-section">
+  <div className="rounded-xl border border-border bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Operational</span>
+    <p className="text-sm text-muted-foreground m-0 leading-relaxed">
+      Default for editors, agents, revisions, and dashboards. Dense, scannable, optimised for work.
+    </p>
+    <Button variant="link" className="p-0 h-auto text-sm font-semibold mt-component w-fit" asChild>
+      <a href="?path=/story/design-tokens-spacing--operational-spacing">Operational reference</a>
+    </Button>
+  </div>
+  <div className="rounded-xl border-2 border-primary/30 bg-card p-section flex flex-col">
+    <span className="font-semibold text-foreground block text-heading-lg">Spacious</span>
+    <p className="text-sm text-muted-foreground m-0 leading-relaxed">
+      Reader preview, library catalog, and public builds. Generous rhythm for trust and readability.
+      Set <code>data-density="spacious"</code> on a layout root.
+    </p>
+    <Button variant="link" className="p-0 h-auto text-sm font-semibold mt-component w-fit" asChild>
+      <a href="?path=/story/design-tokens-spacing--spacious-spacing">Spacious reference</a>
+    </Button>
+  </div>
+</div>
+
+<Button variant="link" className="p-0 h-auto text-base font-semibold mt-section" asChild>
+  <a href="?path=/story/applied-guidelines-spacing--duality">Test density and spacing grid</a>
+</Button>
+
+<hr />
+
+## For developers
+
+<div className="rounded-xl border border-border bg-muted/30 p-section mt-region">
+  <p className="text-base text-muted-foreground leading-[1.6] m-0">
+    Use Tailwind utilities <code>gap-micro</code>, <code>p-section</code>, <code>px-boundary</code>,
+    <code>gap-region</code> (replaces legacy <code>gap-gutter</code> and <code>px-margin-desktop</code>).
+    Legacy aliases still resolve to the same tokens during migration.
+  </p>
+</div>

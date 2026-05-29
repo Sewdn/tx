@@ -11,6 +11,7 @@
 @import "./themes/default.css";
 @import "./themes/gittenberg.css";
 @import "./themes/ocean.css";
+@import "./spacing.css";
 @import "./gittenberg-theme.css";
 
 @theme inline {
@@ -201,6 +202,15 @@
   }
   .gap-unit {
     gap: var(--spacing-unit);
+  }
+  .pt-shell {
+    padding-top: var(--spacing-shell-offset-top);
+  }
+  .pt-reader {
+    padding-top: var(--spacing-reader-offset-top);
+  }
+  .pb-page {
+    padding-bottom: var(--spacing-page-bottom);
   }
   .tonal-surface {
     background-color: var(--tonal-surface);
