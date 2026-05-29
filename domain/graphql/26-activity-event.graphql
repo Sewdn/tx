@@ -1,0 +1,42 @@
+"""
+Agent activity feed event (global dashboard).
+Seed: `seedActivityEvents` (repository creation, OCR, validation failure).
+"""
+type ActivityEvent implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  timestamp: DisplayTimestamp!
+  title: String!
+  body: String!
+  tag: String!
+  tagVariant: ActivityTagVariant!
+  actionLabel: String!
+  dotVariant: ActivityDotVariant!
+}
+
+type ActivityEventPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [ActivityEvent!]!
+}
+
+input CreateActivityEventInput {
+  timestamp: DisplayTimestamp!
+  title: String!
+  body: String!
+  tag: String!
+  tagVariant: ActivityTagVariant!
+  actionLabel: String!
+  dotVariant: ActivityDotVariant!
+}
+
+input UpdateActivityEventInput {
+  timestamp: DisplayTimestamp
+  title: String
+  body: String
+  tag: String
+  tagVariant: ActivityTagVariant
+  actionLabel: String
+  dotVariant: ActivityDotVariant
+}

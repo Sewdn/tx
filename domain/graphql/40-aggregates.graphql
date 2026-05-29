@@ -1,0 +1,105 @@
+"""
+Aggregate read model matching `loadGittenbergSnapshot` in `@tx/gittenberg-data-react`
+and `GittenbergPorts` in `@tx/gittenberg-data`.
+"""
+type GittenbergSnapshot {
+  repositories: [Repository!]!
+  manuscriptFiles: [ManuscriptFile!]!
+  revisions: [Revision!]!
+  agents: [Agent!]!
+  literaryBuilds: [LiteraryBuild!]!
+  libraryEditions: [LibraryEdition!]!
+  activityEvents: [ActivityEvent!]!
+  readerChapters: [ReaderChapter!]!
+  metricSnapshots: [MetricSnapshot!]!
+  ui: GittenbergUiSeed!
+  editorSample: EditorSampleContent!
+}
+
+"""
+Port surface implemented by SQLite, localStorage, and in-memory backends.
+Each field maps 1:1 to a `*Port` on `GittenbergPorts` in TypeScript.
+"""
+type GittenbergPorts {
+  repository: RepositoryPort!
+  manuscriptFile: ManuscriptFilePort!
+  revision: RevisionPort!
+  agent: AgentPort!
+  literaryBuild: LiteraryBuildPort!
+  libraryEdition: LibraryEditionPort!
+  activityEvent: ActivityEventPort!
+  readerChapter: ReaderChapterPort!
+  metricSnapshot: MetricSnapshotPort!
+}
+
+type RepositoryPort {
+  create(input: CreateRepositoryInput!): Repository!
+  getById(id: EntityId!): Repository
+  list(pagination: PaginationInput!): RepositoryPage!
+  update(id: EntityId!, input: UpdateRepositoryInput!): Repository!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type ManuscriptFilePort {
+  create(input: CreateManuscriptFileInput!): ManuscriptFile!
+  getById(id: EntityId!): ManuscriptFile
+  list(pagination: PaginationInput!): ManuscriptFilePage!
+  update(id: EntityId!, input: UpdateManuscriptFileInput!): ManuscriptFile!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type RevisionPort {
+  create(input: CreateRevisionInput!): Revision!
+  getById(id: EntityId!): Revision
+  list(pagination: PaginationInput!): RevisionPage!
+  update(id: EntityId!, input: UpdateRevisionInput!): Revision!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type AgentPort {
+  create(input: CreateAgentInput!): Agent!
+  getById(id: EntityId!): Agent
+  list(pagination: PaginationInput!): AgentPage!
+  update(id: EntityId!, input: UpdateAgentInput!): Agent!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type LiteraryBuildPort {
+  create(input: CreateLiteraryBuildInput!): LiteraryBuild!
+  getById(id: EntityId!): LiteraryBuild
+  list(pagination: PaginationInput!): LiteraryBuildPage!
+  update(id: EntityId!, input: UpdateLiteraryBuildInput!): LiteraryBuild!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type LibraryEditionPort {
+  create(input: CreateLibraryEditionInput!): LibraryEdition!
+  getById(id: EntityId!): LibraryEdition
+  list(pagination: PaginationInput!): LibraryEditionPage!
+  update(id: EntityId!, input: UpdateLibraryEditionInput!): LibraryEdition!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type ActivityEventPort {
+  create(input: CreateActivityEventInput!): ActivityEvent!
+  getById(id: EntityId!): ActivityEvent
+  list(pagination: PaginationInput!): ActivityEventPage!
+  update(id: EntityId!, input: UpdateActivityEventInput!): ActivityEvent!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type ReaderChapterPort {
+  create(input: CreateReaderChapterInput!): ReaderChapter!
+  getById(id: EntityId!): ReaderChapter
+  list(pagination: PaginationInput!): ReaderChapterPage!
+  update(id: EntityId!, input: UpdateReaderChapterInput!): ReaderChapter!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type MetricSnapshotPort {
+  create(input: CreateMetricSnapshotInput!): MetricSnapshot!
+  getById(id: EntityId!): MetricSnapshot
+  list(pagination: PaginationInput!): MetricSnapshotPage!
+  update(id: EntityId!, input: UpdateMetricSnapshotInput!): MetricSnapshot!
+  remove(id: EntityId!): DeletePayload!
+}

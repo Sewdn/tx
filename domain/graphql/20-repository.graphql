@@ -1,0 +1,102 @@
+"""
+Literary repository — top-level aggregate for manuscript, revisions, agents, builds, and reader content.
+Seed: `seedRepositories` (demo: Moby Dick, slug `moby-dick`, id `repo-moby-dick`).
+"""
+type Repository implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  slug: String!
+  title: String!
+  subtitle: String!
+  coverUrl: String!
+  heroTitle: String!
+  heroSubtitle: String!
+  branchName: String!
+  branchLabel: String!
+  lastUpdate: DisplayTimestamp!
+  tags: [RepositoryTag!]!
+  metadata: [MetadataField!]!
+  readmeExcerpt: String!
+
+  manuscriptFiles(filter: ManuscriptFileFilter): [ManuscriptFile!]!
+  revisions(filter: RevisionFilter): [Revision!]!
+  agents(filter: AgentFilter): [Agent!]!
+  literaryBuilds: [LiteraryBuild!]!
+  readerChapters(orderBy: ReaderChapterOrderBy): [ReaderChapter!]!
+  metrics(scope: MetricScope = REPOSITORY): [MetricSnapshot!]!
+}
+
+input ManuscriptFileFilter {
+  highlighted: Boolean
+}
+
+input RevisionFilter {
+  status: RevisionStatus
+}
+
+input AgentFilter {
+  statusVariant: AgentStatusVariant
+}
+
+input ReaderChapterOrderBy {
+  field: ReaderChapterSortField! = SORT_ORDER
+  direction: SortDirection! = ASC
+}
+
+enum ReaderChapterSortField {
+  SORT_ORDER
+  LABEL
+}
+
+enum SortDirection {
+  ASC
+  DESC
+}
+
+type RepositoryPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [Repository!]!
+}
+
+input CreateRepositoryInput {
+  slug: String!
+  title: String!
+  subtitle: String!
+  coverUrl: String!
+  heroTitle: String!
+  heroSubtitle: String!
+  branchName: String!
+  branchLabel: String!
+  lastUpdate: DisplayTimestamp!
+  tags: [RepositoryTagInput!]!
+  metadata: [MetadataFieldInput!]!
+  readmeExcerpt: String!
+}
+
+input UpdateRepositoryInput {
+  slug: String
+  title: String
+  subtitle: String
+  coverUrl: String
+  heroTitle: String
+  heroSubtitle: String
+  branchName: String
+  branchLabel: String
+  lastUpdate: DisplayTimestamp
+  tags: [RepositoryTagInput!]
+  metadata: [MetadataFieldInput!]
+  readmeExcerpt: String
+}
+
+input RepositoryTagInput {
+  variant: RepositoryTagVariant!
+  label: String!
+}
+
+input MetadataFieldInput {
+  label: String!
+  value: String!
+  href: String
+}

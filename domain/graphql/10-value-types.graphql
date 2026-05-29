@@ -1,0 +1,208 @@
+# --- Repository JSON (`Repository.tags`, `Repository.metadata`) ---
+
+enum RepositoryTagVariant {
+  PUBLIC_DOMAIN
+  AGENT_CURATED
+  VERSION
+}
+
+type RepositoryTag {
+  variant: RepositoryTagVariant!
+  label: String!
+}
+
+type MetadataField {
+  label: String!
+  value: String!
+  href: String
+}
+
+# --- Revision JSON (`Revision.breadcrumbs`, `diffLines`, `comments`) ---
+
+enum RevisionStatus {
+  OPEN
+  MERGED
+  CLOSED
+}
+
+type BreadcrumbSegment {
+  label: String!
+}
+
+enum DiffLineVariant {
+  CONTEXT
+  ADDED
+  REMOVED
+}
+
+type DiffLine {
+  id: EntityId!
+  variant: DiffLineVariant!
+  oldLine: Int
+  newLine: Int
+  content: String!
+  icon: MaterialIcon
+}
+
+type RevisionComment {
+  id: EntityId!
+  author: String!
+  timestamp: DisplayTimestamp!
+  body: String!
+}
+
+# --- LiteraryBuild JSON ---
+
+type LineageBranch {
+  id: EntityId!
+  title: String!
+  badge: String
+  description: String!
+  """Output format labels for this fork, e.g. `EPUB (FR)`."""
+  formats: [String!]!
+  isDefault: Boolean
+  isLast: Boolean
+}
+
+type FormatArtifact {
+  id: EntityId!
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+  size: FileSizeLabel!
+}
+
+enum BuildStatusVariant {
+  SUCCESS
+  NEUTRAL
+}
+
+type BuildStatusItem {
+  label: String!
+  value: String!
+  variant: BuildStatusVariant
+}
+
+type ArchivalVersionRow {
+  id: EntityId!
+  version: String!
+  note: String!
+  binding: String!
+  date: String!
+}
+
+type FormatOption {
+  id: EntityId!
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+  selected: Boolean
+}
+
+type DesignPreset {
+  id: EntityId!
+  label: String!
+  active: Boolean
+}
+
+type StylingSliderOption {
+  id: EntityId!
+  label: String!
+  value: String!
+  progress: Int
+}
+
+type StylingToggleOption {
+  id: EntityId!
+  label: String!
+  enabled: Boolean!
+}
+
+type LiteraryBuildStyling {
+  sliders: [StylingSliderOption!]!
+  toggles: [StylingToggleOption!]!
+}
+
+# --- Agent presentation ---
+
+enum AgentStatusVariant {
+  OPERATIONAL
+  PAUSED
+  ERROR
+}
+
+enum AgentIconVariant {
+  SECONDARY
+  PRIMARY
+  MUTED
+}
+
+# --- Activity feed ---
+
+enum ActivityTagVariant {
+  SECONDARY
+  MUTED
+  ERROR
+}
+
+enum ActivityDotVariant {
+  SECONDARY
+  PRIMARY
+  ERROR
+}
+
+# --- Metrics ---
+
+enum MetricScope {
+  """Global agent dashboard (`seedMetricSnapshots` ids `metric-*`)."""
+  AGENTS
+  """Per-repository overview cards (`metric-repo-*`)."""
+  REPOSITORY
+}
+
+# --- Library catalog ---
+
+"""Icon names for library edition format chips (seed uses Material icon ids)."""
+scalar LibraryFormatIcon
+
+# --- UI seed (`GittenbergUiSeed` in `@tx/gittenberg-data`) ---
+
+type FooterLink {
+  label: String!
+  href: String!
+}
+
+type SidebarNavItem {
+  id: EntityId!
+  label: String!
+  icon: MaterialIcon!
+  href: String!
+}
+
+type FileTreeNode {
+  id: EntityId!
+  name: String!
+  icon: MaterialIcon!
+  active: Boolean
+  highlighted: Boolean
+  children: [FileTreeNode!]
+}
+
+type LibraryAuthorFilter {
+  id: EntityId!
+  label: String!
+  checked: Boolean
+}
+
+type CurationBar {
+  id: EntityId!
+  label: String!
+  heightPercent: Int!
+  fillPercent: Int!
+}
+
+type CanvasTheme {
+  id: EntityId!
+  color: String!
+  active: Boolean
+}

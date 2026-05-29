@@ -1,0 +1,36 @@
+"""
+Dashboard metric card snapshot.
+Seed: `seedMetricSnapshots` — `scope: AGENTS` (4 cards) and `scope: REPOSITORY` (2 cards).
+"""
+type MetricSnapshot implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  label: String!
+  value: String!
+  delta: String!
+  deltaPositive: Boolean!
+  scope: MetricScope!
+}
+
+type MetricSnapshotPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [MetricSnapshot!]!
+}
+
+input CreateMetricSnapshotInput {
+  label: String!
+  value: String!
+  delta: String!
+  deltaPositive: Boolean!
+  scope: MetricScope!
+}
+
+input UpdateMetricSnapshotInput {
+  label: String
+  value: String
+  delta: String
+  deltaPositive: Boolean
+  scope: MetricScope
+}

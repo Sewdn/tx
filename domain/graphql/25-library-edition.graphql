@@ -1,0 +1,46 @@
+"""
+Catalog entry in the global library of builds (not repository-scoped).
+Seed: `seedLibraryEditions` (Moby Dick, Pride and Prejudice).
+"""
+type LibraryEdition implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  title: String!
+  author: String!
+  genre: String!
+  year: String!
+  coverUrl: String!
+  commit: String!
+  """Material icon ids for available formats, e.g. `picture_as_pdf`."""
+  formats: [LibraryFormatIcon!]!
+  badge: String!
+}
+
+type LibraryEditionPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [LibraryEdition!]!
+}
+
+input CreateLibraryEditionInput {
+  title: String!
+  author: String!
+  genre: String!
+  year: String!
+  coverUrl: String!
+  commit: String!
+  formats: [LibraryFormatIcon!]!
+  badge: String!
+}
+
+input UpdateLibraryEditionInput {
+  title: String
+  author: String
+  genre: String
+  year: String
+  coverUrl: String
+  commit: String
+  formats: [LibraryFormatIcon!]
+  badge: String
+}

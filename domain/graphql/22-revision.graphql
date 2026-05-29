@@ -1,0 +1,69 @@
+"""
+Manuscript revision (pull-request style review).
+Seed: `seedRevisions` (demo PR #142 on Chapter 3).
+"""
+type Revision implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  repository: Repository
+  title: String!
+  status: RevisionStatus!
+  author: String!
+  timestamp: DisplayTimestamp!
+  fileName: String!
+  breadcrumbs: [BreadcrumbSegment!]!
+  diffLines: [DiffLine!]!
+  comments: [RevisionComment!]!
+}
+
+type RevisionPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [Revision!]!
+}
+
+input CreateRevisionInput {
+  repositoryId: EntityId!
+  title: String!
+  status: RevisionStatus!
+  author: String!
+  timestamp: DisplayTimestamp!
+  fileName: String!
+  breadcrumbs: [BreadcrumbSegmentInput!]!
+  diffLines: [DiffLineInput!]!
+  comments: [RevisionCommentInput!]!
+}
+
+input UpdateRevisionInput {
+  repositoryId: EntityId
+  title: String
+  status: RevisionStatus
+  author: String
+  timestamp: DisplayTimestamp
+  fileName: String
+  breadcrumbs: [BreadcrumbSegmentInput!]
+  diffLines: [DiffLineInput!]
+  comments: [RevisionCommentInput!]
+}
+
+input BreadcrumbSegmentInput {
+  label: String!
+}
+
+input DiffLineInput {
+  id: EntityId!
+  variant: DiffLineVariant!
+  oldLine: Int
+  newLine: Int
+  content: String!
+  icon: MaterialIcon
+}
+
+input RevisionCommentInput {
+  id: EntityId!
+  author: String!
+  timestamp: DisplayTimestamp!
+  body: String!
+}

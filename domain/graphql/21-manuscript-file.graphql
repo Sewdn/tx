@@ -1,0 +1,43 @@
+"""
+File row in a repository manuscript listing (flat list; hierarchical tree lives in `GittenbergUiSeed.fileTree`).
+Seed: `seedManuscriptFiles` (scoped by `repositoryId`).
+"""
+type ManuscriptFile implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  repository: Repository
+  icon: MaterialIcon!
+  name: String!
+  description: String!
+  timestamp: DisplayTimestamp!
+  highlighted: Boolean!
+  highlightLabel: String!
+}
+
+type ManuscriptFilePage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [ManuscriptFile!]!
+}
+
+input CreateManuscriptFileInput {
+  repositoryId: EntityId!
+  icon: MaterialIcon!
+  name: String!
+  description: String!
+  timestamp: DisplayTimestamp!
+  highlighted: Boolean!
+  highlightLabel: String!
+}
+
+input UpdateManuscriptFileInput {
+  repositoryId: EntityId
+  icon: MaterialIcon
+  name: String
+  description: String
+  timestamp: DisplayTimestamp
+  highlighted: Boolean
+  highlightLabel: String
+}

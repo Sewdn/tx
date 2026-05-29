@@ -1,0 +1,43 @@
+"""
+Curation agent — may be repository-scoped (`agent-repo-*`) or dashboard-global (`agent-dash-*`).
+Seed: `seedAgents` (Pequod-03 + three dashboard agents).
+"""
+type Agent implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  name: String!
+  description: String!
+  status: String!
+  statusVariant: AgentStatusVariant!
+  icon: MaterialIcon!
+  iconVariant: AgentIconVariant!
+  repositoryId: EntityId!
+  repository: Repository
+}
+
+type AgentPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [Agent!]!
+}
+
+input CreateAgentInput {
+  name: String!
+  description: String!
+  status: String!
+  statusVariant: AgentStatusVariant!
+  icon: MaterialIcon!
+  iconVariant: AgentIconVariant!
+  repositoryId: EntityId!
+}
+
+input UpdateAgentInput {
+  name: String
+  description: String
+  status: String
+  statusVariant: AgentStatusVariant
+  icon: MaterialIcon
+  iconVariant: AgentIconVariant
+  repositoryId: EntityId
+}

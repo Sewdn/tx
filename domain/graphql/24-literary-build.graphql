@@ -1,0 +1,132 @@
+"""
+Published or in-progress literary build (export pipeline, lineage, artifacts).
+Seed: `seedLiteraryBuilds` (Moby primary build `build-moby-primary`, v4.2).
+"""
+type LiteraryBuild implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  repository: Repository
+  version: String!
+  statusLabel: String!
+  title: String!
+  description: String!
+  commitHash: String!
+  progressPercent: Int!
+  statusMessage: String!
+
+  lineage: [LineageBranch!]!
+  artifacts: [FormatArtifact!]!
+  buildStatus: [BuildStatusItem!]!
+  archivalVersions: [ArchivalVersionRow!]!
+  styling: LiteraryBuildStyling!
+  formats: [FormatOption!]!
+  presets: [DesignPreset!]!
+}
+
+type LiteraryBuildPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [LiteraryBuild!]!
+}
+
+input CreateLiteraryBuildInput {
+  repositoryId: EntityId!
+  version: String!
+  statusLabel: String!
+  title: String!
+  description: String!
+  commitHash: String!
+  progressPercent: Int!
+  statusMessage: String!
+  lineage: [LineageBranchInput!]!
+  artifacts: [FormatArtifactInput!]!
+  buildStatus: [BuildStatusItemInput!]!
+  archivalVersions: [ArchivalVersionRowInput!]!
+  styling: LiteraryBuildStylingInput!
+  formats: [FormatOptionInput!]!
+  presets: [DesignPresetInput!]!
+}
+
+input UpdateLiteraryBuildInput {
+  repositoryId: EntityId
+  version: String
+  statusLabel: String
+  title: String
+  description: String
+  commitHash: String
+  progressPercent: Int
+  statusMessage: String
+  lineage: [LineageBranchInput!]
+  artifacts: [FormatArtifactInput!]
+  buildStatus: [BuildStatusItemInput!]
+  archivalVersions: [ArchivalVersionRowInput!]
+  styling: LiteraryBuildStylingInput
+  formats: [FormatOptionInput!]
+  presets: [DesignPresetInput!]
+}
+
+input LineageBranchInput {
+  id: EntityId!
+  title: String!
+  badge: String
+  description: String!
+  formats: [String!]!
+  isDefault: Boolean
+  isLast: Boolean
+}
+
+input FormatArtifactInput {
+  id: EntityId!
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+  size: FileSizeLabel!
+}
+
+input BuildStatusItemInput {
+  label: String!
+  value: String!
+  variant: BuildStatusVariant
+}
+
+input ArchivalVersionRowInput {
+  id: EntityId!
+  version: String!
+  note: String!
+  binding: String!
+  date: String!
+}
+
+input FormatOptionInput {
+  id: EntityId!
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+  selected: Boolean
+}
+
+input DesignPresetInput {
+  id: EntityId!
+  label: String!
+  active: Boolean
+}
+
+input StylingSliderOptionInput {
+  id: EntityId!
+  label: String!
+  value: String!
+  progress: Int
+}
+
+input StylingToggleOptionInput {
+  id: EntityId!
+  label: String!
+  enabled: Boolean!
+}
+
+input LiteraryBuildStylingInput {
+  sliders: [StylingSliderOptionInput!]!
+  toggles: [StylingToggleOptionInput!]!
+}

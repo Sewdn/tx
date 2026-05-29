@@ -1,0 +1,16 @@
+# Gittenberg domain scalars (see domain/README.md for overview).
+
+"""Opaque entity primary key (Effect `EntityId` / `Schema.String`)."""
+scalar EntityId
+
+"""ISO-8601 timestamp string (Effect `IsoDateString`)."""
+scalar DateTime
+
+"""Material icon name (Google Material Symbols), e.g. `folder`, `neurology`."""
+scalar MaterialIcon
+
+"""Relative display time, e.g. `2 hours ago` (presentation layer; not parsed)."""
+scalar DisplayTimestamp
+
+"""Human-readable file size label, e.g. `12.4 MB`."""
+scalar FileSizeLabel

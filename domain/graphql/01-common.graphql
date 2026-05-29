@@ -1,0 +1,25 @@
+interface Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input PaginationInput {
+  page: Int! = 1
+  pageSize: Int! = 50
+}
+
+type PageInfo {
+  page: Int!
+  pageSize: Int!
+  total: Int!
+}
+
+interface EntityPage {
+  pageInfo: PageInfo!
+}
+
+type DeletePayload {
+  id: EntityId!
+  deleted: Boolean!
+}

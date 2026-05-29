@@ -1,0 +1,21 @@
+"""
+Presentation-only seed bundle (`GittenbergUiSeed` in `@tx/gittenberg-data`).
+Not exposed through CRUD ports — loaded alongside entity snapshot for Storybook and UI chrome.
+"""
+type GittenbergUiSeed {
+  footerLinks: [FooterLink!]!
+  sidebarFooter: [SidebarNavItem!]!
+  """Hierarchical manuscript tree for curator editor (distinct from flat `ManuscriptFile` list)."""
+  fileTree: [FileTreeNode!]!
+  curatorAvatar: String!
+  readerIllustration: String!
+  libraryAuthors: [LibraryAuthorFilter!]!
+  libraryFormats: [String!]!
+  curationBars: [CurationBar!]!
+  canvasThemes: [CanvasTheme!]!
+}
+
+"""Sample markdown for in-app editor demos (`editorSampleMarkdown` in seed)."""
+type EditorSampleContent {
+  markdown: String!
+}

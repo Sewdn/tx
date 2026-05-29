@@ -1,0 +1,64 @@
+type Query {
+  """Full client snapshot (TanStack Query key: `['gittenberg', 'snapshot', namespace]`)."""
+  gittenbergSnapshot: GittenbergSnapshot!
+
+  repository(id: EntityId!): Repository
+  repositoryBySlug(slug: String!): Repository
+
+  manuscriptFile(id: EntityId!): ManuscriptFile
+  revision(id: EntityId!): Revision
+  agent(id: EntityId!): Agent
+  literaryBuild(id: EntityId!): LiteraryBuild
+  libraryEdition(id: EntityId!): LibraryEdition
+  activityEvent(id: EntityId!): ActivityEvent
+  readerChapter(id: EntityId!): ReaderChapter
+  metricSnapshot(id: EntityId!): MetricSnapshot
+
+  repositories(pagination: PaginationInput!): RepositoryPage!
+  manuscriptFiles(pagination: PaginationInput!): ManuscriptFilePage!
+  revisions(pagination: PaginationInput!): RevisionPage!
+  agents(pagination: PaginationInput!): AgentPage!
+  literaryBuilds(pagination: PaginationInput!): LiteraryBuildPage!
+  libraryEditions(pagination: PaginationInput!): LibraryEditionPage!
+  activityEvents(pagination: PaginationInput!): ActivityEventPage!
+  readerChapters(pagination: PaginationInput!): ReaderChapterPage!
+  metricSnapshots(pagination: PaginationInput!, scope: MetricScope): MetricSnapshotPage!
+}
+
+type Mutation {
+  createRepository(input: CreateRepositoryInput!): Repository!
+  updateRepository(id: EntityId!, input: UpdateRepositoryInput!): Repository!
+  deleteRepository(id: EntityId!): DeletePayload!
+
+  createManuscriptFile(input: CreateManuscriptFileInput!): ManuscriptFile!
+  updateManuscriptFile(id: EntityId!, input: UpdateManuscriptFileInput!): ManuscriptFile!
+  deleteManuscriptFile(id: EntityId!): DeletePayload!
+
+  createRevision(input: CreateRevisionInput!): Revision!
+  updateRevision(id: EntityId!, input: UpdateRevisionInput!): Revision!
+  deleteRevision(id: EntityId!): DeletePayload!
+
+  createAgent(input: CreateAgentInput!): Agent!
+  updateAgent(id: EntityId!, input: UpdateAgentInput!): Agent!
+  deleteAgent(id: EntityId!): DeletePayload!
+
+  createLiteraryBuild(input: CreateLiteraryBuildInput!): LiteraryBuild!
+  updateLiteraryBuild(id: EntityId!, input: UpdateLiteraryBuildInput!): LiteraryBuild!
+  deleteLiteraryBuild(id: EntityId!): DeletePayload!
+
+  createLibraryEdition(input: CreateLibraryEditionInput!): LibraryEdition!
+  updateLibraryEdition(id: EntityId!, input: UpdateLibraryEditionInput!): LibraryEdition!
+  deleteLibraryEdition(id: EntityId!): DeletePayload!
+
+  createActivityEvent(input: CreateActivityEventInput!): ActivityEvent!
+  updateActivityEvent(id: EntityId!, input: UpdateActivityEventInput!): ActivityEvent!
+  deleteActivityEvent(id: EntityId!): DeletePayload!
+
+  createReaderChapter(input: CreateReaderChapterInput!): ReaderChapter!
+  updateReaderChapter(id: EntityId!, input: UpdateReaderChapterInput!): ReaderChapter!
+  deleteReaderChapter(id: EntityId!): DeletePayload!
+
+  createMetricSnapshot(input: CreateMetricSnapshotInput!): MetricSnapshot!
+  updateMetricSnapshot(id: EntityId!, input: UpdateMetricSnapshotInput!): MetricSnapshot!
+  deleteMetricSnapshot(id: EntityId!): DeletePayload!
+}

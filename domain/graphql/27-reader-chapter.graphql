@@ -1,0 +1,38 @@
+"""
+Reader chapter content (TOC + body paragraphs).
+Seed: `seedReaderChapters` (Chapter 1 Loomings on Moby repo).
+"""
+type ReaderChapter implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  repository: Repository
+  label: String!
+  title: String!
+  """Plain-text paragraphs (JSON array of strings in persistence)."""
+  paragraphs: [String!]!
+  sortOrder: Int!
+}
+
+type ReaderChapterPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [ReaderChapter!]!
+}
+
+input CreateReaderChapterInput {
+  repositoryId: EntityId!
+  label: String!
+  title: String!
+  paragraphs: [String!]!
+  sortOrder: Int!
+}
+
+input UpdateReaderChapterInput {
+  repositoryId: EntityId
+  label: String
+  title: String
+  paragraphs: [String!]
+  sortOrder: Int
+}
