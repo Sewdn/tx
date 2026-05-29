@@ -10,18 +10,18 @@ export type CommentBubbleProps = {
 
 export function CommentBubble({ author, timestamp, body, className }: CommentBubbleProps) {
   return (
-    <div className={cn("flex gap-3", className)}>
+    <div className={cn("flex gap-component", className)}>
       <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary-fixed">
         <MaterialIcon name="person" size={18} />
       </div>
       <div>
-        <div className="mb-1 flex items-baseline gap-2">
+        <div className="mb-micro flex items-baseline gap-micro">
           <span className="font-ui-label-md font-bold">{author}</span>
           <span className="font-ui-label-sm text-ui-label-sm text-on-surface-variant">
             {timestamp}
           </span>
         </div>
-        <p className="rounded-lg border border-outline-variant/30 bg-surface-container-low p-3 font-body-md text-body-md text-on-surface-variant">
+        <p className="rounded-lg border border-outline-variant/30 bg-surface-container-low p-component font-body-md text-body-md text-on-surface-variant">
           {body}
         </p>
       </div>

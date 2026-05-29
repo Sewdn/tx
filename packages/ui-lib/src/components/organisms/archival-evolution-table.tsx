@@ -20,7 +20,7 @@ export function ArchivalEvolutionTable({
 }: ArchivalEvolutionTableProps) {
   return (
     <section>
-      <h3 className="mb-8 font-headline-lg text-[24px] text-primary">{title}</h3>
+      <h3 className="mb-section font-headline-lg text-[24px] text-primary">{title}</h3>
       <div className="overflow-hidden rounded-lg border border-outline-variant">
         <Table>
           <TableHeader className="border-b border-outline-variant bg-surface-container-low">
@@ -28,7 +28,7 @@ export function ArchivalEvolutionTable({
               {["Version", "Revision Note", "Binding/Grid", "Date", ""].map((head) => (
                 <TableHead
                   key={head}
-                  className="px-6 py-4 font-ui-label-sm tracking-widest text-on-surface-variant uppercase"
+                  className="px-section py-component font-ui-label-sm tracking-widest text-on-surface-variant uppercase"
                 >
                   {head}
                 </TableHead>
@@ -41,15 +41,15 @@ export function ArchivalEvolutionTable({
                 key={row.id}
                 className="group border-b border-outline-variant/30 transition-colors hover:bg-surface-container-high"
               >
-                <TableCell className="px-6 py-4 font-code-sm text-primary">{row.version}</TableCell>
-                <TableCell className="px-6 py-4 font-ui-label-md">{row.note}</TableCell>
-                <TableCell className="px-6 py-4 font-ui-label-sm text-on-surface-variant italic">
+                <TableCell className="px-section py-component font-code-sm text-primary">{row.version}</TableCell>
+                <TableCell className="px-section py-component font-ui-label-md">{row.note}</TableCell>
+                <TableCell className="px-section py-component font-ui-label-sm text-on-surface-variant italic">
                   {row.binding}
                 </TableCell>
-                <TableCell className="px-6 py-4 font-ui-label-sm text-on-surface-variant">
+                <TableCell className="px-section py-component font-ui-label-sm text-on-surface-variant">
                   {row.date}
                 </TableCell>
-                <TableCell className="px-6 py-4 text-right">
+                <TableCell className="px-section py-component text-right">
                   <MaterialIcon
                     name="visibility"
                     className="cursor-pointer text-on-surface-variant group-hover:text-primary"

@@ -31,13 +31,13 @@ export function LexiconAppBar({
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-outline-variant bg-surface-bright px-margin-desktop",
+        "sticky top-0 z-50 flex h-16 w-full items-center justify-between border-b border-outline-variant bg-surface-bright px-boundary",
         className,
       )}
     >
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-section">
         <span className="font-headline-lg text-headline-lg font-semibold text-primary">{title}</span>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-section md:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -54,8 +54,8 @@ export function LexiconAppBar({
           ))}
         </nav>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="mr-4 flex items-center gap-2">
+      <div className="flex items-center gap-component">
+        <div className="mr-component flex items-center gap-micro">
           <MaterialIcon name="settings" className="text-on-surface-variant" />
           <MaterialIcon name="help_outline" className="text-on-surface-variant" />
         </div>
@@ -66,7 +66,7 @@ export function LexiconAppBar({
           {exportLabel}
         </Button>
         {avatarSrc ? (
-          <div className="ml-2 size-8 overflow-hidden rounded-full border border-outline-variant bg-surface-variant">
+          <div className="ml-micro size-8 overflow-hidden rounded-full border border-outline-variant bg-surface-variant">
             <img alt={avatarAlt} src={avatarSrc} className="size-full object-cover" />
           </div>
         ) : null}

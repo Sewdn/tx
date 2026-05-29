@@ -17,7 +17,7 @@ export function RevisionStatusBadge({ status, className }: RevisionStatusBadgePr
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-full bg-secondary-container px-3 py-1 font-ui-label-md text-ui-label-md text-on-secondary-container",
+        "flex items-center gap-micro rounded-full bg-secondary-container px-component py-1 font-ui-label-md text-ui-label-md text-on-secondary-container",
         className,
       )}
     >

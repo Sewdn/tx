@@ -29,23 +29,23 @@ export function ReaderTocDrawer({
         className,
       )}
     >
-      <div className="flex h-full flex-col py-8">
-        <div className="mb-8 flex items-center justify-between px-6">
+      <div className="flex h-full flex-col py-section">
+        <div className="mb-section flex items-center justify-between px-section">
           <div>
             <h2 className="font-headline-lg text-[20px] text-primary">{title}</h2>
             <p className="font-ui-label-md text-ui-label-md text-on-surface-variant">{subtitle}</p>
           </div>
           <button
             type="button"
-            className="p-1 transition-all hover:bg-surface-container-high"
+            className="p-micro transition-all hover:bg-surface-container-high"
             onClick={onClose}
             aria-label="Close table of contents"
           >
             <MaterialIcon name="close" />
           </button>
         </div>
-        <div className="flex-1 space-y-1 overflow-y-auto px-2 custom-scrollbar">
-          <div className="px-4 py-2 font-ui-label-sm text-ui-label-sm tracking-widest text-outline uppercase">
+        <div className="flex-1 space-y-micro overflow-y-auto px-micro custom-scrollbar">
+          <div className="px-component py-component font-ui-label-sm text-ui-label-sm tracking-widest text-outline uppercase">
             Contents
           </div>
           {chapters.map((chapter) => (
@@ -53,7 +53,7 @@ export function ReaderTocDrawer({
               key={chapter.id}
               href={chapter.href}
               className={cn(
-                "flex w-full items-center gap-3 px-4 py-3 font-ui-label-md text-ui-label-md transition-all",
+                "flex w-full items-center gap-component px-component py-component font-ui-label-md text-ui-label-md transition-all",
                 chapter.active
                   ? "rounded-r-full bg-secondary-container/30 font-bold text-primary"
                   : "text-on-surface-variant hover:bg-surface-container-high",
@@ -64,12 +64,12 @@ export function ReaderTocDrawer({
             </a>
           ))}
         </div>
-        <div className="mt-6 flex flex-col gap-2 border-t border-outline-variant px-4 pt-6">
+        <div className="mt-section flex flex-col gap-micro border-t border-outline-variant px-component pt-section">
           {footerItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
-              className="flex items-center gap-3 px-4 py-2 font-ui-label-md text-ui-label-md text-on-surface-variant transition-all hover:bg-surface-container-high"
+              className="flex items-center gap-component px-component py-component font-ui-label-md text-ui-label-md text-on-surface-variant transition-all hover:bg-surface-container-high"
             >
               <MaterialIcon name={item.icon} />
               {item.label}

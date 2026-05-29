@@ -10,7 +10,7 @@ export function PresetChip({ label, active = false, className }: PresetChipProps
   return (
     <span
       className={cn(
-        "rounded px-4 py-2 font-ui-label-md text-sm transition-colors",
+        "rounded px-component py-component font-ui-label-md text-sm transition-colors",
         active
           ? "bg-primary text-on-primary"
           : "border border-outline-variant hover:bg-white",

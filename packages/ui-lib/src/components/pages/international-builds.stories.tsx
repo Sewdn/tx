@@ -45,8 +45,8 @@ function InternationalBuildsPage() {
         footerItems={mobyDickSidebarFooter}
         primaryActionLabel="Create Revision"
       />
-      <main className="min-h-screen pt-20 lg:pl-64">
-        <div className="mx-auto max-w-container-max px-margin-desktop py-12">
+      <main className="min-h-screen pt-shell lg:pl-64">
+        <div className="mx-auto max-w-container-max px-boundary py-region">
           <RepositoryHero
             badge="Repository"
             repoId="id: moby-dick-1851"
@@ -55,7 +55,7 @@ function InternationalBuildsPage() {
             forkLabel="Fork Manuscript"
             watchLabel="Watch Repository"
           />
-          <section className="mb-16 grid grid-cols-1 gap-gutter lg:grid-cols-3">
+          <section className="mb-region grid grid-cols-1 gap-region lg:grid-cols-3">
             <ActiveBuildCard
               versionWatermark="v4.2"
               statusLabel="Active Build: Production"

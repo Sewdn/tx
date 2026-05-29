@@ -14,15 +14,15 @@ export function FormatArtifactGrid({
   artifacts,
 }: FormatArtifactGridProps) {
   return (
-    <section className="mb-16">
-      <div className="mb-8 flex items-center justify-between">
+    <section className="mb-region">
+      <div className="mb-section flex items-center justify-between">
         <h3 className="font-headline-lg text-[24px] text-primary">{title}</h3>
-        <span className="flex items-center gap-2 font-ui-label-md font-bold text-primary">
+        <span className="flex items-center gap-micro font-ui-label-md font-bold text-primary">
           <MaterialIcon name="refresh" size={20} />
           {rebuildLabel}
         </span>
       </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-section md:grid-cols-2 xl:grid-cols-4">
         {artifacts.map((artifact) => (
           <FormatArtifactCard key={artifact.id} {...artifact} />
         ))}

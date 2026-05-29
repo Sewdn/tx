@@ -32,13 +32,13 @@ export function ActivityFeedItem({
           dotColors[dotVariant],
         )}
       />
-      <div className="mb-1 font-ui-label-sm text-ui-label-sm text-outline">{timestamp}</div>
+      <div className="mb-micro font-ui-label-sm text-ui-label-sm text-outline">{timestamp}</div>
       <div className="font-ui-label-md font-bold text-primary">{title}</div>
-      <div className="mt-1 font-body-md text-body-md text-on-surface-variant italic">{body}</div>
+      <div className="mt-micro font-body-md text-body-md text-on-surface-variant italic">{body}</div>
       {tag ? (
         <div
           className={cn(
-            "mt-2 inline-block rounded px-2 py-1 font-ui-label-sm text-ui-label-sm",
+            "mt-micro inline-block rounded px-micro py-1 font-ui-label-sm text-ui-label-sm",
             tagStyles[tagVariant],
           )}
         >

@@ -18,11 +18,11 @@ export function RepositoryHero({
   watchLabel,
 }: RepositoryHeroProps) {
   return (
-    <section className="mb-12 border-b border-outline-variant pb-8">
-      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+    <section className="mb-region border-b border-outline-variant pb-section">
+      <div className="flex flex-col justify-between gap-section md:flex-row md:items-end">
         <div>
-          <div className="mb-2 flex items-center gap-3">
-            <span className="rounded bg-secondary-fixed px-2 py-0.5 text-[10px] font-bold tracking-widest text-on-secondary-fixed uppercase">
+          <div className="mb-micro flex items-center gap-component">
+            <span className="rounded bg-secondary-fixed px-micro py-micro text-[10px] font-bold tracking-widest text-on-secondary-fixed uppercase">
               {badge}
             </span>
             <span className="font-code-sm text-code-sm text-on-surface-variant">{repoId}</span>
@@ -30,12 +30,12 @@ export function RepositoryHero({
           <h1 className="font-display-lg text-display-lg text-primary">{title}</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant">{description}</p>
         </div>
-        <div className="flex gap-3">
-          <Button variant="outline" className="gap-2 font-ui-label-md">
+        <div className="flex gap-component">
+          <Button variant="outline" className="gap-micro font-ui-label-md">
             <MaterialIcon name="fork_right" size={18} />
             {forkLabel}
           </Button>
-          <Button className="gap-2 bg-primary font-ui-label-md text-on-primary">
+          <Button className="gap-micro bg-primary font-ui-label-md text-on-primary">
             <MaterialIcon name="star" size={18} />
             {watchLabel}
           </Button>

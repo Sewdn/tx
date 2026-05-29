@@ -23,8 +23,8 @@ function AgentDashboardPage() {
         activeNavId="agents"
         searchPlaceholder="Search agents or activity..."
       />
-      <main className="mx-auto grid max-w-container-max grid-cols-12 gap-gutter px-margin-desktop pt-24 pb-12">
-        <div className="col-span-12 mb-6">
+      <main className="mx-auto grid max-w-container-max grid-cols-12 gap-region px-boundary pt-shell pb-page">
+        <div className="col-span-12 mb-section">
           <h1 className="font-headline-lg text-headline-lg text-primary">
             Agent Orchestration
           </h1>

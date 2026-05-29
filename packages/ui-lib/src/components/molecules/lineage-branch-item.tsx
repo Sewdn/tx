@@ -13,7 +13,7 @@ export function LineageBranchItem({
   isLast = false,
 }: LineageBranchItemProps) {
   return (
-    <div className="relative flex gap-6">
+    <div className="relative flex gap-section">
       <div className="flex flex-col items-center">
         <div
           className={cn(
@@ -24,27 +24,27 @@ export function LineageBranchItem({
         {!isLast ? <div className="w-0.5 flex-1 bg-outline-variant" /> : null}
       </div>
       <div className={cn("flex-1", !isLast && "pb-10")}>
-        <div className="mb-2 flex items-center gap-3">
+        <div className="mb-micro flex items-center gap-component">
           <h4 className={cn("font-bold", isDefault ? "text-primary" : "text-on-surface")}>
             {title}
           </h4>
           {badge ? (
-            <span className="rounded bg-surface-container-high px-2 py-0.5 font-ui-label-sm text-ui-label-sm">
+            <span className="rounded bg-surface-container-high px-micro py-micro font-ui-label-sm text-ui-label-sm">
               {badge}
             </span>
           ) : (
             <MaterialIcon name="fork_right" size={16} className="text-on-surface-variant" />
           )}
         </div>
-        <p className="mb-4 font-ui-label-md text-ui-label-md text-on-surface-variant">
+        <p className="mb-component font-ui-label-md text-ui-label-md text-on-surface-variant">
           {description}
         </p>
         {formats.length > 0 ? (
-          <div className="flex gap-2">
+          <div className="flex gap-micro">
             {formats.map((format) => (
               <span
                 key={format}
-                className="rounded border border-outline-variant px-2 py-1 text-[10px] text-on-surface-variant uppercase"
+                className="rounded border border-outline-variant px-micro py-1 text-[10px] text-on-surface-variant uppercase"
               >
                 {format}
               </span>

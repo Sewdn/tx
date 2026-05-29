@@ -12,7 +12,7 @@ export function CuratorProfile({
   avatarAlt = "Curator profile",
 }: CuratorProfileProps) {
   return (
-    <div className="mt-6 flex items-center gap-3">
+    <div className="mt-section flex items-center gap-component">
       <img
         alt={avatarAlt}
         src={avatarSrc}

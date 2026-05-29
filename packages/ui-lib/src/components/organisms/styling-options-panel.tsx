@@ -10,15 +10,15 @@ export type StylingOptionsPanelProps = {
 
 export function StylingOptionsPanel({ sliders, toggles }: StylingOptionsPanelProps) {
   return (
-    <TonalSurface variant="layer-1" className="rounded-xl p-6">
-      <div className="mb-6 flex items-center justify-between">
+    <TonalSurface variant="layer-1" className="rounded-xl p-section">
+      <div className="mb-section flex items-center justify-between">
         <h3 className="font-ui-label-sm tracking-widest text-outline uppercase">Styling Options</h3>
         <MaterialIcon name="tune" className="cursor-pointer text-outline" />
       </div>
       <div className="space-y-6">
         {sliders.map((slider) => (
           <div key={slider.id}>
-            <div className="mb-2 flex justify-between">
+            <div className="mb-micro flex justify-between">
               <label className="font-ui-label-md text-sm">{slider.label}</label>
               <span className="font-code-sm text-xs">{slider.value}</span>
             </div>
@@ -33,7 +33,7 @@ export function StylingOptionsPanel({ sliders, toggles }: StylingOptionsPanelPro
         {toggles.map((toggle) => (
           <div
             key={toggle.id}
-            className="flex items-center justify-between rounded p-2 transition-colors hover:bg-white"
+            className="flex items-center justify-between rounded p-micro transition-colors hover:bg-white"
           >
             <label className="font-ui-label-md text-sm">{toggle.label}</label>
             <div

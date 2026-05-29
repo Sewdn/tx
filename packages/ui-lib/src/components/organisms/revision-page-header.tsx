@@ -23,14 +23,14 @@ export function RevisionPageHeader({
   return (
     <div
       className={cn(
-        "border-b border-outline-variant bg-surface-container px-margin-desktop py-8",
+        "border-b border-outline-variant bg-surface-container px-boundary py-section",
         className,
       )}
     >
       <div className="mx-auto max-w-container-max">
         <BreadcrumbTrail segments={breadcrumbs} />
-        <h1 className="mb-4 font-headline-lg text-headline-lg text-primary">{title}</h1>
-        <div className="flex items-center gap-4">
+        <h1 className="mb-component font-headline-lg text-headline-lg text-primary">{title}</h1>
+        <div className="flex items-center gap-component">
           <RevisionStatusBadge status={status} />
           <p className="font-ui-label-md text-ui-label-md text-on-surface-variant">
             Proposed by <span className="font-bold text-primary">{author}</span> {timestamp}

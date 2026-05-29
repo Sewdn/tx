@@ -27,7 +27,7 @@ export function ArchiveSearchField({
         value={value}
         placeholder={placeholder}
         className={cn(
-          "h-9 w-64 rounded-sm border-outline-variant bg-surface-container-low py-2 pr-4 pl-10 font-ui-label-md text-ui-label-md focus-visible:border-primary focus-visible:ring-0",
+          "h-9 w-64 rounded-sm border-outline-variant bg-surface-container-low py-component pr-4 pl-10 font-ui-label-md text-ui-label-md focus-visible:border-primary focus-visible:ring-0",
           inputClassName,
         )}
       />

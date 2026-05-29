@@ -23,7 +23,7 @@ export function FileTableRow({
   return (
     <div
       className={cn(
-        "group flex cursor-pointer items-center px-6 py-4 transition-colors hover:bg-surface-container-low",
+        "group flex cursor-pointer items-center px-section py-component transition-colors hover:bg-surface-container-low",
         highlighted && "bg-secondary/5",
         className,
       )}
@@ -31,7 +31,7 @@ export function FileTableRow({
       <MaterialIcon
         name={icon}
         className={cn(
-          "mr-4 text-outline group-hover:text-primary",
+          "mr-component text-outline group-hover:text-primary",
           highlighted && "text-secondary",
         )}
       />

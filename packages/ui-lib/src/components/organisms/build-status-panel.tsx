@@ -19,10 +19,10 @@ export function BuildStatusPanel({
   return (
     <TonalSurface
       variant="layer-2"
-      className="flex flex-col justify-between rounded-lg border border-outline-variant p-8"
+      className="flex flex-col justify-between rounded-lg border border-outline-variant p-section"
     >
       <div>
-        <h4 className="mb-6 font-ui-label-md tracking-wider text-on-surface-variant uppercase">
+        <h4 className="mb-section font-ui-label-md tracking-wider text-on-surface-variant uppercase">
           {title}
         </h4>
         <ul className="space-y-4">
@@ -41,8 +41,8 @@ export function BuildStatusPanel({
           ))}
         </ul>
       </div>
-      <div className="mt-8 border-t border-outline-variant pt-6">
-        <div className="flex items-center gap-4">
+      <div className="mt-section border-t border-outline-variant pt-section">
+        <div className="flex items-center gap-component">
           <div className="flex size-10 items-center justify-center rounded-full bg-surface-container-highest">
             <MaterialIcon name="query_stats" />
           </div>

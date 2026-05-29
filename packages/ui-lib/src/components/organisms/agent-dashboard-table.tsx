@@ -15,9 +15,9 @@ export function AgentDashboardTable({
 }: AgentDashboardTableProps) {
   return (
     <section className="overflow-hidden rounded-lg border border-outline-variant bg-surface-container-low">
-      <div className="flex items-center justify-between border-b border-outline-variant p-6">
+      <div className="flex items-center justify-between border-b border-outline-variant p-section">
         <h2 className="font-headline-lg text-[20px] text-primary">{title}</h2>
-        <span className="flex items-center gap-1 font-ui-label-md font-bold text-primary">
+        <span className="flex items-center gap-micro font-ui-label-md font-bold text-primary">
           {viewAllLabel}
           <MaterialIcon name="chevron_right" size={18} />
         </span>

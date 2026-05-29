@@ -23,7 +23,7 @@ function ReaderPreviewPage() {
   const { fontSize, activeFamily, activeThemeId } = useReaderTypography(18, "serif", "cream")
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" data-density="spacious">
       <ReaderTopAppBar
         brandName="Gittenberg"
         navItems={defaultNavItems}
@@ -38,7 +38,7 @@ function ReaderPreviewPage() {
         open={open}
         onClose={closeDrawer}
       />
-      <main className="flex min-h-screen justify-center px-margin-mobile pt-32 pb-48 md:px-margin-desktop">
+      <main className="flex min-h-screen justify-center px-boundary pt-reader pb-page md:px-boundary">
         <ReaderArticle
           chapterLabel="Chapter 1"
           title="Loomings"

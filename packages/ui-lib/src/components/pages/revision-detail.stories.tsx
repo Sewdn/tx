@@ -61,7 +61,7 @@ function RevisionDetailPage() {
           author="ScholasticCurator"
           timestamp="4 hours ago"
         />
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-8 p-8 xl:flex-row">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-section p-section xl:flex-row">
           <DiffViewer
             fileName="chapter_03.md"
             viewMode="Unified"

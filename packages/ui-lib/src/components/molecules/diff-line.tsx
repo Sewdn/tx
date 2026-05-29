@@ -20,13 +20,13 @@ export function DiffLine({ variant, oldLine, newLine, content, icon }: DiffLineP
         variant === "removed" && "diff-removed",
       )}
     >
-      <td className="w-12 border-r border-outline-variant px-2 py-1 text-right select-none">
+      <td className="w-12 border-r border-outline-variant px-micro py-1 text-right select-none">
         {oldLine ?? ""}
       </td>
-      <td className="w-12 border-r border-outline-variant px-2 py-1 text-right select-none">
+      <td className="w-12 border-r border-outline-variant px-micro py-1 text-right select-none">
         {newLine ?? ""}
       </td>
-      <td className="flex items-center gap-2 px-4 py-1">
+      <td className="flex items-center gap-micro px-component py-1">
         {icon ? <MaterialIcon name={icon} size={16} /> : null}
         {content}
       </td>

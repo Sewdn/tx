@@ -9,9 +9,9 @@ export type PresetSelectorProps = {
 
 export function PresetSelector({ title = "Design Presets", presets }: PresetSelectorProps) {
   return (
-    <TonalSurface variant="layer-1" className="rounded-xl p-6">
-      <h3 className="mb-4 font-ui-label-sm tracking-widest text-outline uppercase">{title}</h3>
-      <div className="flex flex-wrap gap-2">
+    <TonalSurface variant="layer-1" className="rounded-xl p-section">
+      <h3 className="mb-component font-ui-label-sm tracking-widest text-outline uppercase">{title}</h3>
+      <div className="flex flex-wrap gap-micro">
         {presets.map((preset) => (
           <PresetChip key={preset.id} label={preset.label} active={preset.active} />
         ))}

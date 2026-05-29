@@ -11,8 +11,8 @@ export function LineageTimeline({
   branches,
 }: LineageTimelineProps) {
   return (
-    <section className="mb-16">
-      <h3 className="mb-8 border-l-4 border-primary pl-4 font-headline-lg text-[24px] text-primary">
+    <section className="mb-region">
+      <h3 className="mb-section border-l-4 border-primary pl-4 font-headline-lg text-[24px] text-primary">
         {title}
       </h3>
       <div className="space-y-4">

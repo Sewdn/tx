@@ -11,7 +11,7 @@ export function MetricGrid({ metrics, className }: MetricGridProps) {
   return (
     <div
       className={cn(
-        "mb-4 grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-4",
+        "mb-component grid grid-cols-1 gap-region md:grid-cols-2 lg:grid-cols-4",
         className,
       )}
     >

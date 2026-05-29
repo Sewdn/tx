@@ -25,16 +25,16 @@ export function DiffViewer({
         className,
       )}
     >
-      <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-low px-6 py-4">
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-low px-section py-component">
+        <div className="flex items-center gap-component">
           <MaterialIcon name="description" className="text-outline" />
           <span className="font-code-sm text-code-sm">{fileName}</span>
         </div>
-        <div className="flex gap-2">
-          <span className="rounded border border-outline-variant bg-surface-variant px-3 py-1 font-ui-label-sm text-ui-label-sm">
+        <div className="flex gap-micro">
+          <span className="rounded border border-outline-variant bg-surface-variant px-component py-1 font-ui-label-sm text-ui-label-sm">
             {viewMode}
           </span>
-          <span className="rounded border border-outline-variant bg-background px-3 py-1 font-ui-label-sm text-ui-label-sm">
+          <span className="rounded border border-outline-variant bg-background px-component py-1 font-ui-label-sm text-ui-label-sm">
             {alternateViewMode}
           </span>
         </div>

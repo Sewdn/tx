@@ -34,13 +34,13 @@ export function GittenbergTopAppBar({
         className,
       )}
     >
-      <div className="mx-auto flex w-full max-w-container-max items-center justify-between px-margin-desktop py-4">
-        <div className="flex items-center gap-12">
-          <div className="flex items-center gap-4">
+      <div className="mx-auto flex w-full max-w-container-max items-center justify-between px-boundary py-component">
+        <div className="flex items-center gap-region">
+          <div className="flex items-center gap-component">
             {onMenuClick ? (
               <button
                 type="button"
-                className="p-2 transition-colors hover:bg-surface-container-high md:hidden"
+                className="p-micro transition-colors hover:bg-surface-container-high md:hidden"
                 onClick={onMenuClick}
                 aria-label="Open menu"
               >
@@ -54,7 +54,7 @@ export function GittenbergTopAppBar({
               {brandName}
             </a>
           </div>
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-section md:flex">
             {navItems.map((item) => (
               <AppNavLink
                 key={item.id}
@@ -66,7 +66,7 @@ export function GittenbergTopAppBar({
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-component">
           <ArchiveSearchField placeholder={searchPlaceholder} value={searchValue} />
           {(["notifications", "history", "account_circle"] as const).map((icon) => (
             <MaterialIcon

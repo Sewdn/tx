@@ -17,7 +17,7 @@ export function TypographyController({
   return (
     <div
       className={cn(
-        "fixed right-8 bottom-8 z-40 flex items-center gap-4 rounded-full border border-outline bg-surface-container-lowest px-6 py-3 shadow-lg",
+        "fixed right-region bottom-region z-40 flex items-center gap-component rounded-full border border-outline bg-surface-container-lowest px-section py-component shadow-lg",
         className,
       )}
     >

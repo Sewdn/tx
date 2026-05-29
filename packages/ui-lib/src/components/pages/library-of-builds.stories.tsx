@@ -14,7 +14,7 @@ const eraOptions = [
 
 function LibraryPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" data-density="spacious">
       <GittenbergTopAppBar
         brandName="Gittenberg"
         brandHref="/"
@@ -22,7 +22,7 @@ function LibraryPage() {
         activeNavId="library"
         searchPlaceholder="Search builds..."
       />
-      <main className="mx-auto flex max-w-container-max flex-col gap-gutter px-margin-desktop pt-32 pb-20 md:flex-row">
+      <main className="mx-auto flex max-w-container-max flex-col gap-region px-boundary pt-reader pb-page md:flex-row">
         <LibraryFilterSidebar
           authors={libraryAuthors}
           eraOptions={eraOptions}

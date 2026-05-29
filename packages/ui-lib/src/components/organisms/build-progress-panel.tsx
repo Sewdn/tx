@@ -20,11 +20,11 @@ export function BuildProgressPanel({
   building = false,
 }: BuildProgressPanelProps) {
   return (
-    <TonalSurface variant="layer-1" className="rounded-xl p-8">
-      <div className="mb-4 flex items-end justify-between">
+    <TonalSurface variant="layer-1" className="rounded-xl p-section">
+      <div className="mb-component flex items-end justify-between">
         <div>
-          <h4 className="mb-1 font-headline-lg text-xl">{title}</h4>
-          <p className="flex items-center gap-2 text-sm text-outline">
+          <h4 className="mb-micro font-headline-lg text-xl">{title}</h4>
+          <p className="flex items-center gap-micro text-sm text-outline">
             {building ? (
               <MaterialIcon name="autorenew" size={16} className="animate-spin" />
             ) : null}
@@ -39,11 +39,11 @@ export function BuildProgressPanel({
           style={{ width: `${progressPercent}%` }}
         />
       </div>
-      <div className="mt-6 flex justify-end gap-3">
+      <div className="mt-section flex justify-end gap-component">
         <Button variant="outline" className="border-outline-variant font-ui-label-md">
           {cancelLabel}
         </Button>
-        <Button className="gap-2 bg-primary font-ui-label-md text-on-primary shadow-sm">
+        <Button className="gap-micro bg-primary font-ui-label-md text-on-primary shadow-sm">
           <MaterialIcon name="bolt" />
           {buildLabel}
         </Button>

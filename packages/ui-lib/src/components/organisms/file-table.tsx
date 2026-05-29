@@ -19,7 +19,7 @@ export function FileTable({
 }: FileTableProps) {
   return (
     <section className={cn("tonal-surface overflow-hidden rounded-lg", className)}>
-      <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-high px-6 py-3">
+      <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-high px-section py-component">
         <span className="font-ui-label-md text-ui-label-md font-bold text-primary">
           {branchLabel}: <span className="font-normal opacity-70">{branchName}</span>
         </span>

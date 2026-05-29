@@ -46,13 +46,13 @@ function BuildExportPage() {
       />
       <div className="ml-64">
         <LexiconAppBar title="Lexicon IDE" navItems={lexiconAppNav} />
-        <main className="grid min-h-[calc(100vh-4rem)] grid-cols-12 gap-gutter p-margin-desktop">
+        <main className="grid min-h-[calc(100vh-4rem)] grid-cols-12 gap-region p-boundary">
           <div className="col-span-4 max-h-[calc(100vh-120px)] space-y-gutter overflow-y-auto pr-4 custom-scrollbar">
             <FormatSelector options={formatOptions} />
             <PresetSelector presets={presetOptions} />
             <StylingOptionsPanel sliders={stylingSliders} toggles={stylingToggles} />
           </div>
-          <div className="col-span-8 flex h-full flex-col gap-6">
+          <div className="col-span-8 flex h-full flex-col gap-section">
             <div className="group flex grow flex-col">
               <BuildPreviewCard
                 author="Herman Melville"

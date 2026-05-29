@@ -27,8 +27,8 @@ export function MetadataPanel({
 }: MetadataPanelProps) {
   return (
     <div className={cn("space-y-6", className)}>
-      <TonalSurface className="p-6">
-        <h3 className="mb-4 flex items-center gap-2 font-ui-label-md text-ui-label-md font-bold">
+      <TonalSurface className="p-section">
+        <h3 className="mb-component flex items-center gap-micro font-ui-label-md text-ui-label-md font-bold">
           <MaterialIcon name={icon} size={20} />
           {title}
         </h3>
@@ -44,8 +44,8 @@ export function MetadataPanel({
         </div>
       </TonalSurface>
       {agents && agentsTitle ? (
-        <TonalSurface className="p-6">
-          <div className="mb-4 flex items-center justify-between">
+        <TonalSurface className="p-section">
+          <div className="mb-component flex items-center justify-between">
             <h3 className="font-ui-label-md text-ui-label-md font-bold text-primary">
               {agentsTitle}
             </h3>

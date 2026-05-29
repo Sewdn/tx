@@ -10,12 +10,12 @@ export function BreadcrumbTrail({ segments, className }: BreadcrumbTrailProps) {
   return (
     <div
       className={cn(
-        "mb-2 flex items-center gap-2 font-ui-label-sm text-ui-label-sm tracking-wider text-on-surface-variant uppercase",
+        "mb-micro flex items-center gap-micro font-ui-label-sm text-ui-label-sm tracking-wider text-on-surface-variant uppercase",
         className,
       )}
     >
       {segments.map((segment, index) => (
-        <span key={`${segment.label}-${index}`} className="inline-flex items-center gap-2">
+        <span key={`${segment.label}-${index}`} className="inline-flex items-center gap-micro">
           {index > 0 ? <span>/</span> : null}
           <span>{segment.label}</span>
         </span>

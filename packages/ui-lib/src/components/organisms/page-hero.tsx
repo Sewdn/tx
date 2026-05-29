@@ -16,13 +16,13 @@ export type PageHeroProps = {
 
 export function PageHero({ tags, title, subtitle, className }: PageHeroProps) {
   return (
-    <div className={cn("mb-10", className)}>
-      <div className="mb-2 flex flex-wrap items-center gap-3">
+    <div className={cn("mb-region", className)}>
+      <div className="mb-micro flex flex-wrap items-center gap-component">
         {tags.map((tag) => (
           <RepositoryTag key={tag.label} variant={tag.variant} label={tag.label} />
         ))}
       </div>
-      <h1 className="mb-2 font-headline-lg text-headline-lg text-primary">{title}</h1>
+      <h1 className="mb-micro font-headline-lg text-headline-lg text-primary">{title}</h1>
       {subtitle ? (
         <p className="max-w-2xl font-body-lg text-body-lg text-on-surface-variant italic">
           {subtitle}

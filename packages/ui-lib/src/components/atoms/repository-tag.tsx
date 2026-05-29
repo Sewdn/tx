@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import type { RepositoryTagVariant } from "@/lib/types"
 
 const tagVariants = cva(
-  "inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-ui-label-sm text-ui-label-sm",
+  "inline-flex items-center gap-micro rounded-full px-micro py-micro font-ui-label-sm text-ui-label-sm",
   {
     variants: {
       variant: {

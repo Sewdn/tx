@@ -9,7 +9,7 @@ export type MetadataFieldProps = {
 
 export function MetadataField({ label, value, href, className }: MetadataFieldProps) {
   return (
-    <div className={cn("space-y-1", className)}>
+    <div className={cn("space-y-micro", className)}>
       <span className="font-ui-label-sm text-ui-label-sm uppercase tracking-widest text-outline">
         {label}
       </span>

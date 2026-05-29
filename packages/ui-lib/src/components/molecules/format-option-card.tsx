@@ -19,7 +19,7 @@ export function FormatOptionCard({
   return (
     <div
       className={cn(
-        "flex w-full items-center gap-4 rounded-lg border border-outline-variant p-4 transition-all",
+        "flex w-full items-center gap-component rounded-lg border border-outline-variant p-component transition-all",
         selected ? "" : "opacity-60 hover:opacity-100",
         className,
       )}

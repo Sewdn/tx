@@ -14,7 +14,7 @@ export function FileTreeItem({ node, depth = 0 }: FileTreeItemProps) {
     <div style={{ marginLeft: depth > 0 ? depth * 16 : 0 }}>
       <div
         className={cn(
-          "flex cursor-pointer items-center gap-2 rounded p-2 transition-colors",
+          "flex cursor-pointer items-center gap-micro rounded p-micro transition-colors",
           node.highlighted
             ? "border-r-2 border-secondary bg-secondary-container/30 font-bold text-secondary"
             : "hover:bg-surface-container",

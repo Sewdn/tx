@@ -25,7 +25,7 @@ export function AgentDashboardRow({
   iconVariant = "secondary",
 }: AgentDashboardRowProps) {
   return (
-    <div className="flex items-center gap-6 p-6 transition-all hover:bg-surface-container-high">
+    <div className="flex items-center gap-section p-section transition-all hover:bg-surface-container-high">
       <div
         className={cn(
           "flex size-12 items-center justify-center rounded-full",
@@ -42,10 +42,10 @@ export function AgentDashboardRow({
         <p className="font-ui-label-sm text-ui-label-sm text-on-surface-variant">{description}</p>
       </div>
       <div className="text-right">
-        <div className="mb-1 font-ui-label-sm text-ui-label-sm text-outline">Status</div>
+        <div className="mb-micro font-ui-label-sm text-ui-label-sm text-outline">Status</div>
         <span
           className={cn(
-            "rounded-full px-3 py-1 font-ui-label-sm font-bold",
+            "rounded-full px-component py-1 font-ui-label-sm font-bold",
             statusStyles[statusVariant],
           )}
         >

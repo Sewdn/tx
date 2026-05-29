@@ -25,11 +25,11 @@ export function ReaderTopAppBar({
         className,
       )}
     >
-      <div className="mx-auto flex w-full max-w-container-max items-center justify-between px-margin-desktop py-4">
-        <div className="flex items-center gap-6">
+      <div className="mx-auto flex w-full max-w-container-max items-center justify-between px-boundary py-component">
+        <div className="flex items-center gap-section">
           <button
             type="button"
-            className="p-2 transition-colors hover:bg-surface-container-high"
+            className="p-micro transition-colors hover:bg-surface-container-high"
             onClick={onMenuClick}
             aria-label="Toggle table of contents"
           >
@@ -37,7 +37,7 @@ export function ReaderTopAppBar({
           </button>
           <h1 className="font-display-lg text-[24px] font-bold text-primary">{brandName}</h1>
         </div>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-section md:flex">
           {navItems.map((item) => (
             <AppNavLink
               key={item.id}
@@ -47,7 +47,7 @@ export function ReaderTopAppBar({
             />
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-component">
           {(["notifications", "history", "account_circle"] as const).map((icon) => (
             <MaterialIcon
               key={icon}

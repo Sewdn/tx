@@ -19,17 +19,17 @@ export function LibraryFilterSidebar({
 }: LibraryFilterSidebarProps) {
   return (
     <aside className="w-full shrink-0 md:w-64">
-      <div className="sticky top-32 space-y-8">
+      <div className="sticky top-32 space-y-section">
         <div>
-          <h3 className="mb-4 font-ui-label-sm tracking-widest text-on-surface-variant uppercase">
+          <h3 className="mb-component font-ui-label-sm tracking-widest text-on-surface-variant uppercase">
             Metadata Filters
           </h3>
           <div className="space-y-6">
             <div>
-              <label className="mb-2 block font-ui-label-md font-bold">Author</label>
+              <label className="mb-micro block font-ui-label-md font-bold">Author</label>
               <div className="space-y-2">
                 {authors.map((author) => (
-                  <label key={author.id} className="group flex cursor-pointer items-center gap-2">
+                  <label key={author.id} className="group flex cursor-pointer items-center gap-micro">
                     <input
                       type="checkbox"
                       readOnly
@@ -44,10 +44,10 @@ export function LibraryFilterSidebar({
               </div>
             </div>
             <div>
-              <label className="mb-2 block font-ui-label-md font-bold">Decade / Era</label>
+              <label className="mb-micro block font-ui-label-md font-bold">Decade / Era</label>
               <div className="space-y-2">
                 {eraOptions.map((era) => (
-                  <label key={era.id} className="group flex cursor-pointer items-center gap-2">
+                  <label key={era.id} className="group flex cursor-pointer items-center gap-micro">
                     <input
                       type="radio"
                       readOnly
@@ -62,13 +62,13 @@ export function LibraryFilterSidebar({
               </div>
             </div>
             <div>
-              <label className="mb-2 block font-ui-label-md font-bold">Build Format</label>
-              <div className="flex flex-wrap gap-2">
+              <label className="mb-micro block font-ui-label-md font-bold">Build Format</label>
+              <div className="flex flex-wrap gap-micro">
                 {formatChips.map((chip) => (
                   <span
                     key={chip}
                     className={cn(
-                      "rounded-full border border-outline-variant bg-surface-container px-3 py-1 font-ui-label-sm transition-all hover:border-primary",
+                      "rounded-full border border-outline-variant bg-surface-container px-component py-1 font-ui-label-sm transition-all hover:border-primary",
                       selectedFormats.includes(chip) && "border-primary",
                     )}
                   >
@@ -79,7 +79,7 @@ export function LibraryFilterSidebar({
             </div>
           </div>
         </div>
-        <div className="border-t border-outline-variant pt-8">
+        <div className="border-t border-outline-variant pt-section">
           <button
             type="button"
             className="flex w-full items-center justify-between font-ui-label-md text-on-surface-variant transition-colors hover:text-primary"

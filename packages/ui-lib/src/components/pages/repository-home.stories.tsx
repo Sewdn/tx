@@ -37,7 +37,7 @@ function RepositoryHomePage() {
         footerItems={mobyDickSidebarFooter}
         primaryActionLabel="Create Revision"
       />
-      <main className="min-h-screen px-margin-mobile pt-24 pb-20 md:px-margin-desktop lg:ml-64">
+      <main className="min-h-screen px-boundary pt-shell pb-page md:px-boundary lg:ml-64">
         <div className="mx-auto max-w-container-max">
           <PageHero
             tags={[
@@ -48,7 +48,7 @@ function RepositoryHomePage() {
             title="The Whale: Repository Home"
             subtitle='"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse..."'
           />
-          <div className="grid grid-cols-1 gap-gutter xl:grid-cols-12">
+          <div className="grid grid-cols-1 gap-region xl:grid-cols-12">
             <div className="space-y-gutter xl:col-span-8">
               <FileTable
                 branchLabel="Current Branch"
@@ -56,12 +56,12 @@ function RepositoryHomePage() {
                 lastUpdate="Last Update: 2 hours ago by Queequeg-Bot"
                 rows={mobyDickFileRows}
               />
-              <TonalSurface className="p-10 md:p-16">
+              <TonalSurface className="p-10 md:p-region">
                 <article className="mx-auto max-w-reading-width">
-                  <h2 className="mb-6 border-b border-outline-variant pb-2 font-headline-lg text-[24px] text-primary">
+                  <h2 className="mb-section border-b border-outline-variant pb-2 font-headline-lg text-[24px] text-primary">
                     README.md
                   </h2>
-                  <p className="mb-6 font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+                  <p className="mb-section font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
                     This repository contains the canonical, agent-audited version of Herman
                     Melville&apos;s masterpiece,{" "}
                     <em className="font-bold text-primary">Moby Dick; or, The Whale</em>.

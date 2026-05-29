@@ -10,12 +10,12 @@ export function GittenbergFooter({ links, copyright, className }: GittenbergFoot
   return (
     <footer
       className={cn(
-        "w-full border-t border-outline-variant bg-background py-12 dark:border-outline",
+        "w-full border-t border-outline-variant bg-background py-region dark:border-outline",
         className,
       )}
     >
-      <div className="mx-auto flex max-w-reading-width flex-col items-center gap-4">
-        <div className="mb-4 flex gap-6">
+      <div className="mx-auto flex max-w-reading-width flex-col items-center gap-component">
+        <div className="mb-component flex gap-section">
           {links.map((link) => (
             <a
               key={link.label}

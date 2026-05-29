@@ -59,6 +59,10 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
+          "design tokens",
+          ["Spacing"],
+          "Applied guidelines",
+          ["Spacing"],
           "Gittenberg",
           [
             "Pages",

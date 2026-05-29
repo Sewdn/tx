@@ -12,7 +12,7 @@ export function AgentListItem({ name, status, icon, className }: AgentListItemPr
   return (
     <div
       className={cn(
-        "flex items-center gap-3 p-2 transition-colors hover:bg-surface-container",
+        "flex items-center gap-component p-micro transition-colors hover:bg-surface-container",
         className,
       )}
     >
