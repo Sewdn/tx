@@ -21,6 +21,8 @@ Set `VITE_GITTENBERG_BACKEND` in `.env` (optional):
 VITE_GITTENBERG_BACKEND=localStorage
 ```
 
+Persisted data uses namespace `gittenberg-prototype-v2`. If you see decode errors after a schema upgrade (e.g. missing `role` on agents), hard-refresh the app or use **Reset to seed data** on the error screen. To wipe manually: delete browser localStorage keys prefixed with `gittenberg-prototype-v2:` (or the older `gittenberg-prototype:` namespace).
+
 ## Architecture
 
 | Layer | Package |
@@ -35,7 +37,7 @@ CRUD changes persist across reloads (sqlite/localStorage). Data is loaded and ca
 
 ## Routes
 
-`/` redirects to `/explore` (project landing with Eternal Archive pitch).
+`/` is the **prototype home** — entry point with links to both experiences. Use the **prototype bar** (top of every screen) to switch between Public and Curator areas.
 
 ### Consumer prototype (v2)
 
@@ -53,6 +55,8 @@ CRUD changes persist across reloads (sqlite/localStorage). Data is loaded and ca
 - `/archive/anchor` — Arweave anchoring wizard
 
 ### Curator / CRUD (v1)
+
+Curator top nav: Overview (`/`), Repositories, Agents, Catalog (`/library` admin — not the public cinematic library at `/library/cinematic`).
 
 Repository-scoped paths use the repository **slug** from seed data:
 

@@ -1,5 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import {
+  cn,
   GittenbergFooter,
   GittenbergTopAppBar,
   RepositorySidebar,
@@ -17,6 +18,7 @@ import {
   repositorySidebarNav,
   routes,
 } from "@/navigation/routes"
+import { PrototypeModeBar } from "@/shell/prototype-mode-bar"
 
 export function AppLayout() {
   const navigate = useNavigate()
@@ -35,22 +37,30 @@ export function AppLayout() {
   )
 
   const showRepositoryChrome = Boolean(repositorySlug && repository)
+  const isPrototypeHome = pathname === routes.prototypeHome
   const isReaderRoute = pathname.includes("/reader")
   const isLibraryRoute = pathname === "/library"
   const density = isReaderRoute || isLibraryRoute ? "spacious" : "operational"
+  const shellPad = "pt-prototype-bar-only"
 
   return (
     <div className="min-h-screen bg-background" data-density={density}>
-      <GittenbergTopAppBar
-        brandName="Gittenberg"
-        brandHref={routes.repositories}
-        navItems={[...curatorNavItems]}
-        activeNavId={activeCuratorNavId(pathname)}
-        searchPlaceholder="Search the archives..."
-        onNavItemClick={(item) => {
-          if (item.href !== "#") navigate(item.href)
-        }}
-      />
+      <div className="fixed inset-x-0 top-0 z-50 flex flex-col">
+        <PrototypeModeBar />
+        {!isPrototypeHome ? (
+          <GittenbergTopAppBar
+            brandName="Gittenberg"
+            brandHref={routes.prototypeHome}
+            navItems={[...curatorNavItems]}
+            activeNavId={activeCuratorNavId(pathname)}
+            searchPlaceholder="Search the archives..."
+            className="static top-auto right-auto left-auto border-t-0"
+            onNavItemClick={(item) => {
+              if (item.href !== "#") navigate(item.href)
+            }}
+          />
+        ) : null}
+      </div>
       {showRepositoryChrome ? (
         <RepositorySidebar
           title={repository!.title}
@@ -60,13 +70,14 @@ export function AppLayout() {
           navItems={navItems}
           footerItems={[...ui.sidebarFooter]}
           primaryActionLabel="Create Revision"
+          className="lg:top-11 lg:h-[calc(100vh-2.75rem)] lg:pt-component"
           onNavItemClick={(item) => {
             select(item.id)
             if (item.href !== "#") navigate(item.href)
           }}
         />
       ) : null}
-      <div className={showRepositoryChrome ? "lg:pl-64" : ""}>
+      <div className={cn(showRepositoryChrome ? "lg:pl-64" : "", shellPad)}>
         <Outlet />
       </div>
       {showRepositoryChrome && !isReaderRoute ? (

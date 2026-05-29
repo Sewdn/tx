@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { PrototypeHomePage } from "@/pages/prototype-home-page"
 import type { GittenbergBackend } from "@tx/gittenberg-data"
 import { GittenbergDataProvider } from "@tx/gittenberg-data-react"
 import { routePatterns, routes } from "@/navigation/routes"
@@ -56,6 +57,7 @@ function AppRoutes() {
       </Route>
 
       <Route element={<AppLayout />}>
+        <Route path={routePatterns.prototypeHome} element={<PrototypeHomePage />} />
         <Route path={routePatterns.repositories} element={<RepositoriesIndexPage />} />
         <Route path={routePatterns.repositoryNew} element={<CreateRepositoryPage />} />
         <Route path={routePatterns.library} element={<LibraryPage />} />
@@ -90,8 +92,7 @@ function AppRoutes() {
 
       </Route>
 
-      <Route path="/" element={<Navigate to={routes.explore} replace />} />
-      <Route path="*" element={<Navigate to={routes.explore} replace />} />
+      <Route path="*" element={<Navigate to={routes.prototypeHome} replace />} />
     </Routes>
   )
 }

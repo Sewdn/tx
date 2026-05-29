@@ -9,3 +9,13 @@ body,
 body {
   margin: 0;
 }
+
+@layer utilities {
+  .pt-prototype-bar-only {
+    padding-top: 2.75rem;
+  }
+
+  .pt-shell-prototype {
+    padding-top: calc(var(--spacing-shell-offset-top) + 2.75rem);
+  }
+}

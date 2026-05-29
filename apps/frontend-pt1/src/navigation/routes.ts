@@ -10,6 +10,7 @@ export const eventIdParam = "eventId"
 export const metricIdParam = "metricId"
 
 export const routes = {
+  prototypeHome: "/",
   explore: "/explore",
   libraryCinematic: "/library/cinematic",
   libraryEdition: (editionId: string) => `/library/editions/${editionId}`,
@@ -59,6 +60,7 @@ export const routes = {
 } as const
 
 export const routePatterns = {
+  prototypeHome: routes.prototypeHome,
   explore: routes.explore,
   libraryCinematic: "/library/cinematic",
   libraryEdition: `/library/editions/:${editionIdParam}`,
@@ -101,11 +103,12 @@ export const routePatterns = {
   metricEdit: `/metrics/:${metricIdParam}/edit`,
 } as const
 
+/** Curator / Lexicon top nav — distinct from consumer Explore (public mission landing). */
 export const curatorNavItems = [
-  { id: "explore", label: "Explore", href: routes.explore },
+  { id: "prototype", label: "Overview", href: routes.prototypeHome },
   { id: "repositories", label: "Repositories", href: routes.repositories },
   { id: "agents", label: "Agents", href: routes.agents },
-  { id: "library", label: "Library", href: routes.library },
+  { id: "library", label: "Catalog", href: routes.library },
 ] as const
 
 export function consumerNavItemsFromUi(
@@ -183,13 +186,18 @@ export function activeSidebarId(pathname: string): SidebarNavId {
 }
 
 export function activeCuratorNavId(pathname: string): CuratorNavId {
+  if (pathname === routes.prototypeHome) return "prototype"
   if (pathname.startsWith(routes.agents)) return "agents"
-  if (pathname === routes.library || pathname.startsWith("/library/") && pathname.includes("/edit")) {
+  if (
+    pathname === routes.library ||
+    pathname.startsWith("/library/new") ||
+    (pathname.startsWith("/library/") && pathname.includes("/edit"))
+  ) {
     return "library"
   }
   if (pathname.startsWith(routes.repositories)) return "repositories"
-  if (pathname.startsWith(routes.explore)) return "explore"
-  return "explore"
+  if (pathname.startsWith("/metrics")) return "agents"
+  return "repositories"
 }
 
 export function activeConsumerNavId(pathname: string): ConsumerNavId {
@@ -204,7 +212,19 @@ export function activeConsumerNavId(pathname: string): ConsumerNavId {
   return "explore"
 }
 
+export function isCuratorRoute(pathname: string): boolean {
+  if (pathname === routes.prototypeHome) return false
+  if (isConsumerRoute(pathname)) return false
+  return (
+    pathname.startsWith(routes.repositories) ||
+    pathname.startsWith(routes.agents) ||
+    pathname.startsWith(routes.library) ||
+    pathname.startsWith("/metrics")
+  )
+}
+
 export function isConsumerRoute(pathname: string): boolean {
+  if (pathname === routes.prototypeHome) return false
   return (
     pathname.startsWith(routes.explore) ||
     pathname.startsWith("/library/cinematic") ||
