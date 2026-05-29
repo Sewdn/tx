@@ -23,6 +23,8 @@ export type CreateGittenbergDataServiceOptions = {
   namespace?: string
   /** When true (default), load demo seed data if tables are empty. */
   seedIfEmpty?: boolean
+  /** sql.js WASM resolver for the `sqlite` backend (Vite apps use the default bundler URL). */
+  locateFile?: (file: string) => string
 }
 
 export async function createGittenbergDataService(
@@ -32,7 +34,7 @@ export async function createGittenbergDataService(
   const namespace = options.namespace ?? "gittenberg-prototype"
   const shouldSeed = options.seedIfEmpty ?? true
 
-  const store = await createEntityStore({ backend, namespace })
+  const store = await createEntityStore({ backend, namespace, locateFile: options.locateFile })
   await store.init()
 
   const ports = createGittenbergPorts(store)

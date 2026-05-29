@@ -33,4 +33,6 @@ export type GittenbergBackend = "memory" | "localStorage" | "sqlite"
 export type CreateEntityStoreOptions = {
   backend: GittenbergBackend
   namespace?: string
+  /** sql.js WASM resolver (browser). Defaults to bundled `sql-wasm-browser.wasm`. */
+  locateFile?: (file: string) => string
 }

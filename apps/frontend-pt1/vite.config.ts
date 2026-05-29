@@ -49,4 +49,5 @@ function workspaceInternalAlias(): Plugin {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), workspaceInternalAlias()],
+  assetsInclude: ["**/*.wasm"],
 })

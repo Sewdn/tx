@@ -1,4 +1,5 @@
 import initSqlJs, { type Database, type SqlJsStatic } from "sql.js"
+import { createDefaultSqlJsLocateFile } from "./sqljs-browser-wasm.js"
 import type { EntityStore, StoredRecord } from "./types.js"
 
 const SCHEMA_SQL = `
@@ -42,9 +43,7 @@ export async function createSqliteEntityStore(
   const persist = options.persist ?? true
   const storageKey = `${options.namespace}:sqlite-db`
   const SQL: SqlJsStatic = await initSqlJs({
-    locateFile:
-      options.locateFile ??
-      ((file) => `https://sql.js.org/dist/${file}`),
+    locateFile: options.locateFile ?? createDefaultSqlJsLocateFile(),
   })
 
   const saved = persist ? globalThis.localStorage?.getItem(storageKey) : null

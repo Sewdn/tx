@@ -14,7 +14,11 @@ export async function createEntityStore(
     case "localStorage":
       return createLocalStorageEntityStore(namespace)
     case "sqlite":
-      return createSqliteEntityStore({ namespace, persist: true })
+      return createSqliteEntityStore({
+        namespace,
+        persist: true,
+        locateFile: options.locateFile,
+      })
     default: {
       const exhaustive: never = options.backend
       throw new Error(`Unknown backend: ${exhaustive}`)

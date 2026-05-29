@@ -8,7 +8,7 @@ Gittenberg prototype **data service**: domain `CrudPort` implementations, swappa
 |---------|----------|
 | `memory` | Unit tests, ephemeral demos |
 | `localStorage` | Browser JSON persistence (no WASM) |
-| `sqlite` | Browser SQLite via [sql.js](https://sql.js.org/) (default); DB snapshot stored in `localStorage` |
+| `sqlite` | Browser SQLite via [sql.js](https://sql.js.org/) (default); WASM bundled by Vite; DB snapshot in `localStorage` |
 
 All backends expose the same `GittenbergPorts` API from `@tx/domain-shared`.
 
