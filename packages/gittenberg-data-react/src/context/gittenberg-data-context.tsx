@@ -9,6 +9,7 @@ import {
 } from "react"
 import {
   createGittenbergDataService,
+  GITTENBERG_DEFAULT_STORAGE_NAMESPACE,
   type CreateGittenbergDataServiceOptions,
   type GittenbergBackend,
   type GittenbergDataService,
@@ -68,7 +69,7 @@ export function GittenbergDataProvider({
   loadingFallback = defaultLoading,
   queryClient: queryClientProp,
 }: GittenbergDataProviderProps) {
-  const namespace = namespaceOption ?? "gittenberg-prototype"
+  const namespace = namespaceOption ?? GITTENBERG_DEFAULT_STORAGE_NAMESPACE
   const [serviceState, setServiceState] = useState<{
     service: GittenbergDataService
     backend: GittenbergBackend

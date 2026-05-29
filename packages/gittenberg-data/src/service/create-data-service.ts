@@ -1,3 +1,4 @@
+import { GITTENBERG_DEFAULT_STORAGE_NAMESPACE } from "../constants.js"
 import { createGittenbergPorts } from "../crud/create-ports.js"
 import type { GittenbergPorts, GittenbergUiSeed } from "../ports.js"
 import { seedUi } from "../seed/gittenberg-seed.js"
@@ -31,7 +32,7 @@ export async function createGittenbergDataService(
   options: CreateGittenbergDataServiceOptions = {},
 ): Promise<GittenbergDataService> {
   const backend = options.backend ?? "sqlite"
-  const namespace = options.namespace ?? "gittenberg-prototype"
+  const namespace = options.namespace ?? GITTENBERG_DEFAULT_STORAGE_NAMESPACE
   const shouldSeed = options.seedIfEmpty ?? true
 
   const store = await createEntityStore({ backend, namespace, locateFile: options.locateFile })

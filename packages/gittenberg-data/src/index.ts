@@ -1,5 +1,6 @@
 export type { GittenbergPorts, GittenbergUiSeed, FileTreeNode } from "./ports.js"
 export { MOBY_REPOSITORY_ID, FOUNDATION_REPOSITORY_ID, DEMO_USER_ID, DEFAULT_REPOSITORY_SLUG } from "./ports.js"
+export { GITTENBERG_DEFAULT_STORAGE_NAMESPACE } from "./constants.js"
 
 export type { GittenbergBackend, EntityStore, EntityTableName } from "./storage/types.js"
 export { createEntityStore } from "./storage/create-entity-store.js"
