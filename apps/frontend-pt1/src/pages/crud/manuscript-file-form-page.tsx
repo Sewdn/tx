@@ -26,7 +26,7 @@ export function ManuscriptFileFormPage() {
 
   if (isEdit && !existing) {
     return (
-      <main className="px-margin-desktop pt-24">
+      <main className="px-boundary pt-shell">
         <p className="text-destructive">Manuscript file not found.</p>
       </main>
     )

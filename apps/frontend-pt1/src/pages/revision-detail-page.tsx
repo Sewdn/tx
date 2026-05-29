@@ -23,13 +23,13 @@ export function RevisionDetailPage({ revision, allRevisions }: RevisionDetailPag
 
   return (
     <main className="min-h-screen canvas-bg">
-      <div className="border-b border-outline-variant bg-surface px-8 py-4">
-        <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-4">
+      <div className="border-b border-outline-variant bg-surface px-8 py-component">
+        <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-component">
           {allRevisions.length > 1 ? (
-            <label className="flex items-center gap-2 text-sm">
+            <label className="flex items-center gap-micro text-sm">
               <span className="text-on-surface-variant">Revision</span>
               <select
-                className="rounded-md border border-input bg-background px-2 py-1"
+                className="rounded-md border border-input bg-background px-micro py-1"
                 value={revision.id}
                 onChange={(e) => {
                   window.location.href = routes.repositoryRevision(repository.slug, e.target.value)
@@ -43,7 +43,7 @@ export function RevisionDetailPage({ revision, allRevisions }: RevisionDetailPag
               </select>
             </label>
           ) : null}
-          <div className="flex gap-2">
+          <div className="flex gap-micro">
             <Button size="sm" variant="outline" asChild>
               <Link to={routes.repositoryRevisionEdit(repository.slug, revision.id)}>Edit</Link>
             </Button>
@@ -60,7 +60,7 @@ export function RevisionDetailPage({ revision, allRevisions }: RevisionDetailPag
         author={revision.author}
         timestamp={revision.timestamp}
       />
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-8 p-8 xl:flex-row">
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-section p-section xl:flex-row">
         <DiffViewer
           fileName={revision.fileName}
           viewMode="Unified"

@@ -7,11 +7,11 @@ export function RepositoriesIndexPage() {
   const { repositories } = useGittenbergData()
 
   return (
-    <main className="mx-auto max-w-container-max px-margin-mobile pt-24 pb-20 md:px-margin-desktop">
-      <div className="flex flex-wrap items-start justify-between gap-4">
+    <main className="mx-auto max-w-container-max px-boundary pt-shell pb-page md:px-boundary">
+      <div className="flex flex-wrap items-start justify-between gap-component">
         <div>
           <h1 className="font-headline-lg text-headline-lg text-primary">Repositories</h1>
-          <p className="mt-2 max-w-2xl text-on-surface-variant">
+          <p className="mt-micro max-w-2xl text-on-surface-variant">
             Select a literary repository to open its manuscript, revisions, builds, and reader
             preview.
           </p>
@@ -20,12 +20,12 @@ export function RepositoriesIndexPage() {
           <Link to={routes.repositoryNew}>New repository</Link>
         </Button>
       </div>
-      <ul className="mt-10 grid gap-gutter md:grid-cols-2">
+      <ul className="mt-region grid gap-region md:grid-cols-2">
         {repositories.map((repository) => (
           <li key={repository.id}>
             <Link
               to={routes.repositoryHome(repository.slug)}
-              className="flex gap-4 rounded-lg border border-outline-variant bg-surface-container-low p-6 transition-colors hover:bg-surface-container-high"
+              className="flex gap-component rounded-lg border border-outline-variant bg-surface-container-low p-section transition-colors hover:bg-surface-container-high"
             >
               {repository.coverUrl ? (
                 <img
@@ -41,7 +41,7 @@ export function RepositoriesIndexPage() {
               <div>
                 <h2 className="font-headline-lg text-[20px] text-primary">{repository.title}</h2>
                 <p className="text-on-surface-variant">{repository.subtitle}</p>
-                <p className="mt-2 font-code-sm text-code-sm text-on-surface-variant">
+                <p className="mt-micro font-code-sm text-code-sm text-on-surface-variant">
                   /{repository.slug}
                 </p>
               </div>

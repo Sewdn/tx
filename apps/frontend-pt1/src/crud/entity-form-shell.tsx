@@ -63,14 +63,14 @@ export function EntityFormShell<T extends object>({
 
   return (
     <EntityFormProvider form={form as EntityFormApi}>
-      <main className="mx-auto max-w-3xl px-margin-mobile pt-24 pb-20 md:px-margin-desktop">
+      <main className="mx-auto max-w-3xl px-boundary pt-shell pb-page md:px-boundary">
         <Link to={backHref} className="text-sm text-primary underline">
           ← Back
         </Link>
-        <h1 className="mt-4 font-headline-lg text-headline-lg text-primary">{title}</h1>
-        {description ? <p className="mt-2 text-on-surface-variant">{description}</p> : null}
+        <h1 className="mt-component font-headline-lg text-headline-lg text-primary">{title}</h1>
+        {description ? <p className="mt-micro text-on-surface-variant">{description}</p> : null}
         <form
-          className="mt-8 space-y-6"
+          className="mt-section space-y-6"
           noValidate
           onSubmit={(event) => {
             event.preventDefault()
@@ -82,7 +82,7 @@ export function EntityFormShell<T extends object>({
           {serverError ? <p className="text-sm text-destructive">{serverError}</p> : null}
           <form.Subscribe selector={(state) => state.isSubmitting}>
             {(isSubmitting) => (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-component">
                 <Button type="submit" disabled={isSubmitting}>
                   {submitLabel}
                 </Button>

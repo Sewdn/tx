@@ -21,7 +21,7 @@ export function LibraryEditionFormPage() {
 
   if (isEdit && !existing) {
     return (
-      <main className="px-margin-desktop pt-24">
+      <main className="px-boundary pt-shell">
         <p className="text-destructive">Library edition not found.</p>
       </main>
     )

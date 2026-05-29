@@ -30,13 +30,13 @@ export function BuildExportPage({ build, allBuilds }: BuildExportPageProps) {
   const { presetOptions } = usePresetSelection(toDesignPresets(build))
 
   return (
-    <main className="grid min-h-screen grid-cols-12 gap-gutter p-margin-desktop pt-24">
-      <div className="col-span-12 flex flex-wrap items-center justify-between gap-4 pb-2">
+    <main className="grid min-h-screen grid-cols-12 gap-region p-boundary pt-shell">
+      <div className="col-span-12 flex flex-wrap items-center justify-between gap-component pb-2">
         {allBuilds.length > 1 ? (
-          <label className="flex items-center gap-2 text-sm">
+          <label className="flex items-center gap-micro text-sm">
             <span className="text-on-surface-variant">Build</span>
             <select
-              className="rounded-md border border-input bg-background px-2 py-1"
+              className="rounded-md border border-input bg-background px-micro py-1"
               value={build.id}
               onChange={(e) => {
                 window.location.href = routes.repositoryBuild(repository.slug, e.target.value)
@@ -54,7 +54,7 @@ export function BuildExportPage({ build, allBuilds }: BuildExportPageProps) {
             {build.version} · {build.statusLabel}
           </span>
         )}
-        <div className="flex gap-2">
+        <div className="flex gap-micro">
           <Button size="sm" variant="outline" asChild>
             <Link to={routes.repositoryBuildEdit(repository.slug, build.id)}>Edit build</Link>
           </Button>
@@ -68,7 +68,7 @@ export function BuildExportPage({ build, allBuilds }: BuildExportPageProps) {
         <PresetSelector presets={presetOptions} />
         <StylingOptionsPanel sliders={toStylingSliders(build)} toggles={toStylingToggles(build)} />
       </div>
-      <div className="col-span-12 flex h-full flex-col gap-6 lg:col-span-8">
+      <div className="col-span-12 flex h-full flex-col gap-section lg:col-span-8">
         <BuildPreviewCard
           author={repository.title}
           title={build.title || repository.heroTitle}

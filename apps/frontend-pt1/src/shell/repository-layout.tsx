@@ -8,14 +8,14 @@ export function RepositoryLayout() {
 
   if (!repository) {
     return (
-      <main className="mx-auto max-w-container-max px-margin-desktop py-32 pt-24">
+      <main className="mx-auto max-w-container-max px-boundary py-32 pt-shell">
         <h1 className="font-headline-lg text-headline-lg text-primary">Repository not found</h1>
-        <p className="mt-4 text-on-surface-variant">
+        <p className="mt-component text-on-surface-variant">
           No repository matches <code className="font-code-sm">{slug}</code> (by slug or id).
         </p>
         <Link
           to={routes.repositories}
-          className="mt-8 inline-block font-ui-label-md text-primary underline"
+          className="mt-section inline-block font-ui-label-md text-primary underline"
         >
           Browse repositories
         </Link>

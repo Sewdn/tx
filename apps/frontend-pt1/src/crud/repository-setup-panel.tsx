@@ -59,10 +59,10 @@ export function RepositorySetupPanel() {
 
   return (
     <section className="mt-16 space-y-gutter border-t border-outline-variant pt-12">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-component">
         <div>
           <h2 className="font-headline-lg text-[22px] text-primary">Repository setup</h2>
-          <p className="mt-1 text-sm text-on-surface-variant">
+          <p className="mt-micro text-sm text-on-surface-variant">
             Create and manage all entities linked to this repository.
           </p>
         </div>

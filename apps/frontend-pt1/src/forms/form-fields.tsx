@@ -36,7 +36,7 @@ export function FormTextField({
   return (
     <form.Field name={name} listeners={listeners}>
       {(field) => (
-        <label className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-micro.5">
           <span className="font-ui-label-md text-ui-label-md text-on-surface-variant">{label}</span>
           <Input
             type={type}
@@ -66,7 +66,7 @@ export function FormJsonField({ name, label, rows = 6, hint }: FormJsonFieldProp
   return (
     <form.Field name={name}>
       {(field) => (
-        <label className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-micro.5">
           <span className="font-ui-label-md text-ui-label-md text-on-surface-variant">{label}</span>
           <Textarea
             rows={rows}
@@ -94,8 +94,8 @@ export function FormCheckboxField({ name, label }: FormCheckboxFieldProps) {
   return (
     <form.Field name={name}>
       {(field) => (
-        <div className="flex flex-col gap-1">
-          <label className="flex items-center gap-2">
+        <div className="flex flex-col gap-micro">
+          <label className="flex items-center gap-micro">
             <Checkbox
               checked={Boolean(field.state.value)}
               onBlur={field.handleBlur}
@@ -122,10 +122,10 @@ export function FormSelectField({ name, label, options }: FormSelectFieldProps) 
   return (
     <form.Field name={name}>
       {(field) => (
-        <label className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-micro.5">
           <span className="font-ui-label-md text-ui-label-md text-on-surface-variant">{label}</span>
           <select
-            className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+            className="h-10 rounded-md border border-input bg-background px-component text-sm"
             value={String(field.state.value ?? "")}
             onBlur={field.handleBlur}
             onChange={(e) => field.handleChange(e.target.value)}

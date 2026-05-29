@@ -31,9 +31,9 @@ export function RepositoryHomePage() {
   const slug = repository.slug
 
   return (
-    <main className="min-h-screen px-margin-mobile pt-24 pb-20 md:px-margin-desktop">
+    <main className="min-h-screen px-boundary pt-shell pb-page md:px-boundary">
       <div className="mx-auto max-w-container-max">
-        <div className="mb-6 flex flex-wrap gap-3">
+        <div className="mb-section flex flex-wrap gap-component">
           {revisions.length === 0 ? (
             <Button size="sm" variant="outline" asChild>
               <Link to={routes.repositoryRevisionNew(slug)}>Create revision</Link>
@@ -76,7 +76,7 @@ export function RepositoryHomePage() {
           title={repository.heroTitle}
           subtitle={repository.heroSubtitle}
         />
-        <div className="grid grid-cols-1 gap-gutter xl:grid-cols-12">
+        <div className="grid grid-cols-1 gap-region xl:grid-cols-12">
           <div className="space-y-gutter xl:col-span-8">
             <FileTable
               branchLabel={repository.branchLabel}
@@ -93,12 +93,12 @@ export function RepositoryHomePage() {
                 .
               </p>
             ) : null}
-            <TonalSurface className="p-10 md:p-16">
+            <TonalSurface className="p-10 md:p-region">
               <article className="mx-auto max-w-reading-width">
-                <h2 className="mb-6 border-b border-outline-variant pb-2 font-headline-lg text-[24px] text-primary">
+                <h2 className="mb-section border-b border-outline-variant pb-2 font-headline-lg text-[24px] text-primary">
                   README.md
                 </h2>
-                <p className="mb-6 font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+                <p className="mb-section font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
                   {repository.readmeExcerpt || "No README excerpt yet. Edit the repository to add one."}
                 </p>
               </article>
@@ -113,13 +113,13 @@ export function RepositoryHomePage() {
               agentsActive
             />
             {repoMetrics.length > 0 ? (
-              <p className="mt-4 text-sm text-on-surface-variant">
+              <p className="mt-component text-sm text-on-surface-variant">
                 {toMetricCards(repoMetrics)
                   .map((metric) => `${metric.label}: ${metric.value}`)
                   .join(" · ")}
               </p>
             ) : (
-              <p className="mt-4 text-sm text-on-surface-variant">
+              <p className="mt-component text-sm text-on-surface-variant">
                 <Link
                   to={`${routes.metricNew("repository")}&from=${slug}`}
                   className="text-primary underline"

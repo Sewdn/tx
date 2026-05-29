@@ -36,9 +36,11 @@ export function AppLayout() {
 
   const showRepositoryChrome = Boolean(repositorySlug && repository)
   const isReaderRoute = pathname.includes("/reader")
+  const isLibraryRoute = pathname === "/library"
+  const density = isReaderRoute || isLibraryRoute ? "spacious" : "operational"
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" data-density={density}>
       <GittenbergTopAppBar
         brandName="Gittenberg"
         brandHref={routes.repositories}

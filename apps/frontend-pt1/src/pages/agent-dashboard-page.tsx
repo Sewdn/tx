@@ -26,8 +26,8 @@ export function AgentDashboardPage() {
   const agentMetrics = metricSnapshots.filter((metric) => metric.scope === "agents")
 
   return (
-    <main className="mx-auto grid max-w-container-max grid-cols-12 gap-gutter px-margin-desktop pt-24 pb-12">
-      <div className="col-span-12 mb-6 flex flex-wrap items-start justify-between gap-4">
+    <main className="mx-auto grid max-w-container-max grid-cols-12 gap-region px-boundary pt-shell pb-page">
+      <div className="col-span-12 mb-section flex flex-wrap items-start justify-between gap-component">
         <div>
           <h1 className="font-headline-lg text-headline-lg text-primary">Agent Orchestration</h1>
           <p className="max-w-2xl text-on-surface-variant">
@@ -35,7 +35,7 @@ export function AgentDashboardPage() {
             protocols across the Gittenberg digital stacks.
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-micro">
           <Button variant="outline" asChild>
             <Link to={routes.activityEventNew}>Log activity</Link>
           </Button>
@@ -46,7 +46,7 @@ export function AgentDashboardPage() {
       </div>
       <div className="col-span-12">
         <MetricGrid metrics={toMetricCards(agentMetrics)} />
-        <ul className="mt-4 flex flex-wrap gap-2">
+        <ul className="mt-component flex flex-wrap gap-micro">
           {agentMetrics.map((metric) => (
             <li key={metric.id}>
               <Button size="sm" variant="outline" asChild>
@@ -62,14 +62,14 @@ export function AgentDashboardPage() {
       </div>
       <div className="col-span-12 lg:col-span-4">
         <ActivityFeed items={toActivityFeedItems([...activityEvents])} />
-        <ul className="mt-6 space-y-2">
+        <ul className="mt-section space-y-2">
           {activityEvents.map((event) => (
             <li
               key={event.id}
-              className="flex items-center justify-between gap-2 rounded border border-outline-variant px-3 py-2 text-sm"
+              className="flex items-center justify-between gap-micro rounded border border-outline-variant px-component py-component text-sm"
             >
               <span className="truncate">{event.title}</span>
-              <div className="flex shrink-0 gap-1">
+              <div className="flex shrink-0 gap-micro">
                 <Button size="sm" variant="ghost" asChild>
                   <Link to={routes.activityEventEdit(event.id)}>Edit</Link>
                 </Button>

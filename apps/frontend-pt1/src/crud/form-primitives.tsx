@@ -21,8 +21,8 @@ export function EntityListPanel({
   onDelete,
 }: EntityListPanelProps) {
   return (
-    <section className="rounded-lg border border-outline-variant bg-surface-container-low p-6">
-      <div className="mb-4 flex items-center justify-between gap-4">
+    <section className="rounded-lg border border-outline-variant bg-surface-container-low p-section">
+      <div className="mb-component flex items-center justify-between gap-component">
         <h2 className="font-headline-lg text-[18px] text-primary">{title}</h2>
         <Button size="sm" asChild>
           <Link to={createHref}>{createLabel}</Link>
@@ -33,12 +33,12 @@ export function EntityListPanel({
       ) : (
         <ul className="divide-y divide-outline-variant">
           {items.map((item) => (
-            <li key={item.id} className="flex items-center justify-between gap-4 py-3">
+            <li key={item.id} className="flex items-center justify-between gap-component py-component">
               <div>
                 <p className="font-ui-label-md text-ui-label-md">{item.label}</p>
                 {item.meta ? <p className="text-xs text-on-surface-variant">{item.meta}</p> : null}
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-micro">
                 <Button size="sm" variant="outline" asChild>
                   <Link to={editHref(item.id)}>Edit</Link>
                 </Button>

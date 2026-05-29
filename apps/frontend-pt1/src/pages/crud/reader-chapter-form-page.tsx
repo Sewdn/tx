@@ -24,7 +24,7 @@ export function ReaderChapterFormPage() {
 
   if (isEdit && !existing) {
     return (
-      <main className="px-margin-desktop pt-24">
+      <main className="px-boundary pt-shell">
         <p className="text-destructive">Reader chapter not found.</p>
       </main>
     )

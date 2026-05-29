@@ -49,13 +49,13 @@ export function InternationalBuildsPage() {
 
   if (!build) {
     return (
-      <main className="mx-auto max-w-container-max px-margin-desktop py-12 pt-24">
+      <main className="mx-auto max-w-container-max px-boundary py-region pt-shell">
         <RepositoryHero
           {...repositoryHeroFrom(repository)}
           description="International translation forks and localized build artifacts."
         />
-        <p className="mt-8 text-on-surface-variant">Create a literary build to populate translation lineage.</p>
-        <Button className="mt-6" asChild>
+        <p className="mt-section text-on-surface-variant">Create a literary build to populate translation lineage.</p>
+        <Button className="mt-section" asChild>
           <Link to={routes.repositoryBuildNew(repository.slug)}>Create build</Link>
         </Button>
       </main>
@@ -63,12 +63,12 @@ export function InternationalBuildsPage() {
   }
 
   return (
-    <main className="mx-auto max-w-container-max px-margin-desktop py-12 pt-24">
+    <main className="mx-auto max-w-container-max px-boundary py-region pt-shell">
       <RepositoryHero
         {...repositoryHeroFrom(repository)}
         description="International translation forks and localized build artifacts."
       />
-      <section className="mb-16 grid grid-cols-1 gap-gutter lg:grid-cols-3">
+      <section className="mb-region grid grid-cols-1 gap-region lg:grid-cols-3">
         <ActiveBuildCard
           versionWatermark={build.version}
           statusLabel={build.statusLabel}

@@ -30,10 +30,10 @@ export function ReaderPreviewPage() {
 
   if (!chapter) {
     return (
-      <main className="mx-auto max-w-container-max px-margin-mobile pt-24 pb-20 md:px-margin-desktop">
+      <main className="mx-auto max-w-container-max px-boundary pt-shell pb-page md:px-boundary">
         <h1 className="font-headline-lg text-headline-lg text-primary">Reader preview</h1>
-        <p className="mt-2 text-on-surface-variant">No chapters for this repository yet.</p>
-        <Button className="mt-8" asChild>
+        <p className="mt-micro text-on-surface-variant">No chapters for this repository yet.</p>
+        <Button className="mt-section" asChild>
           <Link to={routes.repositoryChapterNew(repository.slug)}>Add reader chapter</Link>
         </Button>
       </main>
@@ -50,7 +50,7 @@ export function ReaderPreviewPage() {
         open={open}
         onClose={closeDrawer}
       />
-      <div className="fixed top-20 right-4 z-50 hidden gap-2 md:flex">
+      <div className="fixed top-20 right-4 z-50 hidden gap-micro md:flex">
         <Button size="sm" variant="outline" asChild>
           <Link to={routes.repositoryChapterEdit(repository.slug, chapter.id)}>Edit chapter</Link>
         </Button>
@@ -58,7 +58,7 @@ export function ReaderPreviewPage() {
           <Link to={routes.repositoryChapterNew(repository.slug)}>Add chapter</Link>
         </Button>
       </div>
-      <main className="flex min-h-screen justify-center px-margin-mobile pt-32 pb-48 md:px-margin-desktop">
+      <main className="flex min-h-screen justify-center px-boundary pt-reader pb-page md:px-boundary">
         <ReaderArticle
           chapterLabel={chapter.label}
           title={chapter.title}
@@ -76,7 +76,7 @@ export function ReaderPreviewPage() {
       />
       <button
         type="button"
-        className="fixed top-20 left-4 z-50 rounded-full bg-primary px-3 py-2 text-on-primary md:hidden"
+        className="fixed top-20 left-4 z-50 rounded-full bg-primary px-component py-component text-on-primary md:hidden"
         onClick={openDrawer}
       >
         TOC

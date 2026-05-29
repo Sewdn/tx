@@ -18,8 +18,8 @@ export function LibraryPage() {
   })
 
   return (
-    <main className="mx-auto grid max-w-container-max grid-cols-12 gap-gutter px-margin-desktop pt-24 pb-12">
-      <div className="col-span-12 mb-4 flex justify-end">
+    <main className="mx-auto grid max-w-container-max grid-cols-12 gap-region px-boundary pt-shell pb-page">
+      <div className="col-span-12 mb-component flex justify-end">
         <Button asChild>
           <Link to={routes.libraryEditionNew}>Add edition</Link>
         </Button>
@@ -38,16 +38,16 @@ export function LibraryPage() {
           subtitle={`Showing ${libraryEditions.length} curated editions`}
           builds={toLibraryBuildCards([...libraryEditions])}
         />
-        <ul className="mt-8 space-y-2 border-t border-outline-variant pt-8">
+        <ul className="mt-section space-y-2 border-t border-outline-variant pt-section">
           {libraryEditions.map((edition) => (
             <li
               key={edition.id}
-              className="flex flex-wrap items-center justify-between gap-4 rounded-md border border-outline-variant px-4 py-3"
+              className="flex flex-wrap items-center justify-between gap-component rounded-md border border-outline-variant px-component py-component"
             >
               <span className="font-ui-label-md">
                 {edition.title} — {edition.author}
               </span>
-              <div className="flex gap-2">
+              <div className="flex gap-micro">
                 <Button size="sm" variant="outline" asChild>
                   <Link to={routes.libraryEditionEdit(edition.id)}>Edit</Link>
                 </Button>

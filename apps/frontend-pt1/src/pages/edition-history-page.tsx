@@ -24,10 +24,10 @@ export function EditionHistoryPage() {
 
   if (!build) {
     return (
-      <main className="mx-auto max-w-container-max px-margin-desktop py-12 pt-24">
+      <main className="mx-auto max-w-container-max px-boundary py-region pt-shell">
         <RepositoryHero {...repositoryHeroFrom(repository)} />
-        <p className="mt-8 text-on-surface-variant">No literary build yet for insights and edition history.</p>
-        <Button className="mt-6" asChild>
+        <p className="mt-section text-on-surface-variant">No literary build yet for insights and edition history.</p>
+        <Button className="mt-section" asChild>
           <Link to={routes.repositoryBuildNew(repository.slug)}>Create build</Link>
         </Button>
       </main>
@@ -35,9 +35,9 @@ export function EditionHistoryPage() {
   }
 
   return (
-    <main className="mx-auto max-w-container-max px-margin-desktop py-12 pt-24">
+    <main className="mx-auto max-w-container-max px-boundary py-region pt-shell">
       <RepositoryHero {...repositoryHeroFrom(repository)} />
-      <section className="mb-16 grid grid-cols-1 gap-gutter lg:grid-cols-3">
+      <section className="mb-region grid grid-cols-1 gap-region lg:grid-cols-3">
         <ActiveBuildCard
           versionWatermark={build.version}
           statusLabel={build.statusLabel}
