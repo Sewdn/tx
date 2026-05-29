@@ -38,3 +38,11 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # dora code context index
 .dora/
+
+# Fly static deploy wrappers (dist populated by cli-admin fly deploy)
+apps/textus-static-*/dist
+
+# cli-admin tsc emits shared config beside apps/ when rootDir is ..
+apps/textus-config.js
+apps/textus-config.d.ts
+apps/textus-config.d.ts.map

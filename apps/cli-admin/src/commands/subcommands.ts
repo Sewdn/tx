@@ -1,5 +1,6 @@
 import { Command } from "effect/unstable/cli";
 import { domainCommand } from "./domain.js";
+import { flyCommand } from "./fly.js";
 import { helloCommand } from "./hello.js";
 
 /**
@@ -11,5 +12,6 @@ export const rootCommand = Command.make("cli-admin").pipe(
     // Commands registered below (scaffold cli add-command)
     helloCommand,
     domainCommand,
+    flyCommand,
   ]),
 );
