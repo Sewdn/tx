@@ -1,0 +1,45 @@
+"""
+Agent-assisted creative studio session for cover and interior design.
+Seed: `seedCreativeStudioSessions`.
+"""
+type CreativeStudioSession implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  literaryBuildId: EntityId!
+  activeAgentId: EntityId!
+  coverIntentPrompt: String!
+  coverAssetUrl: String
+  illustrationStyle: IllustrationStyle!
+  layoutPresetId: EntityId
+  status: StudioSessionStatus!
+}
+
+type CreativeStudioSessionPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [CreativeStudioSession!]!
+}
+
+input CreateCreativeStudioSessionInput {
+  repositoryId: EntityId!
+  literaryBuildId: EntityId!
+  activeAgentId: EntityId!
+  coverIntentPrompt: String!
+  coverAssetUrl: String
+  illustrationStyle: IllustrationStyle!
+  layoutPresetId: EntityId
+  status: StudioSessionStatus!
+}
+
+input UpdateCreativeStudioSessionInput {
+  repositoryId: EntityId
+  literaryBuildId: EntityId
+  activeAgentId: EntityId
+  coverIntentPrompt: String
+  coverAssetUrl: String
+  illustrationStyle: IllustrationStyle
+  layoutPresetId: EntityId
+  status: StudioSessionStatus
+}

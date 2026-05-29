@@ -13,6 +13,10 @@ type GittenbergUiSeed {
   libraryFormats: [String!]!
   curationBars: [CurationBar!]!
   canvasThemes: [CanvasTheme!]!
+  """Consumer-mode top navigation (Explore, My Collections, Library, Subscribe)."""
+  consumerNavItems: [SidebarNavItem!]!
+  """Curator-mode top navigation (Explore, Repositories, Agents, Library)."""
+  curatorNavItems: [SidebarNavItem!]!
 }
 
 """Sample markdown for in-app editor demos (`editorSampleMarkdown` in seed)."""

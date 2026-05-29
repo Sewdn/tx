@@ -15,6 +15,9 @@ type Agent implements Node {
   iconVariant: AgentIconVariant!
   repositoryId: EntityId!
   repository: Repository
+  role: AgentRole!
+  specialty: CreativeAgentSpecialty
+  studioEnabled: Boolean!
 }
 
 type AgentPage implements EntityPage {
@@ -30,6 +33,9 @@ input CreateAgentInput {
   icon: MaterialIcon!
   iconVariant: AgentIconVariant!
   repositoryId: EntityId!
+  role: AgentRole!
+  specialty: CreativeAgentSpecialty
+  studioEnabled: Boolean!
 }
 
 input UpdateAgentInput {
@@ -40,4 +46,7 @@ input UpdateAgentInput {
   icon: MaterialIcon
   iconVariant: AgentIconVariant
   repositoryId: EntityId
+  role: AgentRole
+  specialty: CreativeAgentSpecialty
+  studioEnabled: Boolean
 }

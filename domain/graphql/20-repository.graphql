@@ -20,6 +20,13 @@ type Repository implements Node {
   metadata: [MetadataField!]!
   readmeExcerpt: String!
 
+  """Optional link to canonical author profile."""
+  authorId: EntityId
+  publicationYear: Int
+  citationCount: Int
+  provenanceStatus: ProvenanceStatus
+  eternalAnchorId: EntityId
+
   manuscriptFiles(filter: ManuscriptFileFilter): [ManuscriptFile!]!
   revisions(filter: RevisionFilter): [Revision!]!
   agents(filter: AgentFilter): [Agent!]!
@@ -73,6 +80,11 @@ input CreateRepositoryInput {
   tags: [RepositoryTagInput!]!
   metadata: [MetadataFieldInput!]!
   readmeExcerpt: String!
+  authorId: EntityId
+  publicationYear: Int
+  citationCount: Int
+  provenanceStatus: ProvenanceStatus
+  eternalAnchorId: EntityId
 }
 
 input UpdateRepositoryInput {
@@ -88,6 +100,11 @@ input UpdateRepositoryInput {
   tags: [RepositoryTagInput!]
   metadata: [MetadataFieldInput!]
   readmeExcerpt: String
+  authorId: EntityId
+  publicationYear: Int
+  citationCount: Int
+  provenanceStatus: ProvenanceStatus
+  eternalAnchorId: EntityId
 }
 
 input RepositoryTagInput {

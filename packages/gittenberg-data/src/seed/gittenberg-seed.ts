@@ -19,15 +19,26 @@ import type {
   Revision,
 } from "@tx/domain-shared";
 import type { GittenbergUiSeed } from "../ports.js";
-import { MOBY_REPOSITORY_ID } from "../ports.js";
+import {
+  AGENT_DURER_ID,
+  AGENT_MORRIS_ID,
+  ANCHOR_MOBY_ID,
+  AUTHOR_ASIMOV_ID,
+  AUTHOR_MELVILLE_ID,
+  BUILD_FOUNDATION_ID,
+  LIB_FOUNDATION_EMPIRE_ID,
+  LIB_FOUNDATION_ID,
+  LIB_FOUNDATION_SECOND_ID,
+} from "./gittenberg-seed-v2.js";
+import { MOBY_REPOSITORY_ID, FOUNDATION_REPOSITORY_ID } from "../ports.js";
 
 const NOW = "2026-05-28T12:00:00.000Z";
 
 const mobyCover =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAA0UkIAY4hplX4eZPYhGk1_ylzDZeUFB14H5C7a4nIk_BASxHcCTefiYEKjSsJaRR5V0_Ji_lI9XLl_kF9IwXmucdkHzox13UnKKkTZbX2wwGm4hWa04UiJqkYMHYy27MvWGCUVMtHiP19LkAiKpBsRUf1-5nfqSaJrOg8r-GjvBNdnGXidEsXtQZ1VWI5Tgb6veV46eeS-1GAbQmwjlfL6Km_wc4xccLbPMuXNL8RsaX9hJOp0luWvEwUAVT1wkiX1mi-y92JziaN";
 
-function repo(input: CreateRepositoryInput): Repository {
-  return { id: MOBY_REPOSITORY_ID, createdAt: NOW, updatedAt: NOW, ...input };
+function repo(input: CreateRepositoryInput, id: string): Repository {
+  return { id, createdAt: NOW, updatedAt: NOW, ...input };
 }
 
 function file(input: CreateManuscriptFileInput, id: string): ManuscriptFile {
@@ -47,7 +58,13 @@ function build(input: CreateLiteraryBuildInput, id: string): LiteraryBuild {
 }
 
 function library(input: CreateLibraryEditionInput, id: string): LibraryEdition {
-  return { id, createdAt: NOW, updatedAt: NOW, ...input };
+  return {
+    id,
+    createdAt: NOW,
+    updatedAt: NOW,
+    relatedEditionIds: input.relatedEditionIds ?? [],
+    ...input,
+  };
 }
 
 function activity(input: CreateActivityEventInput, id: string): ActivityEvent {
@@ -78,14 +95,54 @@ export const seedRepositories: Repository[] = [
       { variant: "public-domain", label: "Public Domain" },
       { variant: "agent-curated", label: "Agent-Curated" },
       { variant: "version", label: "v2.4.0-prose" },
+      { variant: "scholarly-edition", label: "Scholarly Edition" },
+      { variant: "eternal", label: "Eternal" },
     ],
     metadata: [
       { label: "Source", value: "Project Gutenberg #2701", href: "#" },
       { label: "Word Count", value: "206,052 tokens" },
+      { label: "Provenance", value: "Verified" },
+      { label: "Citations", value: "1,842 scholarly references" },
+      { label: "Archive Size", value: "42.8 MB" },
+      { label: "Lens", value: "Nautical Modernism" },
     ],
     readmeExcerpt:
       "This repository contains the canonical, agent-audited version of Herman Melville's masterpiece, Moby Dick; or, The Whale.",
-  }),
+    authorId: AUTHOR_MELVILLE_ID,
+    publicationYear: 1851,
+    citationCount: 1842,
+    provenanceStatus: "verified",
+    eternalAnchorId: ANCHOR_MOBY_ID,
+  }, MOBY_REPOSITORY_ID),
+  repo({
+    slug: "foundation",
+    title: "Foundation",
+    subtitle: "Isaac Asimov",
+    coverUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBinX7S3M-OXFGiLfhbfaDT4S_Cmzqpm5sSfGVBCDlheh2pRc82HE81pDGpkQnzDrJCL3wxxEfQ0qjYXiHr5MyF9SzBZP0VEHllk8LiG9AWGygHGa8eE_8ce3gr-_1ewZ3uQJfzjcbTqj9sdGaHh4C1hWzYY-6_6kzfo0GClGX2Wa-qNmhgGUWvCC7Lp3i9OltEbXLZYbv5qn81xlSDGlRjDKE9qYDzGOi5D3H6FMsUnZudTxnvajL786qSsRLBMH0dOaHQak5r4ngI",
+    heroTitle: "Foundation: Galactic Archive",
+    heroSubtitle:
+      "The psychohistorical saga that defined modern science fiction — canonical scholarly edition.",
+    branchName: "master",
+    branchLabel: "Canonical Branch",
+    lastUpdate: "Last Update: 1 day ago by Agent-Hugo",
+    tags: [
+      { variant: "public-domain", label: "Public Domain" },
+      { variant: "scholarly-edition", label: "Scholarly Edition" },
+      { variant: "agent-curated", label: "Agent-Curated" },
+    ],
+    metadata: [
+      { label: "Source", value: "Gittenberg Galactic Archive", href: "#" },
+      { label: "Lens", value: "Sci-Fi Modernism" },
+      { label: "Provenance", value: "Verified" },
+    ],
+    readmeExcerpt:
+      "The first volume of the Foundation series — Hari Seldon's plan to preserve knowledge through the fall of the Galactic Empire.",
+    authorId: AUTHOR_ASIMOV_ID,
+    publicationYear: 1951,
+    citationCount: 892,
+    provenanceStatus: "verified",
+  }, FOUNDATION_REPOSITORY_ID),
 ];
 
 export const seedManuscriptFiles: ManuscriptFile[] = [
@@ -186,6 +243,8 @@ export const seedAgents: Agent[] = [
       icon: "neurology",
       iconVariant: "secondary",
       repositoryId: MOBY_REPOSITORY_ID,
+      role: "curation",
+      studioEnabled: false,
     },
     "agent-repo-1",
   ),
@@ -199,6 +258,8 @@ export const seedAgents: Agent[] = [
       icon: "travel_explore",
       iconVariant: "secondary",
       repositoryId: MOBY_REPOSITORY_ID,
+      role: "curation",
+      studioEnabled: false,
     },
     "agent-dash-1",
   ),
@@ -212,6 +273,8 @@ export const seedAgents: Agent[] = [
       icon: "spellcheck",
       iconVariant: "primary",
       repositoryId: MOBY_REPOSITORY_ID,
+      role: "curation",
+      studioEnabled: false,
     },
     "agent-dash-2",
   ),
@@ -225,8 +288,40 @@ export const seedAgents: Agent[] = [
       icon: "auto_fix_high",
       iconVariant: "muted",
       repositoryId: MOBY_REPOSITORY_ID,
+      role: "curation",
+      studioEnabled: false,
     },
     "agent-dash-3",
+  ),
+  agentEntity(
+    {
+      name: "Agent-Dürer",
+      description: "Woodcut cover design and chapter engraving specialist.",
+      status: "Rendering cover master",
+      statusVariant: "operational",
+      icon: "architecture",
+      iconVariant: "primary",
+      repositoryId: MOBY_REPOSITORY_ID,
+      role: "creative-studio",
+      specialty: "woodcut",
+      studioEnabled: true,
+    },
+    AGENT_DURER_ID,
+  ),
+  agentEntity(
+    {
+      name: "Agent-Morris",
+      description: "Victorian pattern and ornamental layout specialist.",
+      status: "Available",
+      statusVariant: "operational",
+      icon: "vignette",
+      iconVariant: "secondary",
+      repositoryId: MOBY_REPOSITORY_ID,
+      role: "creative-studio",
+      specialty: "victorian-pattern",
+      studioEnabled: true,
+    },
+    AGENT_MORRIS_ID,
   ),
 ];
 
@@ -312,6 +407,15 @@ export const seedLiteraryBuilds: LiteraryBuild[] = [
           description: "Interlinked chapters for browser-based reading.",
           size: "3.2 MB",
         },
+        {
+          id: "print",
+          icon: "print",
+          title: "Print Edition",
+          description: "Order Print ($42.00)",
+          size: "—",
+          printProductId: "print-product-moby",
+          priceCents: 4200,
+        },
       ],
       buildStatus: [
         { label: "Consistency Check", value: "Passed", variant: "success" },
@@ -384,8 +488,66 @@ export const seedLiteraryBuilds: LiteraryBuild[] = [
         { id: "classic", label: "Classic Scholarly", active: true },
         { id: "modern", label: "Modern Minimal" },
       ],
+      permawebAnchorId: ANCHOR_MOBY_ID,
     },
     "build-moby-primary",
+  ),
+  build(
+    {
+      repositoryId: FOUNDATION_REPOSITORY_ID,
+      version: "v1.0",
+      statusLabel: "Active Build: Scholarly",
+      title: "Foundation Scholarly Edition",
+      description: "Canonical psychohistorical text with glossary annotations.",
+      commitHash: "a3f9b2c",
+      progressPercent: 100,
+      statusMessage: "Build complete — all formats available.",
+      lineage: [
+        {
+          id: "master",
+          title: "Master Branch",
+          badge: "HEAD",
+          description: "Canonical Foundation text.",
+          formats: ["EPUB", "PDF", "WEB"],
+          isDefault: true,
+          isHead: true,
+          forkCount: 2,
+        },
+      ],
+      artifacts: [
+        {
+          id: "epub",
+          icon: "menu_book",
+          title: "Kindle EPUB",
+          description: "Optimized for e-ink displays.",
+          size: "4.2 MB",
+        },
+        {
+          id: "pdf",
+          icon: "picture_as_pdf",
+          title: "Scholarly PDF",
+          description: "Academic layout with footnotes.",
+          size: "18.6 MB",
+        },
+      ],
+      buildStatus: [
+        { label: "Consistency Check", value: "Passed", variant: "success" },
+        { label: "Metadata Sync", value: "Success", variant: "success" },
+      ],
+      archivalVersions: [],
+      styling: { sliders: [], toggles: [] },
+      formats: [
+        {
+          id: "epub",
+          icon: "menu_book",
+          title: "E-Reader (EPUB)",
+          description: "Optimized for Kindle and Apple Books",
+          selected: true,
+        },
+      ],
+      presets: [{ id: "galactic", label: "Galactic Scholarly", active: true }],
+    },
+    BUILD_FOUNDATION_ID,
   ),
 ];
 
@@ -398,8 +560,27 @@ export const seedLibraryEditions: LibraryEdition[] = [
       year: "1851",
       coverUrl: mobyCover,
       commit: "master @ a8f2c3b",
-      formats: ["picture_as_pdf", "menu_book"],
+      formats: ["picture_as_pdf", "menu_book", "print"],
       badge: "Versioned",
+      repositoryId: MOBY_REPOSITORY_ID,
+      primaryBuildId: "build-moby-primary",
+      authorId: AUTHOR_MELVILLE_ID,
+      heroImageUrl: mobyCover,
+      tagline: "The definitive scholarly whale",
+      lensLabel: "Nautical Modernism",
+      relatedEditionIds: ["lib-pride"],
+      sortKey: "moby-dick",
+      decadeLabel: "1850s",
+      isEternal: true,
+      anchorStatus: "high-fidelity",
+      arweaveTxId: "z-H_7vK2mX-9wL7u8R_fPq2N1x0A9vM4bS6kL9",
+      patronCreditName: "Alexandre V. Beaumont",
+      provenance: {
+        status: "verified",
+        citationCount: 1842,
+        archiveSizeLabel: "42.8 MB",
+        lensLabel: "Nautical Modernism",
+      },
     },
     "lib-moby",
   ),
@@ -414,8 +595,94 @@ export const seedLibraryEditions: LibraryEdition[] = [
       commit: "master @ f1a2b3c",
       formats: ["menu_book"],
       badge: "",
+      relatedEditionIds: [],
+      isEternal: false,
+      decadeLabel: "1810s",
     },
     "lib-pride",
+  ),
+  library(
+    {
+      title: "Foundation",
+      author: "Isaac Asimov",
+      genre: "Science Fiction",
+      year: "1951",
+      coverUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBinX7S3M-OXFGiLfhbfaDT4S_Cmzqpm5sSfGVBCDlheh2pRc82HE81pDGpkQnzDrJCL3wxxEfQ0qjYXiHr5MyF9SzBZP0VEHllk8LiG9AWGygHGa8eE_8ce3gr-_1ewZ3uQJfzjcbTqj9sdGaHh4C1hWzYY-6_6kzfo0GClGX2Wa-qNmhgGUWvCC7Lp3i9OltEbXLZYbv5qn81xlSDGlRjDKE9qYDzGOi5D3H6FMsUnZudTxnvajL786qSsRLBMH0dOaHQak5r4ngI",
+      commit: "master @ a3f9b2c",
+      formats: ["menu_book", "picture_as_pdf"],
+      badge: "Scholarly Edition",
+      repositoryId: FOUNDATION_REPOSITORY_ID,
+      primaryBuildId: BUILD_FOUNDATION_ID,
+      authorId: AUTHOR_ASIMOV_ID,
+      heroImageUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAxDFHX8-G_MaJAXXGq9S8E_EqwhNAawzIzialH7xwopS6eByvnrpRyVNgI5MKqs4nd1Q2aSOTcgdGHLRlD085fmAFHWd9NqgralZalPo7jxs7z1AgVQJfilgcK5ZqAc3Uz0Qt8F__xrf3vG81h6o08rNH8FVRe676kijCJx_2A_kLY2bewrIymf_66YOcLULU_TYFr3mzQIR6FyvNPla8PZYYhducyqeZ2QSJ1oq3mtMApDw_3TvJOcbO8R1Eko24e-TOLTsckzO1f",
+      tagline: "Psychohistory begins here",
+      lensLabel: "Sci-Fi Modernism",
+      relatedEditionIds: [LIB_FOUNDATION_EMPIRE_ID, LIB_FOUNDATION_SECOND_ID],
+      sortKey: "foundation",
+      decadeLabel: "1950s",
+      isEternal: false,
+      provenance: {
+        status: "verified",
+        citationCount: 892,
+        archiveSizeLabel: "18.6 MB",
+        lensLabel: "Sci-Fi Modernism",
+      },
+    },
+    LIB_FOUNDATION_ID,
+  ),
+  library(
+    {
+      title: "Foundation and Empire",
+      author: "Isaac Asimov",
+      genre: "Science Fiction",
+      year: "1952",
+      coverUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAUMNhzQYbQRfOpEtn1ufxTuNr-kgPgiluakIbZ6YvQeWG2zdjZP7Zft6GDY7ZT9mloaBApftXIo7R_x8TYhWq2n2NfkQ3CLWvUKTc5OtCBcBjP8sMacLJh27OnwGZR0RJ4G9hL0lnNmDbgySW0Xq0Cw6l6IRV5Z0ARo8N4pvHDF-ETacusss8rU78uCVoLlyr2up3hCk5oTSrLYfvCe_jP80RtsE650PXnJCEG_cmAql-IadNwsZHw1z5cURmITttzb8v15pXzsXx0",
+      commit: "master @ b4c8d1e",
+      formats: ["menu_book"],
+      badge: "",
+      authorId: AUTHOR_ASIMOV_ID,
+      relatedEditionIds: [LIB_FOUNDATION_ID],
+      decadeLabel: "1950s",
+      isEternal: false,
+    },
+    LIB_FOUNDATION_EMPIRE_ID,
+  ),
+  library(
+    {
+      title: "Second Foundation",
+      author: "Isaac Asimov",
+      genre: "Science Fiction",
+      year: "1953",
+      coverUrl:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBinX7S3M-OXFGiLfhbfaDT4S_Cmzqpm5sSfGVBCDlheh2pRc82HE81pDGpkQnzDrJCL3wxxEfQ0qjYXiHr5MyF9SzBZP0VEHllk8LiG9AWGygHGa8eE_8ce3gr-_1ewZ3uQJfzjcbTqj9sdGaHh4C1hWzYY-6_6kzfo0GClGX2Wa-qNmhgGUWvCC7Lp3i9OltEbXLZYbv5qn81xlSDGlRjDKE9qYDzGOi5D3H6FMsUnZudTxnvajL786qSsRLBMH0dOaHQak5r4ngI",
+      commit: "master @ c5d9e2f",
+      formats: ["menu_book"],
+      badge: "",
+      authorId: AUTHOR_ASIMOV_ID,
+      relatedEditionIds: [LIB_FOUNDATION_ID],
+      decadeLabel: "1950s",
+      isEternal: false,
+    },
+    LIB_FOUNDATION_SECOND_ID,
+  ),
+  library(
+    {
+      title: "19th Century Marginalia (Premier)",
+      author: "Various",
+      genre: "Reference",
+      year: "1800s",
+      coverUrl: mobyCover,
+      commit: "premier @ locked",
+      formats: ["picture_as_pdf"],
+      badge: "Premier Only",
+      requiredTier: "premier",
+      relatedEditionIds: [],
+      isEternal: false,
+    },
+    "lib-premier-locked",
   ),
 ];
 
@@ -453,8 +720,22 @@ export const seedActivityEvents: ActivityEvent[] = [
       tagVariant: "muted",
       actionLabel: "Manual Review Required",
       dotVariant: "error",
+      eventType: "validation-failed",
     },
     "activity-3",
+  ),
+  activity(
+    {
+      timestamp: "2 days ago",
+      title: "Eternal Anchor Confirmed",
+      body: "Moby Dick commit 8f2c011 anchored to Arweave permaweb.",
+      tag: "Mécène: Alexandre V. Beaumont",
+      tagVariant: "patronage",
+      actionLabel: "View Certificate",
+      dotVariant: "primary",
+      eventType: "anchor-confirmed",
+    },
+    "activity-4",
   ),
 ];
 
@@ -594,6 +875,18 @@ export const seedUi: GittenbergUiSeed = {
     { id: "charcoal", color: "#30312e" },
     { id: "parchment", color: "#f4f1ea" },
   ],
+  consumerNavItems: [
+    { id: "explore", label: "Explore", icon: "explore", href: "#" },
+    { id: "collections", label: "My Collections", icon: "collections_bookmark", href: "#" },
+    { id: "library", label: "Library", icon: "local_library", href: "#" },
+    { id: "subscribe", label: "Subscribe", icon: "workspace_premium", href: "#" },
+  ],
+  curatorNavItems: [
+    { id: "explore", label: "Explore", icon: "explore", href: "#" },
+    { id: "repositories", label: "Repositories", icon: "folder_copy", href: "#" },
+    { id: "agents", label: "Agents", icon: "smart_toy", href: "#" },
+    { id: "library", label: "Library", icon: "local_library", href: "#" },
+  ],
 };
 
 export const editorSampleMarkdown = `# Echoes of Dust
@@ -603,3 +896,19 @@ The morning air hung heavy with salt and the promise of departure.
 > "It is not down on any map; true places never are."
 
 Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse...`;
+
+export {
+  seedAuthors,
+  seedPatrons,
+  seedPermawebAnchors,
+  seedProvenanceCertificates,
+  seedMembershipPlans,
+  seedUserMemberships,
+  seedUserCollections,
+  seedCollectionItems,
+  seedDiscoveryShelves,
+  seedCuratedCollections,
+  seedCreativeStudioSessions,
+  seedPrintProducts,
+  seedPrintOrders,
+} from "./gittenberg-seed-v2.js";

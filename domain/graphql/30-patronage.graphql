@@ -1,0 +1,127 @@
+"""
+Patronage and permaweb anchoring (Mécène program, Eternal Gallery).
+Seed: `seedPatrons`, `seedPermawebAnchors`, `seedProvenanceCertificates`.
+"""
+type Patron implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  displayName: String!
+  """Optional public credit name shown on gallery cards."""
+  creditName: String
+  userId: EntityId
+}
+
+type PatronPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [Patron!]!
+}
+
+input CreatePatronInput {
+  displayName: String!
+  creditName: String
+  userId: EntityId
+}
+
+input UpdatePatronInput {
+  displayName: String
+  creditName: String
+  userId: EntityId
+}
+
+"""
+A funding act that anchors a repository commit to the permaweb.
+"""
+type PermawebAnchor implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  repositoryId: EntityId!
+  literaryBuildId: EntityId
+  commitHash: String!
+  arweaveTxId: String!
+  anchoredAt: DateTime!
+  seriesNumber: Int!
+  stewardshipLevel: StewardshipLevel!
+  patronId: EntityId!
+  certificateId: EntityId
+}
+
+type PermawebAnchorPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [PermawebAnchor!]!
+}
+
+input CreatePermawebAnchorInput {
+  repositoryId: EntityId!
+  literaryBuildId: EntityId
+  commitHash: String!
+  arweaveTxId: String!
+  anchoredAt: DateTime!
+  seriesNumber: Int!
+  stewardshipLevel: StewardshipLevel!
+  patronId: EntityId!
+  certificateId: EntityId
+}
+
+input UpdatePermawebAnchorInput {
+  repositoryId: EntityId
+  literaryBuildId: EntityId
+  commitHash: String
+  arweaveTxId: String
+  anchoredAt: DateTime
+  seriesNumber: Int
+  stewardshipLevel: StewardshipLevel
+  patronId: EntityId
+  certificateId: EntityId
+}
+
+type ProvenanceCertificate implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  anchorId: EntityId!
+  patronDisplayName: String!
+  workTitle: String!
+  workAuthor: String!
+  workYear: String!
+  commitHash: String!
+  arweaveTxId: String!
+  issuedAt: DateTime!
+  seriesLabel: String!
+  stewardshipDecree: String!
+}
+
+type ProvenanceCertificatePage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [ProvenanceCertificate!]!
+}
+
+input CreateProvenanceCertificateInput {
+  anchorId: EntityId!
+  patronDisplayName: String!
+  workTitle: String!
+  workAuthor: String!
+  workYear: String!
+  commitHash: String!
+  arweaveTxId: String!
+  issuedAt: DateTime!
+  seriesLabel: String!
+  stewardshipDecree: String!
+}
+
+input UpdateProvenanceCertificateInput {
+  anchorId: EntityId
+  patronDisplayName: String
+  workTitle: String
+  workAuthor: String
+  workYear: String
+  commitHash: String
+  arweaveTxId: String
+  issuedAt: DateTime
+  seriesLabel: String
+  stewardshipDecree: String
+}

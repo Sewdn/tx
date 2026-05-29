@@ -1,0 +1,105 @@
+"""
+Print-on-demand products and orders.
+Seed: `seedPrintProducts`, `seedPrintOrders`.
+"""
+type PrintProduct implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  literaryBuildId: EntityId!
+  slug: String!
+  seriesLabel: String!
+  stockStatus: StockStatus!
+  bindingOptions: [BindingOption!]!
+}
+
+type PrintProductPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [PrintProduct!]!
+}
+
+input BindingOptionInput {
+  id: EntityId!
+  label: String!
+  description: String!
+  priceCents: Int!
+  isDefault: Boolean
+}
+
+input CreatePrintProductInput {
+  literaryBuildId: EntityId!
+  slug: String!
+  seriesLabel: String!
+  stockStatus: StockStatus!
+  bindingOptions: [BindingOptionInput!]!
+}
+
+input UpdatePrintProductInput {
+  literaryBuildId: EntityId
+  slug: String
+  seriesLabel: String
+  stockStatus: StockStatus
+  bindingOptions: [BindingOptionInput!]
+}
+
+type PrintOrder implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  userId: EntityId!
+  literaryBuildId: EntityId!
+  studioSessionId: EntityId
+  bindingOptionId: EntityId!
+  coverMode: CoverMode!
+  coverAssetUrl: String
+  interiorStyle: IllustrationStyle!
+  typographyPreset: String!
+  shippingAddress: PostalAddress!
+  status: PrintOrderStatus!
+  totalCents: Int!
+}
+
+type PrintOrderPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [PrintOrder!]!
+}
+
+input PostalAddressInput {
+  name: String!
+  line1: String!
+  line2: String
+  city: String!
+  region: String!
+  postalCode: String!
+  countryCode: String!
+}
+
+input CreatePrintOrderInput {
+  userId: EntityId!
+  literaryBuildId: EntityId!
+  studioSessionId: EntityId
+  bindingOptionId: EntityId!
+  coverMode: CoverMode!
+  coverAssetUrl: String
+  interiorStyle: IllustrationStyle!
+  typographyPreset: String!
+  shippingAddress: PostalAddressInput!
+  status: PrintOrderStatus!
+  totalCents: Int!
+}
+
+input UpdatePrintOrderInput {
+  userId: EntityId
+  literaryBuildId: EntityId
+  studioSessionId: EntityId
+  bindingOptionId: EntityId
+  coverMode: CoverMode
+  coverAssetUrl: String
+  interiorStyle: IllustrationStyle
+  typographyPreset: String
+  shippingAddress: PostalAddressInput
+  status: PrintOrderStatus
+  totalCents: Int
+}

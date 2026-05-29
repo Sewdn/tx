@@ -13,6 +13,19 @@ type Query {
   activityEvent(id: EntityId!): ActivityEvent
   readerChapter(id: EntityId!): ReaderChapter
   metricSnapshot(id: EntityId!): MetricSnapshot
+  author(id: EntityId!): Author
+  patron(id: EntityId!): Patron
+  permawebAnchor(id: EntityId!): PermawebAnchor
+  provenanceCertificate(id: EntityId!): ProvenanceCertificate
+  membershipPlan(id: EntityId!): MembershipPlan
+  userMembership(id: EntityId!): UserMembership
+  userCollection(id: EntityId!): UserCollection
+  collectionItem(id: EntityId!): CollectionItem
+  discoveryShelf(id: EntityId!): DiscoveryShelf
+  curatedCollection(id: EntityId!): CuratedCollection
+  creativeStudioSession(id: EntityId!): CreativeStudioSession
+  printProduct(id: EntityId!): PrintProduct
+  printOrder(id: EntityId!): PrintOrder
 
   repositories(pagination: PaginationInput!): RepositoryPage!
   manuscriptFiles(pagination: PaginationInput!): ManuscriptFilePage!
@@ -23,6 +36,19 @@ type Query {
   activityEvents(pagination: PaginationInput!): ActivityEventPage!
   readerChapters(pagination: PaginationInput!): ReaderChapterPage!
   metricSnapshots(pagination: PaginationInput!, scope: MetricScope): MetricSnapshotPage!
+  authors(pagination: PaginationInput!): AuthorPage!
+  patrons(pagination: PaginationInput!): PatronPage!
+  permawebAnchors(pagination: PaginationInput!): PermawebAnchorPage!
+  provenanceCertificates(pagination: PaginationInput!): ProvenanceCertificatePage!
+  membershipPlans(pagination: PaginationInput!): MembershipPlanPage!
+  userMemberships(pagination: PaginationInput!): UserMembershipPage!
+  userCollections(pagination: PaginationInput!): UserCollectionPage!
+  collectionItems(pagination: PaginationInput!): CollectionItemPage!
+  discoveryShelves(pagination: PaginationInput!): DiscoveryShelfPage!
+  curatedCollections(pagination: PaginationInput!): CuratedCollectionPage!
+  creativeStudioSessions(pagination: PaginationInput!): CreativeStudioSessionPage!
+  printProducts(pagination: PaginationInput!): PrintProductPage!
+  printOrders(pagination: PaginationInput!): PrintOrderPage!
 }
 
 type Mutation {
@@ -61,4 +87,56 @@ type Mutation {
   createMetricSnapshot(input: CreateMetricSnapshotInput!): MetricSnapshot!
   updateMetricSnapshot(id: EntityId!, input: UpdateMetricSnapshotInput!): MetricSnapshot!
   deleteMetricSnapshot(id: EntityId!): DeletePayload!
+
+  createAuthor(input: CreateAuthorInput!): Author!
+  updateAuthor(id: EntityId!, input: UpdateAuthorInput!): Author!
+  deleteAuthor(id: EntityId!): DeletePayload!
+
+  createPatron(input: CreatePatronInput!): Patron!
+  updatePatron(id: EntityId!, input: UpdatePatronInput!): Patron!
+  deletePatron(id: EntityId!): DeletePayload!
+
+  createPermawebAnchor(input: CreatePermawebAnchorInput!): PermawebAnchor!
+  updatePermawebAnchor(id: EntityId!, input: UpdatePermawebAnchorInput!): PermawebAnchor!
+  deletePermawebAnchor(id: EntityId!): DeletePayload!
+
+  createProvenanceCertificate(input: CreateProvenanceCertificateInput!): ProvenanceCertificate!
+  updateProvenanceCertificate(id: EntityId!, input: UpdateProvenanceCertificateInput!): ProvenanceCertificate!
+  deleteProvenanceCertificate(id: EntityId!): DeletePayload!
+
+  createMembershipPlan(input: CreateMembershipPlanInput!): MembershipPlan!
+  updateMembershipPlan(id: EntityId!, input: UpdateMembershipPlanInput!): MembershipPlan!
+  deleteMembershipPlan(id: EntityId!): DeletePayload!
+
+  createUserMembership(input: CreateUserMembershipInput!): UserMembership!
+  updateUserMembership(id: EntityId!, input: UpdateUserMembershipInput!): UserMembership!
+  deleteUserMembership(id: EntityId!): DeletePayload!
+
+  createUserCollection(input: CreateUserCollectionInput!): UserCollection!
+  updateUserCollection(id: EntityId!, input: UpdateUserCollectionInput!): UserCollection!
+  deleteUserCollection(id: EntityId!): DeletePayload!
+
+  createCollectionItem(input: CreateCollectionItemInput!): CollectionItem!
+  updateCollectionItem(id: EntityId!, input: UpdateCollectionItemInput!): CollectionItem!
+  deleteCollectionItem(id: EntityId!): DeletePayload!
+
+  createDiscoveryShelf(input: CreateDiscoveryShelfInput!): DiscoveryShelf!
+  updateDiscoveryShelf(id: EntityId!, input: UpdateDiscoveryShelfInput!): DiscoveryShelf!
+  deleteDiscoveryShelf(id: EntityId!): DeletePayload!
+
+  createCuratedCollection(input: CreateCuratedCollectionInput!): CuratedCollection!
+  updateCuratedCollection(id: EntityId!, input: UpdateCuratedCollectionInput!): CuratedCollection!
+  deleteCuratedCollection(id: EntityId!): DeletePayload!
+
+  createCreativeStudioSession(input: CreateCreativeStudioSessionInput!): CreativeStudioSession!
+  updateCreativeStudioSession(id: EntityId!, input: UpdateCreativeStudioSessionInput!): CreativeStudioSession!
+  deleteCreativeStudioSession(id: EntityId!): DeletePayload!
+
+  createPrintProduct(input: CreatePrintProductInput!): PrintProduct!
+  updatePrintProduct(id: EntityId!, input: UpdatePrintProductInput!): PrintProduct!
+  deletePrintProduct(id: EntityId!): DeletePayload!
+
+  createPrintOrder(input: CreatePrintOrderInput!): PrintOrder!
+  updatePrintOrder(id: EntityId!, input: UpdatePrintOrderInput!): PrintOrder!
+  deletePrintOrder(id: EntityId!): DeletePayload!
 }

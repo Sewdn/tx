@@ -3,13 +3,26 @@ import type { EntityStore } from "../storage/types.js"
 import {
   seedActivityEvents,
   seedAgents,
+  seedAuthors,
+  seedCollectionItems,
+  seedCreativeStudioSessions,
+  seedCuratedCollections,
+  seedDiscoveryShelves,
   seedLibraryEditions,
   seedLiteraryBuilds,
   seedManuscriptFiles,
+  seedMembershipPlans,
   seedMetricSnapshots,
+  seedPatrons,
+  seedPermawebAnchors,
+  seedPrintOrders,
+  seedPrintProducts,
+  seedProvenanceCertificates,
   seedReaderChapters,
   seedRepositories,
   seedRevisions,
+  seedUserCollections,
+  seedUserMemberships,
 } from "./gittenberg-seed.js"
 
 const seedByTable = {
@@ -22,6 +35,19 @@ const seedByTable = {
   activity_event: seedActivityEvents,
   reader_chapter: seedReaderChapters,
   metric_snapshot: seedMetricSnapshots,
+  author: seedAuthors,
+  patron: seedPatrons,
+  permaweb_anchor: seedPermawebAnchors,
+  provenance_certificate: seedProvenanceCertificates,
+  membership_plan: seedMembershipPlans,
+  user_membership: seedUserMemberships,
+  user_collection: seedUserCollections,
+  collection_item: seedCollectionItems,
+  discovery_shelf: seedDiscoveryShelves,
+  curated_collection: seedCuratedCollections,
+  creative_studio_session: seedCreativeStudioSessions,
+  print_product: seedPrintProducts,
+  print_order: seedPrintOrders,
 } as const
 
 export async function seedGittenbergStoreIfEmpty(store: EntityStore) {

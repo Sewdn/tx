@@ -10,6 +10,19 @@ export type EntityTableName =
   | "activity_event"
   | "reader_chapter"
   | "metric_snapshot"
+  | "author"
+  | "patron"
+  | "permaweb_anchor"
+  | "provenance_certificate"
+  | "membership_plan"
+  | "user_membership"
+  | "user_collection"
+  | "collection_item"
+  | "discovery_shelf"
+  | "curated_collection"
+  | "creative_studio_session"
+  | "print_product"
+  | "print_order"
 
 export type StoredRecord = {
   id: EntityId

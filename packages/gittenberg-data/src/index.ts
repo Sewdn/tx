@@ -1,5 +1,5 @@
 export type { GittenbergPorts, GittenbergUiSeed, FileTreeNode } from "./ports.js"
-export { MOBY_REPOSITORY_ID, DEFAULT_REPOSITORY_SLUG } from "./ports.js"
+export { MOBY_REPOSITORY_ID, FOUNDATION_REPOSITORY_ID, DEMO_USER_ID, DEFAULT_REPOSITORY_SLUG } from "./ports.js"
 
 export type { GittenbergBackend, EntityStore, EntityTableName } from "./storage/types.js"
 export { createEntityStore } from "./storage/create-entity-store.js"
@@ -21,6 +21,19 @@ export {
   activityEventDefinition,
   readerChapterDefinition,
   metricSnapshotDefinition,
+  authorDefinition,
+  patronDefinition,
+  permawebAnchorDefinition,
+  provenanceCertificateDefinition,
+  membershipPlanDefinition,
+  userMembershipDefinition,
+  userCollectionDefinition,
+  collectionItemDefinition,
+  discoveryShelfDefinition,
+  curatedCollectionDefinition,
+  creativeStudioSessionDefinition,
+  printProductDefinition,
+  printOrderDefinition,
 } from "./entities/entity-registry.js"
 
 export {
@@ -34,6 +47,19 @@ export {
   seedActivityEvents,
   seedReaderChapters,
   seedMetricSnapshots,
+  seedAuthors,
+  seedPatrons,
+  seedPermawebAnchors,
+  seedProvenanceCertificates,
+  seedMembershipPlans,
+  seedUserMemberships,
+  seedUserCollections,
+  seedCollectionItems,
+  seedDiscoveryShelves,
+  seedCuratedCollections,
+  seedCreativeStudioSessions,
+  seedPrintProducts,
+  seedPrintOrders,
   editorSampleMarkdown,
 } from "./seed/gittenberg-seed.js"
 export { seedGittenbergStoreIfEmpty, resetAndSeedGittenbergStore } from "./seed/apply-seed.js"

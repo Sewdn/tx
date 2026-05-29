@@ -1,0 +1,88 @@
+"""
+Cinematic library discovery shelves and curated collections.
+Seed: `seedDiscoveryShelves`, `seedCuratedCollections`.
+"""
+type DiscoveryShelf implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  slug: String!
+  title: String!
+  subtitle: String
+  shelfType: ShelfType!
+  """Ordered edition IDs."""
+  editionIds: [EntityId!]!
+  layout: ShelfLayout!
+}
+
+type DiscoveryShelfPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [DiscoveryShelf!]!
+}
+
+input CreateDiscoveryShelfInput {
+  slug: String!
+  title: String!
+  subtitle: String
+  shelfType: ShelfType!
+  editionIds: [EntityId!]!
+  layout: ShelfLayout!
+}
+
+input UpdateDiscoveryShelfInput {
+  slug: String
+  title: String
+  subtitle: String
+  shelfType: ShelfType
+  editionIds: [EntityId!]
+  layout: ShelfLayout
+}
+
+type CuratedCollection implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  slug: String!
+  title: String!
+  description: String!
+  heroImageUrl: String!
+  authorName: String
+  parentShelfId: EntityId
+  editionIds: [EntityId!]!
+  filterDefaults: CollectionFilterDefaults
+}
+
+type CuratedCollectionPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [CuratedCollection!]!
+}
+
+input CollectionFilterDefaultsInput {
+  eras: [String!]!
+  themes: [String!]!
+  formats: [LibraryFormatIcon!]!
+}
+
+input CreateCuratedCollectionInput {
+  slug: String!
+  title: String!
+  description: String!
+  heroImageUrl: String!
+  authorName: String
+  parentShelfId: EntityId
+  editionIds: [EntityId!]!
+  filterDefaults: CollectionFilterDefaultsInput
+}
+
+input UpdateCuratedCollectionInput {
+  slug: String
+  title: String
+  description: String
+  heroImageUrl: String
+  authorName: String
+  parentShelfId: EntityId
+  editionIds: [EntityId!]
+  filterDefaults: CollectionFilterDefaultsInput
+}

@@ -15,6 +15,9 @@ export class Agent extends Schema.Class<Agent>("Agent")({
   icon: Schema.String,
   iconVariant: Schema.String,
   repositoryId: Schema.String,
+  role: Schema.String,
+  specialty: Schema.optional(Schema.String),
+  studioEnabled: Schema.Boolean,
   updatedAt: IsoDateString,
 }
 ) { }
@@ -30,6 +33,9 @@ export const CreateAgentInput = Schema.Struct({
   icon: Schema.String,
   iconVariant: Schema.String,
   repositoryId: Schema.String,
+  role: Schema.String,
+  specialty: Schema.optionalKey(Schema.String),
+  studioEnabled: Schema.Boolean,
 });
 
 export type CreateAgentInput = typeof CreateAgentInput.Type;
@@ -42,6 +48,9 @@ export const UpdateAgentInput = Schema.Struct({
   icon: Schema.optionalKey(Schema.String),
   iconVariant: Schema.optionalKey(Schema.String),
   repositoryId: Schema.optionalKey(Schema.String),
+  role: Schema.optionalKey(Schema.String),
+  specialty: Schema.optionalKey(Schema.String),
+  studioEnabled: Schema.optionalKey(Schema.Boolean),
 });
 
 export type UpdateAgentInput = typeof UpdateAgentInput.Type;

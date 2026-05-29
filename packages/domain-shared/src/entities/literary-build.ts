@@ -23,6 +23,7 @@ export class LiteraryBuild extends Schema.Class<LiteraryBuild>("LiteraryBuild")(
   styling: Schema.Json,
   formats: Schema.Json,
   presets: Schema.Json,
+  permawebAnchorId: Schema.optional(Schema.String),
   updatedAt: IsoDateString,
 }
 ) { }
@@ -46,6 +47,7 @@ export const CreateLiteraryBuildInput = Schema.Struct({
   styling: Schema.Json,
   formats: Schema.Json,
   presets: Schema.Json,
+  permawebAnchorId: Schema.optionalKey(Schema.String),
 });
 
 export type CreateLiteraryBuildInput = typeof CreateLiteraryBuildInput.Type;
@@ -66,6 +68,7 @@ export const UpdateLiteraryBuildInput = Schema.Struct({
   styling: Schema.optionalKey(Schema.Json),
   formats: Schema.optionalKey(Schema.Json),
   presets: Schema.optionalKey(Schema.Json),
+  permawebAnchorId: Schema.optionalKey(Schema.String),
 });
 
 export type UpdateLiteraryBuildInput = typeof UpdateLiteraryBuildInput.Type;

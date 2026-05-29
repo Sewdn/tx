@@ -20,6 +20,11 @@ export class Repository extends Schema.Class<Repository>("Repository")({
   tags: Schema.Json,
   metadata: Schema.Json,
   readmeExcerpt: Schema.String,
+  authorId: Schema.optional(Schema.String),
+  publicationYear: Schema.optional(Schema.Number),
+  citationCount: Schema.optional(Schema.Number),
+  provenanceStatus: Schema.optional(Schema.String),
+  eternalAnchorId: Schema.optional(Schema.String),
   updatedAt: IsoDateString,
 }
 ) { }
@@ -40,6 +45,11 @@ export const CreateRepositoryInput = Schema.Struct({
   tags: Schema.Json,
   metadata: Schema.Json,
   readmeExcerpt: Schema.String,
+  authorId: Schema.optionalKey(Schema.String),
+  publicationYear: Schema.optionalKey(Schema.Number),
+  citationCount: Schema.optionalKey(Schema.Number),
+  provenanceStatus: Schema.optionalKey(Schema.String),
+  eternalAnchorId: Schema.optionalKey(Schema.String),
 });
 
 export type CreateRepositoryInput = typeof CreateRepositoryInput.Type;
@@ -57,6 +67,11 @@ export const UpdateRepositoryInput = Schema.Struct({
   tags: Schema.optionalKey(Schema.Json),
   metadata: Schema.optionalKey(Schema.Json),
   readmeExcerpt: Schema.optionalKey(Schema.String),
+  authorId: Schema.optionalKey(Schema.String),
+  publicationYear: Schema.optionalKey(Schema.Number),
+  citationCount: Schema.optionalKey(Schema.Number),
+  provenanceStatus: Schema.optionalKey(Schema.String),
+  eternalAnchorId: Schema.optionalKey(Schema.String),
 });
 
 export type UpdateRepositoryInput = typeof UpdateRepositoryInput.Type;

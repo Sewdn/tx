@@ -1,0 +1,73 @@
+"""
+Reader workspace collections (My Collections).
+Seed: `seedUserCollections`, `seedCollectionItems`.
+"""
+type UserCollection implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  userId: EntityId!
+  name: String!
+  kind: CollectionKind!
+  sortOrder: Int!
+}
+
+type UserCollectionPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [UserCollection!]!
+}
+
+input CreateUserCollectionInput {
+  userId: EntityId!
+  name: String!
+  kind: CollectionKind!
+  sortOrder: Int!
+}
+
+input UpdateUserCollectionInput {
+  userId: EntityId
+  name: String
+  kind: CollectionKind
+  sortOrder: Int
+}
+
+type CollectionItem implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  collectionId: EntityId!
+  libraryEditionId: EntityId
+  literaryBuildId: EntityId
+  addedAt: DateTime!
+  """Optional reading progress 0–100."""
+  progressPercent: Int
+  printOrderId: EntityId
+  requiredTier: AccessTier
+}
+
+type CollectionItemPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [CollectionItem!]!
+}
+
+input CreateCollectionItemInput {
+  collectionId: EntityId!
+  libraryEditionId: EntityId
+  literaryBuildId: EntityId
+  addedAt: DateTime!
+  progressPercent: Int
+  printOrderId: EntityId
+  requiredTier: AccessTier
+}
+
+input UpdateCollectionItemInput {
+  collectionId: EntityId
+  libraryEditionId: EntityId
+  literaryBuildId: EntityId
+  addedAt: DateTime
+  progressPercent: Int
+  printOrderId: EntityId
+  requiredTier: AccessTier
+}

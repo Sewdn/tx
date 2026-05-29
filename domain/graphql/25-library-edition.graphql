@@ -1,6 +1,6 @@
 """
 Catalog entry in the global library of builds (not repository-scoped).
-Seed: `seedLibraryEditions` (Moby Dick, Pride and Prejudice).
+Seed: `seedLibraryEditions` (Moby Dick, Foundation, Pride and Prejudice).
 """
 type LibraryEdition implements Node {
   id: EntityId!
@@ -16,11 +16,34 @@ type LibraryEdition implements Node {
   """Material icon ids for available formats, e.g. `picture_as_pdf`."""
   formats: [LibraryFormatIcon!]!
   badge: String!
+
+  repositoryId: EntityId
+  primaryBuildId: EntityId
+  authorId: EntityId
+  heroImageUrl: String
+  tagline: String
+  lensLabel: String
+  relatedEditionIds: [EntityId!]!
+  sortKey: String
+  decadeLabel: String
+  requiredTier: AccessTier
+  anchorStatus: StewardshipLevel
+  arweaveTxId: String
+  patronCreditName: String
+  isEternal: Boolean!
+  provenance: WorkProvenance
 }
 
 type LibraryEditionPage implements EntityPage {
   pageInfo: PageInfo!
   items: [LibraryEdition!]!
+}
+
+input WorkProvenanceInput {
+  status: ProvenanceStatus!
+  citationCount: Int!
+  archiveSizeLabel: FileSizeLabel!
+  lensLabel: String!
 }
 
 input CreateLibraryEditionInput {
@@ -32,6 +55,21 @@ input CreateLibraryEditionInput {
   commit: String!
   formats: [LibraryFormatIcon!]!
   badge: String!
+  repositoryId: EntityId
+  primaryBuildId: EntityId
+  authorId: EntityId
+  heroImageUrl: String
+  tagline: String
+  lensLabel: String
+  relatedEditionIds: [EntityId!]
+  sortKey: String
+  decadeLabel: String
+  requiredTier: AccessTier
+  anchorStatus: StewardshipLevel
+  arweaveTxId: String
+  patronCreditName: String
+  isEternal: Boolean!
+  provenance: WorkProvenanceInput
 }
 
 input UpdateLibraryEditionInput {
@@ -43,4 +81,19 @@ input UpdateLibraryEditionInput {
   commit: String
   formats: [LibraryFormatIcon!]
   badge: String
+  repositoryId: EntityId
+  primaryBuildId: EntityId
+  authorId: EntityId
+  heroImageUrl: String
+  tagline: String
+  lensLabel: String
+  relatedEditionIds: [EntityId!]
+  sortKey: String
+  decadeLabel: String
+  requiredTier: AccessTier
+  anchorStatus: StewardshipLevel
+  arweaveTxId: String
+  patronCreditName: String
+  isEternal: Boolean
+  provenance: WorkProvenanceInput
 }

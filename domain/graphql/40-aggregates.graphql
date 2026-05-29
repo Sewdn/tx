@@ -12,6 +12,19 @@ type GittenbergSnapshot {
   activityEvents: [ActivityEvent!]!
   readerChapters: [ReaderChapter!]!
   metricSnapshots: [MetricSnapshot!]!
+  authors: [Author!]!
+  patrons: [Patron!]!
+  permawebAnchors: [PermawebAnchor!]!
+  provenanceCertificates: [ProvenanceCertificate!]!
+  membershipPlans: [MembershipPlan!]!
+  userMemberships: [UserMembership!]!
+  userCollections: [UserCollection!]!
+  collectionItems: [CollectionItem!]!
+  discoveryShelves: [DiscoveryShelf!]!
+  curatedCollections: [CuratedCollection!]!
+  creativeStudioSessions: [CreativeStudioSession!]!
+  printProducts: [PrintProduct!]!
+  printOrders: [PrintOrder!]!
   ui: GittenbergUiSeed!
   editorSample: EditorSampleContent!
 }
@@ -30,6 +43,19 @@ type GittenbergPorts {
   activityEvent: ActivityEventPort!
   readerChapter: ReaderChapterPort!
   metricSnapshot: MetricSnapshotPort!
+  author: AuthorPort!
+  patron: PatronPort!
+  permawebAnchor: PermawebAnchorPort!
+  provenanceCertificate: ProvenanceCertificatePort!
+  membershipPlan: MembershipPlanPort!
+  userMembership: UserMembershipPort!
+  userCollection: UserCollectionPort!
+  collectionItem: CollectionItemPort!
+  discoveryShelf: DiscoveryShelfPort!
+  curatedCollection: CuratedCollectionPort!
+  creativeStudioSession: CreativeStudioSessionPort!
+  printProduct: PrintProductPort!
+  printOrder: PrintOrderPort!
 }
 
 type RepositoryPort {
@@ -99,7 +125,111 @@ type ReaderChapterPort {
 type MetricSnapshotPort {
   create(input: CreateMetricSnapshotInput!): MetricSnapshot!
   getById(id: EntityId!): MetricSnapshot
-  list(pagination: PaginationInput!): MetricSnapshotPage!
+  list(pagination: PaginationInput!, scope: MetricScope): MetricSnapshotPage!
   update(id: EntityId!, input: UpdateMetricSnapshotInput!): MetricSnapshot!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type AuthorPort {
+  create(input: CreateAuthorInput!): Author!
+  getById(id: EntityId!): Author
+  list(pagination: PaginationInput!): AuthorPage!
+  update(id: EntityId!, input: UpdateAuthorInput!): Author!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type PatronPort {
+  create(input: CreatePatronInput!): Patron!
+  getById(id: EntityId!): Patron
+  list(pagination: PaginationInput!): PatronPage!
+  update(id: EntityId!, input: UpdatePatronInput!): Patron!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type PermawebAnchorPort {
+  create(input: CreatePermawebAnchorInput!): PermawebAnchor!
+  getById(id: EntityId!): PermawebAnchor
+  list(pagination: PaginationInput!): PermawebAnchorPage!
+  update(id: EntityId!, input: UpdatePermawebAnchorInput!): PermawebAnchor!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type ProvenanceCertificatePort {
+  create(input: CreateProvenanceCertificateInput!): ProvenanceCertificate!
+  getById(id: EntityId!): ProvenanceCertificate
+  list(pagination: PaginationInput!): ProvenanceCertificatePage!
+  update(id: EntityId!, input: UpdateProvenanceCertificateInput!): ProvenanceCertificate!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type MembershipPlanPort {
+  create(input: CreateMembershipPlanInput!): MembershipPlan!
+  getById(id: EntityId!): MembershipPlan
+  list(pagination: PaginationInput!): MembershipPlanPage!
+  update(id: EntityId!, input: UpdateMembershipPlanInput!): MembershipPlan!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type UserMembershipPort {
+  create(input: CreateUserMembershipInput!): UserMembership!
+  getById(id: EntityId!): UserMembership
+  list(pagination: PaginationInput!): UserMembershipPage!
+  update(id: EntityId!, input: UpdateUserMembershipInput!): UserMembership!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type UserCollectionPort {
+  create(input: CreateUserCollectionInput!): UserCollection!
+  getById(id: EntityId!): UserCollection
+  list(pagination: PaginationInput!): UserCollectionPage!
+  update(id: EntityId!, input: UpdateUserCollectionInput!): UserCollection!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type CollectionItemPort {
+  create(input: CreateCollectionItemInput!): CollectionItem!
+  getById(id: EntityId!): CollectionItem
+  list(pagination: PaginationInput!): CollectionItemPage!
+  update(id: EntityId!, input: UpdateCollectionItemInput!): CollectionItem!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type DiscoveryShelfPort {
+  create(input: CreateDiscoveryShelfInput!): DiscoveryShelf!
+  getById(id: EntityId!): DiscoveryShelf
+  list(pagination: PaginationInput!): DiscoveryShelfPage!
+  update(id: EntityId!, input: UpdateDiscoveryShelfInput!): DiscoveryShelf!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type CuratedCollectionPort {
+  create(input: CreateCuratedCollectionInput!): CuratedCollection!
+  getById(id: EntityId!): CuratedCollection
+  list(pagination: PaginationInput!): CuratedCollectionPage!
+  update(id: EntityId!, input: UpdateCuratedCollectionInput!): CuratedCollection!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type CreativeStudioSessionPort {
+  create(input: CreateCreativeStudioSessionInput!): CreativeStudioSession!
+  getById(id: EntityId!): CreativeStudioSession
+  list(pagination: PaginationInput!): CreativeStudioSessionPage!
+  update(id: EntityId!, input: UpdateCreativeStudioSessionInput!): CreativeStudioSession!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type PrintProductPort {
+  create(input: CreatePrintProductInput!): PrintProduct!
+  getById(id: EntityId!): PrintProduct
+  list(pagination: PaginationInput!): PrintProductPage!
+  update(id: EntityId!, input: UpdatePrintProductInput!): PrintProduct!
+  remove(id: EntityId!): DeletePayload!
+}
+
+type PrintOrderPort {
+  create(input: CreatePrintOrderInput!): PrintOrder!
+  getById(id: EntityId!): PrintOrder
+  list(pagination: PaginationInput!): PrintOrderPage!
+  update(id: EntityId!, input: UpdatePrintOrderInput!): PrintOrder!
   remove(id: EntityId!): DeletePayload!
 }

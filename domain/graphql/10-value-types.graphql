@@ -4,6 +4,144 @@ enum RepositoryTagVariant {
   PUBLIC_DOMAIN
   AGENT_CURATED
   VERSION
+  SCHOLARLY_EDITION
+  ETERNAL
+  PREMIER_ONLY
+}
+
+enum AccessTier {
+  FREE
+  PREMIER
+  MECENE_PATRON
+}
+
+enum ProvenanceStatus {
+  VERIFIED
+  PENDING
+  UNVERIFIED
+}
+
+enum StewardshipLevel {
+  HIGH_FIDELITY
+  MANUSCRIPT_SCAN
+  OCR_VALIDATED
+  COMMUNITY_PEER_REVIEWED
+}
+
+enum CoverMode {
+  ORIGINAL_ART
+  SCHOLARLY_MINIMAL
+  AGENT_GENERATED
+}
+
+enum PrintOrderStatus {
+  CUSTOMIZATION
+  SHIPPING
+  PAYMENT
+  SUBMITTED
+  FULFILLING
+  SHIPPED
+  DELIVERED
+}
+
+enum BillingPeriod {
+  MONTHLY
+  ANNUAL
+}
+
+enum CollectionKind {
+  CURRENT_READS
+  ARCHIVE
+  WISHLIST
+  CUSTOM_FOLDER
+}
+
+enum ShelfType {
+  FEATURED_HERO
+  CONTINUE_READING
+  TRENDING
+  DECADE
+  THEMATIC
+  AUTHOR_SPOTLIGHT
+  RECENT_BUILDS
+  CURATED
+}
+
+enum ShelfLayout {
+  HORIZONTAL_PORTRAIT
+  HORIZONTAL_LANDSCAPE
+  GRID
+  BENTO_FEATURED
+}
+
+enum CreativeAgentSpecialty {
+  WOODCUT
+  VICTORIAN_PATTERN
+  ENGRAVING
+  SILVERPOINT
+  CHARCOAL
+}
+
+enum AgentRole {
+  CURATION
+  CREATIVE_STUDIO
+}
+
+enum IllustrationStyle {
+  PENCIL_SKETCH
+  SILVERPOINT
+  CHARCOAL
+  ETCHING
+}
+
+enum StudioSessionStatus {
+  DRAFT
+  RENDERING
+  READY_FOR_BUILD
+  SENT_TO_PRINT
+}
+
+enum StockStatus {
+  IN_STOCK
+  PRINT_IN_PROGRESS
+  OUT_OF_STOCK
+}
+
+type WorkProvenance {
+  status: ProvenanceStatus!
+  citationCount: Int!
+  archiveSizeLabel: FileSizeLabel!
+  lensLabel: String!
+}
+
+type MembershipFeature {
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+}
+
+type CollectionFilterDefaults {
+  eras: [String!]!
+  themes: [String!]!
+  formats: [LibraryFormatIcon!]!
+}
+
+type BindingOption {
+  id: EntityId!
+  label: String!
+  description: String!
+  priceCents: Int!
+  isDefault: Boolean
+}
+
+type PostalAddress {
+  name: String!
+  line1: String!
+  line2: String
+  city: String!
+  region: String!
+  postalCode: String!
+  countryCode: String!
 }
 
 type RepositoryTag {
@@ -62,6 +200,8 @@ type LineageBranch {
   formats: [String!]!
   isDefault: Boolean
   isLast: Boolean
+  forkCount: Int
+  isHead: Boolean
 }
 
 type FormatArtifact {
@@ -70,6 +210,9 @@ type FormatArtifact {
   title: String!
   description: String!
   size: FileSizeLabel!
+  """When format is physical, links to a print SKU."""
+  printProductId: EntityId
+  priceCents: Int
 }
 
 enum BuildStatusVariant {
@@ -143,6 +286,18 @@ enum ActivityTagVariant {
   SECONDARY
   MUTED
   ERROR
+  PATRONAGE
+  PRINT
+}
+
+enum ActivityEventType {
+  REPOSITORY_CREATED
+  OCR_COMPLETED
+  VALIDATION_FAILED
+  ANCHOR_FUNDED
+  ANCHOR_CONFIRMED
+  CERTIFICATE_ISSUED
+  PRINT_ORDER_SUBMITTED
 }
 
 enum ActivityDotVariant {

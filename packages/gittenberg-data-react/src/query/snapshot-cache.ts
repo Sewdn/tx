@@ -11,6 +11,19 @@ export type GittenbergSnapshotCollection =
   | "activityEvents"
   | "readerChapters"
   | "metricSnapshots"
+  | "authors"
+  | "patrons"
+  | "permawebAnchors"
+  | "provenanceCertificates"
+  | "membershipPlans"
+  | "userMemberships"
+  | "userCollections"
+  | "collectionItems"
+  | "discoveryShelves"
+  | "curatedCollections"
+  | "creativeStudioSessions"
+  | "printProducts"
+  | "printOrders"
 
 export function patchSnapshotCollection<T extends { id: string }>(
   snapshot: GittenbergSnapshot,

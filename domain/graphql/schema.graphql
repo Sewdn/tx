@@ -7,7 +7,8 @@
 #   00-scalars.graphql      — scalars, package documentation
 #   01-common.graphql       — Node, pagination, delete payload
 #   10-value-types.graphql  — JSON field shapes (tags, diff, lineage, UI seed types)
-#   20–28-*.graphql         — nine CRUD entities + inputs
+#   20–28-*.graphql         — nine CRUD entities + inputs (v1 ledger core)
+#   29–35-*.graphql         — v2 entities (author, patronage, membership, collections, discovery, studio, print)
 #   30-ui-seed.graphql      — GittenbergUiSeed (non-CRUD presentation bundle)
 #   40-aggregates.graphql   — GittenbergSnapshot, GittenbergPorts
 #   50-operations.graphql   — Query, Mutation

@@ -1,0 +1,72 @@
+"""
+Subscription tiers (Premier, Mécène Patron).
+Seed: `seedMembershipPlans`, `seedUserMemberships`.
+"""
+type MembershipPlan implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  tier: AccessTier!
+  name: String!
+  monthlyPriceCents: Int
+  annualPriceCents: Int
+  features: [MembershipFeature!]!
+}
+
+type MembershipPlanPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [MembershipPlan!]!
+}
+
+input MembershipFeatureInput {
+  icon: MaterialIcon!
+  title: String!
+  description: String!
+}
+
+input CreateMembershipPlanInput {
+  tier: AccessTier!
+  name: String!
+  monthlyPriceCents: Int
+  annualPriceCents: Int
+  features: [MembershipFeatureInput!]!
+}
+
+input UpdateMembershipPlanInput {
+  tier: AccessTier
+  name: String
+  monthlyPriceCents: Int
+  annualPriceCents: Int
+  features: [MembershipFeatureInput!]
+}
+
+type UserMembership implements Node {
+  id: EntityId!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  userId: EntityId!
+  planId: EntityId!
+  billingPeriod: BillingPeriod!
+  activeUntil: DateTime!
+}
+
+type UserMembershipPage implements EntityPage {
+  pageInfo: PageInfo!
+  items: [UserMembership!]!
+}
+
+input CreateUserMembershipInput {
+  userId: EntityId!
+  planId: EntityId!
+  billingPeriod: BillingPeriod!
+  activeUntil: DateTime!
+}
+
+input UpdateUserMembershipInput {
+  userId: EntityId
+  planId: EntityId
+  billingPeriod: BillingPeriod
+  activeUntil: DateTime
+}

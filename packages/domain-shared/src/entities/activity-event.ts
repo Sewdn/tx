@@ -15,6 +15,7 @@ export class ActivityEvent extends Schema.Class<ActivityEvent>("ActivityEvent")(
   tagVariant: Schema.String,
   actionLabel: Schema.String,
   dotVariant: Schema.String,
+  eventType: Schema.optional(Schema.String),
   updatedAt: IsoDateString,
 }
 ) { }
@@ -30,6 +31,7 @@ export const CreateActivityEventInput = Schema.Struct({
   tagVariant: Schema.String,
   actionLabel: Schema.String,
   dotVariant: Schema.String,
+  eventType: Schema.optionalKey(Schema.String),
 });
 
 export type CreateActivityEventInput = typeof CreateActivityEventInput.Type;
@@ -42,6 +44,7 @@ export const UpdateActivityEventInput = Schema.Struct({
   tagVariant: Schema.optionalKey(Schema.String),
   actionLabel: Schema.optionalKey(Schema.String),
   dotVariant: Schema.optionalKey(Schema.String),
+  eventType: Schema.optionalKey(Schema.String),
 });
 
 export type UpdateActivityEventInput = typeof UpdateActivityEventInput.Type;

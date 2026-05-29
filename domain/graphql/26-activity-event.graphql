@@ -14,6 +14,7 @@ type ActivityEvent implements Node {
   tagVariant: ActivityTagVariant!
   actionLabel: String!
   dotVariant: ActivityDotVariant!
+  eventType: ActivityEventType
 }
 
 type ActivityEventPage implements EntityPage {
@@ -29,6 +30,7 @@ input CreateActivityEventInput {
   tagVariant: ActivityTagVariant!
   actionLabel: String!
   dotVariant: ActivityDotVariant!
+  eventType: ActivityEventType
 }
 
 input UpdateActivityEventInput {
@@ -39,4 +41,5 @@ input UpdateActivityEventInput {
   tagVariant: ActivityTagVariant
   actionLabel: String
   dotVariant: ActivityDotVariant
+  eventType: ActivityEventType
 }
