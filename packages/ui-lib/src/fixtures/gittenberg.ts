@@ -22,6 +22,17 @@ export const defaultNavItems: NavItem[] = [
   { id: "library", label: "Library", href: "#" },
 ]
 
+/** Storybook chrome — consumer-facing v2 navigation */
+export const consumerNavItems: NavItem[] = [
+  { id: "explore", label: "Explore", href: "#" },
+  { id: "collections", label: "My Collections", href: "#" },
+  { id: "library", label: "Library", href: "#" },
+  { id: "subscribe", label: "Subscribe", href: "#" },
+]
+
+/** Storybook chrome — curator / Lexicon navigation (v1 pattern) */
+export const curatorNavItems: NavItem[] = [...defaultNavItems]
+
 /** Storybook chrome — route labels for Moby Dick sidebar stories */
 export const mobyDickSidebarNav: SidebarNavItem[] = [
   { id: "manuscript", label: "Manuscript", icon: "menu_book", href: "/", active: true },

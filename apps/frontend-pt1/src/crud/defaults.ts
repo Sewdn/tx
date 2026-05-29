@@ -62,6 +62,8 @@ export function emptyAgentInput(repositoryId: string): CreateAgentInput {
     statusVariant: "operational",
     icon: "smart_toy",
     iconVariant: "secondary",
+    role: "curator",
+    studioEnabled: false,
   }
 }
 
@@ -105,6 +107,7 @@ export function emptyLibraryEditionInput(): CreateLibraryEditionInput {
     commit: "",
     formats: [],
     badge: "",
+    isEternal: false,
   }
 }
 

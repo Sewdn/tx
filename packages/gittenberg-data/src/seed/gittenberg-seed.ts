@@ -507,11 +507,17 @@ export const seedLiteraryBuilds: LiteraryBuild[] = [
           id: "master",
           title: "Master Branch",
           badge: "HEAD",
-          description: "Canonical Foundation text.",
+          description: "Canonical Foundation text — Hari Seldon's psychohistorical archive.",
           formats: ["EPUB", "PDF", "WEB"],
           isDefault: true,
           isHead: true,
-          forkCount: 2,
+        },
+        {
+          id: "scholarly",
+          title: "Scholarly Edition v4.2",
+          description: "Annotated glossary and cross-references to the Robot series.",
+          formats: ["EPUB", "PDF"],
+          isLast: true,
         },
       ],
       artifacts: [
@@ -856,6 +862,7 @@ export const seedUi: GittenbergUiSeed = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDl7Qeuxy76gKttCcWJrSdLueoxgesfBXiZXT2Jfs5jlYtc3AWeRtjW-gyWhU9HSIebqRrUPcCHzg3fv6eejwFTfC-rqBnPIizTs02H3psoSfKNTJRJxkcWoNmL89CEvbwnB5cg_R7emcWgWEa6HHnjghJD89X4QV9vowzaa5EIjqN1xDJMvii4OIab8j6bnDh32VVDwq5ljYfAK6fyk8CKy0pcba5xqdMRMblV0tDnth4PXe1h6j6sfKbMAwenGQ-g9tUjDZO1jl2L",
   libraryAuthors: [
     { id: "melville", label: "Herman Melville", checked: true },
+    { id: "asimov", label: "Isaac Asimov", checked: true },
     { id: "austen", label: "Jane Austen" },
     { id: "shelley", label: "Mary Shelley" },
     { id: "darwin", label: "Charles Darwin" },

@@ -35,7 +35,26 @@ CRUD changes persist across reloads (sqlite/localStorage). Data is loaded and ca
 
 ## Routes
 
-Repository-scoped paths use the repository **slug** (or id) from seed data:
+`/` redirects to `/explore` (project landing with Eternal Archive pitch).
+
+### Consumer prototype (v2)
+
+- `/explore` — mission landing, Eternal Archive story
+- `/library/cinematic` — immersive library (featured hero + discovery shelves)
+- `/library/collections/:collectionId` — curated collection (e.g. Asimov galactic archive)
+- `/library/editions/:editionId` — edition detail → studio / print
+- `/collections` — my collections
+- `/subscribe` — membership + Mécène stewardship
+- `/gallery/eternal` — Eternal Gallery
+- `/studio/:editionId` — creative studio (mock agent cover regeneration)
+- `/order/print/:buildId` — print customization checkout
+- `/order/print/:buildId/agent` — POD with agent-assisted cover
+- `/patronage/certificate/:certificateId` — certificate of provenance
+- `/archive/anchor` — Arweave anchoring wizard
+
+### Curator / CRUD (v1)
+
+Repository-scoped paths use the repository **slug** from seed data:
 
 - `/repositories` — pick a repository
 - `/repositories/:repositorySlug` — repository home
@@ -43,8 +62,5 @@ Repository-scoped paths use the repository **slug** (or id) from seed data:
 - `/repositories/:repositorySlug/reader` — reader preview
 - `/repositories/:repositorySlug/build` — build & export
 - `/repositories/:repositorySlug/edition` — edition history
-- `/repositories/:repositorySlug/edition/international` — international builds
 - `/repositories/:repositorySlug/editor` — manuscript editor
-- `/library`, `/agents` — global views
-
-`/` redirects to `/repositories/moby-dick` (default seed slug only).
+- `/library`, `/agents` — curator catalog and agent dashboard

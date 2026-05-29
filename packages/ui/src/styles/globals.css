@@ -280,4 +280,47 @@
       "opsz" 24;
     vertical-align: middle;
   }
+  .paper-shadow {
+    box-shadow: 0 4px 20px -4px rgba(62, 60, 56, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .paper-shadow:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px -8px rgba(62, 60, 56, 0.15);
+  }
+  .paper-texture {
+    background-image:
+      linear-gradient(rgba(62, 60, 56, 0.03), rgba(62, 60, 56, 0.03)),
+      repeating-conic-gradient(rgba(62, 60, 56, 0.012) 0% 25%, transparent 0% 50%) 50% / 3px 3px;
+    pointer-events: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .card-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(19, 17, 15, 0.9) 0%,
+      rgba(19, 17, 15, 0.4) 50%,
+      transparent 100%
+    );
+  }
+  .cinematic-scrim {
+    background: linear-gradient(to top, #13110f 0%, #13110f 20%, transparent 100%);
+  }
+  .eternal-badge-gradient {
+    background: linear-gradient(135deg, #13110f 0%, #494643 100%);
+  }
+  .certificate-grain {
+    background-image:
+      linear-gradient(rgba(251, 249, 244, 0.92), rgba(251, 249, 244, 0.92)),
+      repeating-conic-gradient(rgba(62, 60, 56, 0.04) 0% 25%, transparent 0% 50%) 50% / 2px 2px;
+    background-blend-mode: multiply;
+  }
 }

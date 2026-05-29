@@ -11,11 +11,11 @@ import {
   useOptionalRepositorySlugParam,
 } from "@tx/gittenberg-data-react"
 import {
+  activeCuratorNavId,
   activeSidebarId,
-  activeTopNavId,
+  curatorNavItems,
   repositorySidebarNav,
   routes,
-  topNavItems,
 } from "@/navigation/routes"
 
 export function AppLayout() {
@@ -44,8 +44,8 @@ export function AppLayout() {
       <GittenbergTopAppBar
         brandName="Gittenberg"
         brandHref={routes.repositories}
-        navItems={[...topNavItems]}
-        activeNavId={activeTopNavId(pathname)}
+        navItems={[...curatorNavItems]}
+        activeNavId={activeCuratorNavId(pathname)}
         searchPlaceholder="Search the archives..."
         onNavItemClick={(item) => {
           if (item.href !== "#") navigate(item.href)

@@ -132,3 +132,107 @@ export type ActivityFeedItemData = {
   actionLabel?: string
   dotVariant: ActivityDotVariant
 }
+
+export type NavVariant = "consumer" | "curator"
+
+export type CinematicBookTileData = {
+  id: string
+  title: string
+  author: string
+  coverSrc: string
+  coverAlt: string
+  progressPercent?: number
+  locked?: boolean
+  href?: string
+}
+
+export type CollectionBookCardData = {
+  id: string
+  title: string
+  author: string
+  genre: string
+  year: string
+  coverSrc: string
+  versionLabel: string
+  formats: string[]
+  provenanceVerified?: boolean
+  locked?: boolean
+  shippingQueued?: boolean
+  requiredTier?: string
+}
+
+export type EternalGalleryCardData = {
+  id: string
+  title: string
+  author: string
+  coverSrc: string
+  eraLabel: string
+  statusLabel: string
+  patronName: string
+  arweaveHash: string
+  featured?: boolean
+  eternal?: boolean
+}
+
+export type MembershipFeatureData = {
+  icon: string
+  title: string
+  description: string
+}
+
+export type MembershipTierCardData = {
+  id: string
+  name: string
+  tier: string
+  monthlyPrice?: number
+  annualPrice?: number
+  features: MembershipFeatureData[]
+  active?: boolean
+  ctaLabel: string
+  highlighted?: boolean
+}
+
+export type BindingOptionData = {
+  id: string
+  label: string
+  description: string
+  priceCents: number
+  selected?: boolean
+}
+
+export type AgentStyleChipData = {
+  id: string
+  name: string
+  styleLabel: string
+  icon: string
+  selected?: boolean
+}
+
+export type HorizontalShelfData = {
+  id: string
+  title: string
+  subtitle?: string
+  items: CinematicBookTileData[]
+}
+
+export type AuthorSpotlightData = {
+  id: string
+  name: string
+  portraitSrc: string
+  birthYear: number
+  deathYear: number
+  bio: string
+  collectionHref?: string
+}
+
+export type CertificateFieldData = {
+  label: string
+  value: string
+}
+
+export type PrintOrderMeta = {
+  title: string
+  author: string
+  seriesLabel?: string
+  coverSrc: string
+}

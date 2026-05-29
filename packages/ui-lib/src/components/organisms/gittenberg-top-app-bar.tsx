@@ -11,6 +11,7 @@ export type GittenbergTopAppBarProps = {
   activeNavId: string
   searchPlaceholder: string
   searchValue?: string
+  showUtilityIcons?: boolean
   className?: string
   onMenuClick?: () => void
   onNavItemClick?: (item: NavItem) => void
@@ -23,6 +24,7 @@ export function GittenbergTopAppBar({
   activeNavId,
   searchPlaceholder,
   searchValue,
+  showUtilityIcons = true,
   className,
   onMenuClick,
   onNavItemClick,
@@ -68,13 +70,15 @@ export function GittenbergTopAppBar({
         </div>
         <div className="flex items-center gap-component">
           <ArchiveSearchField placeholder={searchPlaceholder} value={searchValue} />
-          {(["notifications", "history", "account_circle"] as const).map((icon) => (
-            <MaterialIcon
-              key={icon}
-              name={icon}
-              className="cursor-pointer text-on-surface-variant hover:text-primary"
-            />
-          ))}
+          {showUtilityIcons
+            ? (["notifications", "history", "account_circle"] as const).map((icon) => (
+                <MaterialIcon
+                  key={icon}
+                  name={icon}
+                  className="cursor-pointer text-on-surface-variant hover:text-primary"
+                />
+              ))
+            : null}
         </div>
       </div>
     </header>

@@ -5,6 +5,7 @@ import type { LibraryBuildCardData } from "@/lib/types"
 
 export type BuildCatalogCardProps = LibraryBuildCardData & {
   className?: string
+  onReadClick?: () => void
 }
 
 export function BuildCatalogCard({
@@ -17,6 +18,7 @@ export function BuildCatalogCard({
   commit,
   formats,
   badge,
+  onReadClick,
   className,
 }: BuildCatalogCardProps) {
   return (
@@ -59,7 +61,10 @@ export function BuildCatalogCard({
           </div>
         </div>
         <div className="flex gap-component">
-          <Button className="flex-1 bg-primary py-component font-ui-label-md text-on-primary hover:bg-primary-container">
+          <Button
+            onClick={onReadClick}
+            className="flex-1 bg-primary py-component font-ui-label-md text-on-primary hover:bg-primary-container"
+          >
             Read Now
           </Button>
           <Button variant="outline" size="icon" className="border-outline text-primary">

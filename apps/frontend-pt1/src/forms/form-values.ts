@@ -76,6 +76,8 @@ export type AgentFormValues = {
   statusVariant: string
   icon: string
   iconVariant: string
+  role: string
+  studioEnabled: boolean
 }
 
 export type LiteraryBuildFormValues = {
@@ -256,6 +258,8 @@ export function agentFormInitialValues(repositoryId: string, initial?: Agent): A
         statusVariant: initial.statusVariant,
         icon: initial.icon,
         iconVariant: initial.iconVariant,
+        role: initial.role,
+        studioEnabled: initial.studioEnabled,
       }
     : emptyAgentInput(repositoryId)
   return { ...source }
@@ -395,6 +399,7 @@ export function libraryEditionFormToInput(values: LibraryEditionFormValues): Cre
     commit: values.commit,
     formats: parseJsonField(values.formatsJson, []),
     badge: values.badge,
+    isEternal: false,
   }
 }
 

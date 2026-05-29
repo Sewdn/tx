@@ -3,10 +3,25 @@ import { repositorySlugParam } from "@tx/gittenberg-data-react"
 export { repositorySlugParam }
 
 export const editionIdParam = "editionId"
+export const collectionIdParam = "collectionId"
+export const buildIdParam = "buildId"
+export const certificateIdParam = "certificateId"
 export const eventIdParam = "eventId"
 export const metricIdParam = "metricId"
 
 export const routes = {
+  explore: "/explore",
+  libraryCinematic: "/library/cinematic",
+  libraryEdition: (editionId: string) => `/library/editions/${editionId}`,
+  libraryCollection: (collectionId: string) => `/library/collections/${collectionId}`,
+  myCollections: "/collections",
+  eternalGallery: "/gallery/eternal",
+  subscribe: "/subscribe",
+  creativeStudio: (editionId: string) => `/studio/${editionId}`,
+  printOrder: (buildId: string, agent?: boolean) =>
+    agent ? `/order/print/${buildId}/agent` : `/order/print/${buildId}`,
+  certificate: (certificateId: string) => `/patronage/certificate/${certificateId}`,
+  archiveAnchor: "/archive/anchor",
   repositories: "/repositories",
   repositoryNew: "/repositories/new",
   library: "/library",
@@ -43,8 +58,19 @@ export const routes = {
   repositoryMetricNew: () => `/metrics/new?scope=repository`,
 } as const
 
-/** React Router `path` patterns (param names must match {@link repositorySlugParam}). */
 export const routePatterns = {
+  explore: routes.explore,
+  libraryCinematic: "/library/cinematic",
+  libraryEdition: `/library/editions/:${editionIdParam}`,
+  libraryCollection: `/library/collections/:${collectionIdParam}`,
+  myCollections: routes.myCollections,
+  eternalGallery: routes.eternalGallery,
+  subscribe: routes.subscribe,
+  creativeStudio: `/studio/:${editionIdParam}`,
+  printOrder: `/order/print/:${buildIdParam}`,
+  printOrderAgent: `/order/print/:${buildIdParam}/agent`,
+  certificate: `/patronage/certificate/:${certificateIdParam}`,
+  archiveAnchor: routes.archiveAnchor,
   repositories: routes.repositories,
   repositoryNew: routes.repositoryNew,
   repository: `/repositories/:${repositorySlugParam}`,
@@ -75,12 +101,28 @@ export const routePatterns = {
   metricEdit: `/metrics/:${metricIdParam}/edit`,
 } as const
 
-export const topNavItems = [
-  { id: "explore", label: "Explore", href: "#" },
+export const curatorNavItems = [
+  { id: "explore", label: "Explore", href: routes.explore },
   { id: "repositories", label: "Repositories", href: routes.repositories },
   { id: "agents", label: "Agents", href: routes.agents },
   { id: "library", label: "Library", href: routes.library },
 ] as const
+
+export function consumerNavItemsFromUi(
+  items: ReadonlyArray<{ id: string; label: string; href: string }>,
+) {
+  const hrefById: Record<string, string> = {
+    explore: routes.explore,
+    collections: routes.myCollections,
+    library: routes.libraryCinematic,
+    subscribe: routes.subscribe,
+  }
+  return items.map((item) => ({
+    id: item.id,
+    label: item.label,
+    href: hrefById[item.id] ?? item.href,
+  }))
+}
 
 export type SidebarNavId =
   | "manuscript"
@@ -128,7 +170,8 @@ export function repositorySidebarNav(slug: string) {
   ]
 }
 
-export type TopNavId = (typeof topNavItems)[number]["id"]
+export type CuratorNavId = (typeof curatorNavItems)[number]["id"]
+export type ConsumerNavId = "explore" | "collections" | "library" | "subscribe"
 
 export function activeSidebarId(pathname: string): SidebarNavId {
   if (pathname.includes("/revision")) return "revisions"
@@ -139,9 +182,40 @@ export function activeSidebarId(pathname: string): SidebarNavId {
   return "manuscript"
 }
 
-export function activeTopNavId(pathname: string): TopNavId {
+export function activeCuratorNavId(pathname: string): CuratorNavId {
   if (pathname.startsWith(routes.agents)) return "agents"
-  if (pathname.startsWith(routes.library)) return "library"
+  if (pathname === routes.library || pathname.startsWith("/library/") && pathname.includes("/edit")) {
+    return "library"
+  }
   if (pathname.startsWith(routes.repositories)) return "repositories"
-  return "repositories"
+  if (pathname.startsWith(routes.explore)) return "explore"
+  return "explore"
+}
+
+export function activeConsumerNavId(pathname: string): ConsumerNavId {
+  if (pathname.startsWith(routes.myCollections)) return "collections"
+  if (pathname.startsWith(routes.subscribe)) return "subscribe"
+  if (pathname.startsWith("/library") || pathname.startsWith("/studio") || pathname.startsWith("/order")) {
+    return "library"
+  }
+  if (pathname.startsWith(routes.explore) || pathname.startsWith(routes.eternalGallery) || pathname.startsWith(routes.archiveAnchor)) {
+    return "explore"
+  }
+  return "explore"
+}
+
+export function isConsumerRoute(pathname: string): boolean {
+  return (
+    pathname.startsWith(routes.explore) ||
+    pathname.startsWith("/library/cinematic") ||
+    pathname.startsWith("/library/editions") ||
+    pathname.startsWith("/library/collections") ||
+    pathname.startsWith(routes.myCollections) ||
+    pathname.startsWith(routes.eternalGallery) ||
+    pathname.startsWith(routes.subscribe) ||
+    pathname.startsWith("/studio") ||
+    pathname.startsWith("/order/print") ||
+    pathname.startsWith("/patronage") ||
+    pathname.startsWith(routes.archiveAnchor)
+  )
 }

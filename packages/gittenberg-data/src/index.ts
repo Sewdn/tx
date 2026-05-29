@@ -64,6 +64,12 @@ export {
 } from "./seed/gittenberg-seed.js"
 export { seedGittenbergStoreIfEmpty, resetAndSeedGittenbergStore } from "./seed/apply-seed.js"
 
+export {
+  AUTHOR_ASIMOV_ID,
+  BUILD_FOUNDATION_ID,
+  LIB_FOUNDATION_ID,
+} from "./seed/gittenberg-seed-v2.js"
+
 export type {
   GittenbergDataService,
   CreateGittenbergDataServiceOptions,

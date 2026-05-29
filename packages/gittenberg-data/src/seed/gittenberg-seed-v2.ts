@@ -26,11 +26,7 @@ import type {
   UserCollection,
   UserMembership,
 } from "@tx/domain-shared";
-import {
-  DEMO_USER_ID,
-  FOUNDATION_REPOSITORY_ID,
-  MOBY_REPOSITORY_ID,
-} from "../ports.js";
+import { DEMO_USER_ID, MOBY_REPOSITORY_ID } from "../ports.js";
 
 const NOW = "2026-05-28T12:00:00.000Z";
 const ANCHOR_DATE = "2024-10-14T00:00:00.000Z";
@@ -61,9 +57,6 @@ export const LIB_FOUNDATION_SECOND_ID = "lib-foundation-second";
 
 const asimovPortrait =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAxDFHX8-G_MaJAXXGq9S8E_EqwhNAawzIzialH7xwopS6eByvnrpRyVNgI5MKqs4nd1Q2aSOTcgdGHLRlD085fmAFHWd9NqgralZalPo7jxs7z1AgVQJfilgcK5ZqAc3Uz0Qt8F__xrf3vG81h6o08rNH8FVRe676kijCJx_2A_kLY2bewrIymf_66YOcLULU_TYFr3mzQIR6FyvNPla8PZYYhducyqeZ2QSJ1oq3mtMApDw_3TvJOcbO8R1Eko24e-TOLTsckzO1f";
-
-const foundationCover =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBinX7S3M-OXFGiLfhbfaDT4S_Cmzqpm5sSfGVBCDlheh2pRc82HE81pDGpkQnzDrJCL3wxxEfQ0qjYXiHr5MyF9SzBZP0VEHllk8LiG9AWGygHGa8eE_8ce3gr-_1ewZ3uQJfzjcbTqj9sdGaHh4C1hWzYY-6_6kzfo0GClGX2Wa-qNmhgGUWvCC7Lp3i9OltEbXLZYbv5qn81xlSDGlRjDKE9qYDzGOi5D3H6FMsUnZudTxnvajL786qSsRLBMH0dOaHQak5r4ngI";
 
 function author(input: CreateAuthorInput, id: string): Author {
   return { id, createdAt: NOW, updatedAt: NOW, ...input };

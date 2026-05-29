@@ -1,4 +1,19 @@
 export {
+  asimovEditionCards,
+  bindingOptions,
+  certificateFields,
+  cinematicBookTiles,
+  collectionBookCards,
+  consumerNavItems as v2ConsumerNavItems,
+  curatedAsimovCollection,
+  eternalGalleryCards,
+  horizontalShelves,
+  membershipTierCards,
+  printOrderMeta,
+  userCollections,
+} from "@/fixtures/v2-from-seed"
+
+export {
   activityFeed,
   agentDashboardMetrics,
   agentDashboardRows,

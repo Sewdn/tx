@@ -13,8 +13,9 @@
     "./hooks": "./src/hooks/index.ts",
     "./fixtures/gittenberg": "./src/fixtures/gittenberg.ts",
     "./fixtures/slices": "./src/fixtures/slices.ts",
-    "./fixtures/seed": "./src/fixtures/from-seed.ts",
-    "./mappers": "./src/lib/mappers.ts",
+  "./fixtures/seed": "./src/fixtures/from-seed.ts",
+  "./fixtures/v2": "./src/fixtures/v2-from-seed.ts",
+  "./mappers": "./src/lib/mappers.ts",
     "./package.json": "./package.json"
   },
   "scripts": {

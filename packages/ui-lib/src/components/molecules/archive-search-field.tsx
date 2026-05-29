@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils"
 export type ArchiveSearchFieldProps = {
   placeholder: string
   value?: string
+  expandOnFocus?: boolean
+  variant?: "default" | "pill"
   className?: string
   inputClassName?: string
 }
@@ -12,6 +14,8 @@ export type ArchiveSearchFieldProps = {
 export function ArchiveSearchField({
   placeholder,
   value,
+  expandOnFocus = false,
+  variant = "default",
   className,
   inputClassName,
 }: ArchiveSearchFieldProps) {
@@ -27,7 +31,9 @@ export function ArchiveSearchField({
         value={value}
         placeholder={placeholder}
         className={cn(
-          "h-9 w-64 rounded-sm border-outline-variant bg-surface-container-low py-component pr-4 pl-10 font-ui-label-md text-ui-label-md focus-visible:border-primary focus-visible:ring-0",
+          "h-9 border-outline-variant bg-surface-container-low py-component pr-4 pl-10 font-ui-label-md text-ui-label-md focus-visible:border-primary focus-visible:ring-0",
+          variant === "pill" ? "rounded-full" : "rounded-sm",
+          expandOnFocus ? "w-64 transition-all duration-300 focus:w-80" : "w-64",
           inputClassName,
         )}
       />
