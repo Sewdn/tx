@@ -1,0 +1,7 @@
+{
+  "appName": "admin",
+  "appType": "cli",
+  "dirName": "cli-admin",
+  "kind": "app",
+  "schemaVersion": 1
+}
